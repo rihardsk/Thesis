@@ -46,6 +46,27 @@ TODO
 TODO
 
 \section {Definīcijas}
+Ultrametriski automāti tiek definēti līdzīgi kā %TODO atsauce
+\begin{definicija}
+Galīgs $p$-ultrametrisks automāts ir kortežs $\langle S, \Sigma, s_0, \delta, F, \Lambda \rangle$, kur
+\begin{itemize}
+  \item $S$ ir galīga kopa,
+  \item $\Sigma$ ir galīga kopa, ($\$ \notin \Sigma$) -- ieejas alfabēts,
+  \item $s_0:S \rightarrow Q_p$ ir sākotnējais amplitūdu sadalījums,
+  \item $\delta: \left( \Sigma \cup \left\{ \$ \right\} \right) \times S \times S \rightarrow Q_p$ ir pārejas funkcija,
+  \item $F \subseteq S$ ir akceptējošo stāvokļu kopa,
+  \item $\Lambda = \left( \lambda, \diamond \right)$ ir akceptēšanas nosacījums, kur $\lambda \in \mathbb{R}$ ir akceptēšanas slieksnis, un $\diamond \in \left\{ \leq, \geq \right\}$.
+\end{itemize}
+Automāts darbojas šādi. %TODO "šādi" ir slikti
+Katrā laika momentā katram automāta stāvoklim ir piekārtots $p$-adisks skaitlis, saukts par stāvokļa amplitūdu.
+Automāts darbu sāk ar sākotnējo amplitūdu sadalījumu $s_0$.
+Tas pa vienam pēc kārtas apstrādā ieejas vārda $w = w_1 \ldots w_n$ simbolus.
+Amplitūdu sadalījums pēc $i$-tā simbola ielasīšanas tiek apzīmēts ar $s_i$, kur
+$s_i(y) = \sum_{x \in S}{s_{i-1}(x) \cdot \delta \left( w_i, x, y \right) }$ katram $y \in S$.
+Pēc $n$-tā simbola ielasīšanas tādā pat veidā tiek apstrādāts beigu marķieris $\$$, iegūstot beigu amplitūdu sadalījumu $s_{n+1}$.
+Akceptēšanas nosacījums tiek piemērots akceptējošo stāvokļu beigu amplitūdu $p$-normu summai. Tas ir, ja $\sum_{x \in F}{\left| s_{n+1}(x) \right|_p} \diamond \lambda$, tad saka, ka vārds $w$ tiek akceptēts, citādi -- noraidīts.
+\end{definicija}
+
 \begin{definicija}
 Ultrametrisks automāts
 
