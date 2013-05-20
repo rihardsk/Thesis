@@ -1,5 +1,0 @@
-\select@language {latvian}
-\select@language {latvian}
-\contentsline {chapter}{Ievads}{2}
-\contentsline {section}{\numberline {0.1}Pirmā lielā nodaļa}{2}
-\contentsline {subsection}{\numberline {0.1.1}Apakšnodaļa}{2}
