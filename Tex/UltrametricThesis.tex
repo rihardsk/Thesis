@@ -93,18 +93,25 @@ Pēc $n$-tā simbola ielasīšanas tādā pat veidā tiek apstrādāts beigu mar
 Akceptēšanas nosacījums tiek piemērots akceptējošo stāvokļu beigu amplitūdu $p$-normu summai. Tas ir, ja $\sum_{x \in F}{\left| s_{n+1}(x) \right|_p} \diamond \lambda$, tad saka, ka vārds $w$ tiek akceptēts, citādi -- noraidīts.
 \end{definicija}
 
-Divvirzienu $k$-galviņu (kur $k\geq 1$) galīgs automāts sastāv no ieejas lentas, kas satur ieejas vārdu, pa kuru automāta galviņas drīkst pārvietoties abos virzienos, nepārkāpjot vārda galu atdalītājsimbolu  robežas, jeb formālāk:
-\begin{definicija}
+Divvirzienu $k$-galviņu (kur $k\geq 1$) galīgs automāts sastāv no ieejas lentas, kas satur ieejas vārdu, pa kuru automāta galviņas drīkst pārvietoties abos virzienos, nepārkāpjot vārda galu atdalītājsimbolu  robežas. Simbolus uz ieejas lentas drīkst tikai lasīt. Formālāk:
+\begin{definicija}[~\cite{Holzer2009}]
 Par nedeterminētu divvirzienu $k$-galviņu galīgu automātu ($2NFA(k)$) tiek saukts kortežs $\langle S, \Sigma, k, s_0, \delta, F \rangle$, kur
 \begin{itemize}
 	\item $S$ ir galīga stāvokļu kopa,
-	\item $\Sigma$ ir galīga kopa, ($ \vdash,\dashv \notin \Sigma$) -- ieejas alfabēts,
+	\item $\Sigma$ ir galīga kopa, ($ \triangleright,\triangleleft \notin \Sigma$) -- ieejas alfabēts,
 	\item $k\geq 1$ ir galviņu skaits, 
 	\item $s_0\in S$ ir sakuma stāvoklis,
-	\item $\delta: \left( \Sigma \cup \left\{ \vdash, \dashv \right\} \right)^k \times S \times S \rightarrow \left\{-1,0,1\right\}^k$ ir pārejas funkcija, kur $\vdash$ un $dashv$ ir vārda sākumu un beigas atdalošie simboli,
+	\item $\delta: \left( \Sigma \cup \left\{ \triangleright, \triangleleft \right\} \right)^k \times S \times S \rightarrow \left\{-1,0,1\right\}^k$ ir pārejas funkcija, kur $\triangleright$ un $\triangleleft$ ir vārda sākumu un beigas atdalošie simboli,
 	\item $F \subseteq S$ ir akceptējošo stāvokļu kopa.
 \end{itemize}
 \end{definicija}
+$2NFA(k)$ sākot darbu, visas tā galviņas ir novietotas uz vārda sakuma simbola. Automāts darbu beidz, kad pārejas funkcija dotajai automāta konfigurācijai nav definēta. Par $2NFA(k)$ konfigurāciju kādā laika momentā $t\geq 0$ sauc kortežu $c_t=\left(w,s,p\right)$, kur $w$ ir ieejas vārds, $s\in S$ ir pašreizējais stāvoklis, un
+$p = \left( p_1, \ldots, p_k \right) \in \left\{ 0, \ldots, |w| +1 \right\}^k $
+norāda pašreizējās galviņu pozīcijas. Pāreju no vienas konfigurācijas uz nākamo apzīmē ar $\vdash$. Pāreja
+$\left( w, s, \left( p_1, \ldots, p_k \right) \right) \vdash \left( w, s', \left( p_1+d_1, \ldots, p_k+d_k \right) \right)$
+notiek tad un tikai tad, ja
+$\left(d_1, \ldots, d_k \right) \in \delta \left( \left( a_{p_1}, \ldots a_{p_k} \right) s, s' \right)$,
+kur $w = a_1a_2 \ldots a_n$ ir ieejas vārds, un $a_0=\triangleright$, un $a_{n+1}=\triangleleft$.
 
 Ultrametrisku vairākgalviņu definīcija tiek iegūta visdabiskākajā veidā paplašinot ~\citep{KasparsBalodis2013} ieviesto ultrametrisko automātu definīciju. Par pamatu tiek ņemta arī ~\citep{Holzer2009} ieviestā vairākgalviņu automātu definīcija.
 
