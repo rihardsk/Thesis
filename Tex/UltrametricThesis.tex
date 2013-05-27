@@ -181,7 +181,7 @@ $$, tad saka, ka vārds $w$ tiek akceptēts, citādi -- noraidīts.
 \subsection {Vairāk-galviņu automāti}
 \begin{teorema}
 Katram $k \geq 1 \in \mathbb{N}$ eksistē valoda $L_k$, tāda ka:\\ 
-1) eksistē $1U_pFA(1)$, kas atpazīst $L_k$,\\
+1) katram $k \geq 1 \in \mathbb{N}$ eksistē $1U_pFA(1)$, kas atpazīst $L_k$,\\ %TODO varbut arī var regulētu..
 2) $L_k$ nevar atpazīt ne ar kādu $1DFA(k)$,\\
 3) $L_k$ nevar atpazīt ne ar kādu $1NFA(k)$,\\
 4) $L_k$ nevar atpazīt ne ar kādu $1PFA(1)$. 
@@ -194,8 +194,17 @@ L_k = \left\{ w_1 1 w_2 1 \ldots 1 w_{2n} |
 		w_i = w_{2n-i+1} \wedge
 		n={k\choose 2}+1 \right\}.
 $$
-Tālāk tiks pierādīts, ka $L_k$ apmierina teorēmas punktus.\\
-1) Automāts tiek būvēts tādā
+Tālāk tiks pierādīts, ka $L_k$ apmierina teorēmas punktus.
+
+$1)$ Tiks parādīts, kā patvaļīgai valodai $L_k$ uzbūvēt $1U_pFA(1)$ katram pirmskaitlim $p$. Automāts, sāk darbu ar amplitūdu $1$ $k$ dažādos sākuma stāvokļos $q_{1,1},q_{1,2},\ldots,q_{1,k}$. No katra no šiem stāvokļiem izies "zars", kas būs atbildīgs par amplitūdas krāšanu vienā no $k$ dažādiem akceptējošajiem stāvokļiem $q_{2k,1},q_{2k,2},\ldots,q_{2k,k}$.
+
+Ielasot $0$, atrodoties kādā no sākuma stāvokļiem $q_{1,i}, 1 \leq i \geq k$, stāvokļa amplitūda tiek pareizināta ar $p$. Ielasot $1$ automāts ar amplitūdu $1$ pāriet no $q_{1,i}$ uz stāvokli $q_{2,i}$ (tādējādi tur pārnesot sakrāto amplitūdu). Tālāk stāvoklī $q_{2,i}$, ielasot $0$, amplitūda tiek pareizināta ar $p^{i\cdot 2}$, stāvoklī $q_{3,i}$ -- ar $p^{i\cdot 3}$ (katrā stāvoklī $q_{j,i}$ pārejot uz $q_{j+1,i}$ ar amplitūdu $1$, ja ielasīts $1$), u.t.t., līdz ir ielasīti $n$ simboli $1$. Šajā brīdī automāts sakrāto amplitūdu katrā zarā tādā pašā veidā sāk dalīt ar attiecīgajām $p$ pakāpēm tikai apgrieztā secība -- stāvoklī $q_{n+1,i}$ -- ar $p^{i\cdot n}$, stāvoklī $q_{n+2,i}$ -- ar $p^{i\cdot n-1}$, u.t.t. Jeb precīzāk -- stāvoklī $q_{j,i}$ ielasot $0$, stāvokļa amplitūda tiek pareizināta ar
+$$
+r = \begin{cases}
+		p^{i\cdot j} &\mbox{ja } 1 \leq j \leq n; \\
+		p^\frac{1}{i\cdot (2n-j+1)} & \mbox{ja } n \leq j \leq 2n. \end{cases}
+$$
+, un, ielasot $1$, ar amplitūdu $1$ tiek pāriets uz $q_{j+1,i}$.
 \end{pieradijums}
 
 \printbibliography
