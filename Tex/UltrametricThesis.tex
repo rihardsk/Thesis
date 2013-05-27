@@ -32,6 +32,12 @@
 \setcounter{secnumdepth}{3}
 \setcounter{tocdepth}{3}
 
+%tables
+\usepackage{longtable}
+
+%papildus matemātika
+\usepackage{mathtools}
+
 \fakultate{Datorikas}
 \nosaukums{Ultrametriski automāti}
 \darbaveids{Bakalaura}
@@ -66,8 +72,8 @@ TODO
 \begin{definicija}
 Katram nenulles racionālam skaitlim $\alpha$ eksistē viennozīmīgi nosakāms sadalījums pirmreizinātājos - $\alpha = \pm 2^{\alpha_2}3^{\alpha_3}5^{\alpha_5}7^{\alpha_7} \cdots$, kur $\alpha_i$-tie ir veseli skaitļi, no kuriem tikai galīgs skaits ir nenulles. Par racionāla skaitļa $\alpha$ \textbf{$p$-adisko absolūto vērtību} (arī sauktu par \textbf{$p$-normu}) sauc 
 $||x||_p = \begin{cases}
-p^{-\alpha_p}, \text{ja } \alpha \neq 0 \\
-0, \text{ja } \alpha = 0
+p^{-\alpha_p}, \textrm{ja } \alpha \neq 0 \\
+0, \textrm{ja } \alpha = 0
 \end{cases} $
 \end{definicija}
 
@@ -114,7 +120,7 @@ $\left(d_1, \ldots, d_k \right) \in \delta \left( \left( a_{p_1}, \ldots a_{p_k}
 kur $w = a_1a_2 \ldots a_n$ ir ieejas vārds, un $a_0=\triangleright$, un $a_{n+1}=\triangleleft$. $\vdash$ refleksīvais, tranzitīvais slēgums tiek apzīmēts ar $\vdash^*$.
 
 Valodā $L(M)$, ko akceptē automāts $M$ ietilpst tie un tikai tie vārdi, ko akceptē $M$. $2NFA(k)$ akceptē tos un tikai tos vārdus $w$, kam pastāv kāda konfigurāciju virkne, kas noved pie automāta apstāšanās akceptējoša stāvoklī, ja uz ieejas lentes ir
-$\triangleright w \triangleleft$. Jeb precīzāk - $L(M)=\left\{ w \in \Sigma^* | \left(w,s_0,\left(1,\ldots,1\right)\right) \vdash^* \left(w,s,\left(p_1,\ldots,p_k\right)\right), s \in F, \text{un } M \text{apstājas } \left(w,s,\left(p_1,\ldots,p_k\right)\right)\right\}$. %TODO pabeigt par 2DFA(k).
+$\triangleright w \triangleleft$. Jeb precīzāk - $L(M)=\left\{ w \in \Sigma^* | \left(w,s_0,\left(1,\ldots,1\right)\right) \vdash^* \left(w,s,\left(p_1,\ldots,p_k\right)\right), s \in F, \textrm{un } M \textrm{apstājas } \left(w,s,\left(p_1,\ldots,p_k\right)\right)\right\}$. %TODO pabeigt par 2DFA(k).
 
 Ultrametrisku vairākgalviņu definīcija tiek iegūta visdabiskākajā veidā paplašinot ~\citep{KasparsBalodis2013} ieviesto ultrametrisko automātu definīciju. Par pamatu tiek ņemta arī ~\citep{Holzer2009} ieviestā vairākgalviņu automātu definīcija.
 
@@ -130,6 +136,29 @@ Par galīgu $k$-galviņu divvirzienu $p$-ultrametrisku automātu ($2U_pFA(k)$) t
 	\item $\Lambda = \left( \lambda, \diamond \right)$ ir akceptēšanas nosacījums, kur $\lambda \in \mathbb{R}$ ir akceptēšanas slieksnis, un $\diamond \in \left\{ \leq, \geq \right\}$.
 \end{itemize}
 \end{definicija}
+
+$2U_pFA(k)$ darbojas līdzīgi, kā $U_pFA$, ar to izņēmumu, ka automātam tagad ir $k$ galviņas, un tās var kustēties abos virzienos līdzīgi kā $2NFA(k)$. Atšķirībā no $U_pFA$ tagad amplitūdas tiek norādītas stāvokļa un galviņu pozīcijas pārim. Amplitūda ar kādu automāts atrodas stāvoklī $y \in S$ ar galviņām pozīcijās
+$\left( p_1, \ldots, p_k \right) \in \left\{ 0, \ldots, |w| +1 \right\}^k $
+pēc $i$-tās darbības veikšanas tiek apzīmēta ar
+$$
+s_i (y, (p_1, \ldots, p_k)) =
+\sum_{\mathclap{\substack{ x \in S \wedge \\
+		\exists (p'_1, \ldots, p'_k):
+		(p'_1, \ldots, p'_k) +
+		\delta ((w_{p'_1}, \ldots, w_{p'_k}), x, y)_2 =
+		(p_1, \ldots, p_k)}}}
+	{s_{i-1}(x) \cdot \delta ((w_{p'_1}, \ldots, w_{p'_k}), x, y)_1 }
+$$.
+
+Līdzīgi kā iepriekš, automātam beidzot darbu, akceptēšanas nosacījums tiek piemērots akceptējošo stāvokļu beigu beigu amplitūdu $p$-normu summai. Tas ir, ja
+$$\sum_{\mathclap{\substack{x \in F \wedge\\
+		\exists (p_1, \ldots, p_k):
+		\textrm{ automāts beidz darbu stāvoklī } x
+		\textrm{ ar galviņām pozicijās } (p_1, \ldots, p_k) }}}
+	{\left| s_{n+1}(x, (p_1, \ldots, p_k)) \right|_p} \diamond \lambda
+$$, tad saka, ka vārds $w$ tiek akceptēts, citādi -- noraidīts.
+
+%TODO sameklēt visas pareizrakstības kļūdas, piem., ari
 
 \specnodala{Apzīmējumu saraksts}
 \setlength\LTleft{0pt}
