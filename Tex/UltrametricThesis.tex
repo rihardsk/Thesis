@@ -180,12 +180,23 @@ $$, tad saka, ka vārds $w$ tiek akceptēts, citādi -- noraidīts.
 \section {Rezultāti}
 \subsection {Vairāk-galviņu automāti}
 \begin{teorema}
-Katram $k \geq 1 \in \mathbb{N}$ eksistē valoda $L_k$ viena burta alfabēta, tāda ka:\\ 
+Katram $k \geq 1 \in \mathbb{N}$ eksistē valoda $L_k$, tāda ka:\\ 
 1) eksistē $1U_pFA(1)$, kas atpazīst $L_k$,\\
 2) $L_k$ nevar atpazīt ne ar kādu $1DFA(k)$,\\
 3) $L_k$ nevar atpazīt ne ar kādu $1NFA(k)$,\\
 4) $L_k$ nevar atpazīt ne ar kādu $1PFA(1)$. 
 \end{teorema}
+\begin{pieradijums} Meklētā valoda ir
+$$
+L_k = \left\{ w_1 1 w_2 1 \ldots 1 w_{2n} |
+		w_i \in \left\{ 0 \right\}^m \wedge
+		m \geq 1 \in \mathbb{N} \wedge
+		w_i = w_{2n-i+1} \wedge
+		n={k\choose 2}+1 \right\}.
+$$
+Tālāk tiks pierādīts, ka $L_k$ apmierina teorēmas punktus.\\
+1) Automāts tiek būvēts tādā
+\end{pieradijums}
 
 \printbibliography
 
