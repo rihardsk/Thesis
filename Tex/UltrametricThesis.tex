@@ -111,7 +111,10 @@ norāda pašreizējās galviņu pozīcijas. Pāreju no vienas konfigurācijas uz
 $\left( w, s, \left( p_1, \ldots, p_k \right) \right) \vdash \left( w, s', \left( p_1+d_1, \ldots, p_k+d_k \right) \right)$
 notiek tad un tikai tad, ja
 $\left(d_1, \ldots, d_k \right) \in \delta \left( \left( a_{p_1}, \ldots a_{p_k} \right) s, s' \right)$,
-kur $w = a_1a_2 \ldots a_n$ ir ieejas vārds, un $a_0=\triangleright$, un $a_{n+1}=\triangleleft$.
+kur $w = a_1a_2 \ldots a_n$ ir ieejas vārds, un $a_0=\triangleright$, un $a_{n+1}=\triangleleft$. $\vdash$ refleksīvais, tranzitīvais slēgums tiek apzīmēts ar $\vdash^*$.
+
+Valodā $L(M)$, ko akceptē automāts $M$ ietilpst tie un tikai tie vārdi, ko akceptē $M$. $2NFA(k)$ akceptē tos un tikai tos vārdus $w$, kam pastāv kāda konfigurāciju virkne, kas noved pie automāta apstāšanās akceptējoša stāvoklī, ja uz ieejas lentes ir
+$\triangleright w \triangleleft$. Jeb precīzāk - $L(M)=\left\{ w \in \Sigma^* | \left(w,s_0,\left(1,\ldots,1\right)\right) \vdash^* \left(w,s,\left(p_1,\ldots,p_k\right)\right), s \in F, \text{un } M \text{apstājas } \left(w,s,\left(p_1,\ldots,p_k\right)\right)\right\}$.
 
 Ultrametrisku vairākgalviņu definīcija tiek iegūta visdabiskākajā veidā paplašinot ~\citep{KasparsBalodis2013} ieviesto ultrametrisko automātu definīciju. Par pamatu tiek ņemta arī ~\citep{Holzer2009} ieviestā vairākgalviņu automātu definīcija.
 
