@@ -74,7 +74,7 @@ p^{-\alpha_p}, \text{ja } \alpha \neq 0 \\
 
 Ultrametriski automāti tiek definēti kā ~\citep{KasparsBalodis2013}.
 \begin{definicija}
-Galīgs $p$-ultrametrisks ($UFA_p$) automāts ir kortežs $\langle S, \Sigma, s_0, \delta, F, \Lambda \rangle$, kur
+Galīgs $p$-ultrametrisks ($U_pFA$) automāts ir kortežs $\langle S, \Sigma, s_0, \delta, F, \Lambda \rangle$, kur
 \begin{itemize}
   \item $S$ ir galīga stāvokļu kopa,
   \item $\Sigma$ ir galīga kopa, ($\$ \notin \Sigma$) -- ieejas alfabēts,
@@ -114,12 +114,21 @@ $\left(d_1, \ldots, d_k \right) \in \delta \left( \left( a_{p_1}, \ldots a_{p_k}
 kur $w = a_1a_2 \ldots a_n$ ir ieejas vārds, un $a_0=\triangleright$, un $a_{n+1}=\triangleleft$. $\vdash$ refleksīvais, tranzitīvais slēgums tiek apzīmēts ar $\vdash^*$.
 
 Valodā $L(M)$, ko akceptē automāts $M$ ietilpst tie un tikai tie vārdi, ko akceptē $M$. $2NFA(k)$ akceptē tos un tikai tos vārdus $w$, kam pastāv kāda konfigurāciju virkne, kas noved pie automāta apstāšanās akceptējoša stāvoklī, ja uz ieejas lentes ir
-$\triangleright w \triangleleft$. Jeb precīzāk - $L(M)=\left\{ w \in \Sigma^* | \left(w,s_0,\left(1,\ldots,1\right)\right) \vdash^* \left(w,s,\left(p_1,\ldots,p_k\right)\right), s \in F, \text{un } M \text{apstājas } \left(w,s,\left(p_1,\ldots,p_k\right)\right)\right\}$.
+$\triangleright w \triangleleft$. Jeb precīzāk - $L(M)=\left\{ w \in \Sigma^* | \left(w,s_0,\left(1,\ldots,1\right)\right) \vdash^* \left(w,s,\left(p_1,\ldots,p_k\right)\right), s \in F, \text{un } M \text{apstājas } \left(w,s,\left(p_1,\ldots,p_k\right)\right)\right\}$. %TODO pabeigt par 2DFA(k).
 
 Ultrametrisku vairākgalviņu definīcija tiek iegūta visdabiskākajā veidā paplašinot ~\citep{KasparsBalodis2013} ieviesto ultrametrisko automātu definīciju. Par pamatu tiek ņemta arī ~\citep{Holzer2009} ieviestā vairākgalviņu automātu definīcija.
 
 \begin{definicija}
-Par galīgu $k$-galviņu vienvirziena (divvirzienu) galīgu $p$-ultrametrisku automātu, jeb $1UFA_p(k)$ ($2UFA_p(k)$) tiek saukts kortežs 
+Par galīgu $k$-galviņu divvirzienu galīgu $p$-ultrametrisku automātu ($2U_pFA(k)$) tiek saukts kortežs $\langle S, \Sigma, k, s_0, \delta, F, \Lambda \rangle$, kur
+\begin{itemize}
+	\item $S$ ir galīga stāvokļu kopa,
+	\item $\Sigma$ ir galīga kopa, ($ \triangleright,\triangleleft \notin \Sigma$) -- ieejas alfabēts,
+	\item $k\geq 1$ ir galviņu skaits, 
+	\item $s_0:S \rightarrow \mathbb{Q}_p$ ir sākotnējais amplitūdu sadalījums,
+	\item $\delta: \left( \Sigma \cup \left\{ \triangleright, \triangleleft \right\} \right)^k \times S \times S \rightarrow \mathbb{Q}_p \times \left\{-1,0,1\right\}^k$ ir pārejas funkcija, kur $\triangleright$ un $\triangleleft$ ir vārda sākumu un beigas atdalošie simboli,
+	\item $F \subseteq S$ ir akceptējošo stāvokļu kopa,
+	\item $\Lambda = \left( \lambda, \diamond \right)$ ir akceptēšanas nosacījums, kur $\lambda \in \mathbb{R}$ ir akceptēšanas slieksnis, un $\diamond \in \left\{ \leq, \geq \right\}$.
+\end{itemize}
 \end{definicija}
 
 \begin{definicija}
