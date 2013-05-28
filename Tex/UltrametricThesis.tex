@@ -213,21 +213,21 @@ $a_1 = a_{2n} \wedge a_2 = a_{2n-1} \wedge \ldots \wedge a_n = a_{n+1}$.
 Iegūstam, ka vārds pieder valodai tad un tikai tad, ja ir apmierināta šāda vienādojumu sistēma:
 $$
 	\begin{cases}
-		p^{a_1}\cdot p^{a_2 \cdot (2\cdot 1)} \cdots p^{a_n \cdot (n\cdot 1)} \cdot \frac{1}{p^{a_{n+1} \cdot (n\cdot 1)}}\cdots \frac{1}{p^{a_{2n-1} \cdot (2\cdot 1)}}\cdot \frac{1}{p^{a_{2n}}} = 1\\
-		p^{a_1}\cdot p^{a_2 \cdot (2\cdot 2)}\cdots p^{a_n \cdot (n\cdot 2)} \cdot \frac{1}{p^{a_{n+1} \cdot (n\cdot 2)}}\cdots \frac{1}{p^{a_{2n-1} \cdot (2\cdot 2)}}\cdot \frac{1}{p^{a_{2n}}} = 1\\
-		p^{a_1}\cdot p^{a_2 \cdot (2\cdot 3)}\cdots p^{a_n \cdot (n\cdot 3)} \cdot \frac{1}{p^{a_{n+1} \cdot (n\cdot 3)}}\cdots \frac{1}{p^{a_{2n-1} \cdot (2\cdot 3)}}\cdot \frac{1}{p^{a_{2n}}} = 1\\
+		p^{a_1}\cdot p^{a_2 \cdot (2\cdot 1)}\cdot p^{a_3 \cdot (3\cdot 1)}\cdots p^{a_n \cdot (n\cdot 1)} \cdot \frac{1}{p^{a_{n+1} \cdot (n\cdot 1)}}\cdots \frac{1}{p^{a_{2n-2} \cdot (3\cdot 1)}}\cdot \frac{1}{p^{a_{2n-1} \cdot (2\cdot 1)}}\cdot \frac{1}{p^{a_{2n}}} = 1\\
+		p^{a_1}\cdot p^{a_2 \cdot (2\cdot 2)}\cdot p^{a_3 \cdot (3\cdot 2)}\cdots p^{a_n \cdot (n\cdot 2)} \cdot \frac{1}{p^{a_{n+1} \cdot (n\cdot 2)}}\cdots \frac{1}{p^{a_{2n-2} \cdot (3\cdot 2)}}\cdot \frac{1}{p^{a_{2n-1} \cdot (2\cdot 2)}}\cdot \frac{1}{p^{a_{2n}}} = 1\\
+		p^{a_1}\cdot p^{a_2 \cdot (2\cdot 3)}\cdot p^{a_3 \cdot (3\cdot 3)}\cdots p^{a_n \cdot (n\cdot 3)} \cdot \frac{1}{p^{a_{n+1} \cdot (n\cdot 3)}}\cdots \frac{1}{p^{a_{2n-2} \cdot (3\cdot 3)}}\cdot \frac{1}{p^{a_{2n-1} \cdot (2\cdot 3)}}\cdot \frac{1}{p^{a_{2n}}} = 1\\
 		\cdots \\
-		p^{a_1}\cdot p^{a_2 \cdot (2\cdot k)}\cdots p^{a_n \cdot (n\cdot k)} \cdot \frac{1}{p^{a_{n+1} \cdot (n\cdot k)}}\cdots \frac{1}{p^{a_{2n-1} \cdot (2\cdot k)}}\cdot \frac{1}{p^{a_{2n}}} = 1\\
+		p^{a_1}\cdot p^{a_2 \cdot (2\cdot k)}\cdot p^{a_3 \cdot (3\cdot k)}\cdots p^{a_n \cdot (n\cdot k)} \cdot \frac{1}{p^{a_{n+1} \cdot (n\cdot k)}}\cdots \frac{1}{p^{a_{2n-2} \cdot (3\cdot k)}}\cdot \frac{1}{p^{a_{2n-1} \cdot (2\cdot k)}}\cdot \frac{1}{p^{a_{2n}}} = 1\\
 	\end{cases}
 $$,
 pārrakstot
 $$
 	\begin{cases}
-		p^{a_1}\cdot p^{a_2 \cdot (2\cdot 1)} \cdots p^{a_n \cdot (n\cdot 1)} = p^{a_{n+1} \cdot (n\cdot 1)}\cdots p^{a_{2n-1} \cdot (2\cdot 1)}\cdot p^{a_{2n}}\\
-		p^{a_1}\cdot p^{a_2 \cdot (2\cdot 2)} \cdots p^{a_n \cdot (n\cdot 2)} = p^{a_{n+1} \cdot (n\cdot 2)}\cdots p^{a_{2n-1} \cdot (2\cdot 2)}\cdot p^{a_{2n}}\\
-		p^{a_1}\cdot p^{a_2 \cdot (2\cdot 3)} \cdots p^{a_n \cdot (n\cdot 3)} = p^{a_{n+1} \cdot (n\cdot 3)}\cdots p^{a_{2n-1} \cdot (2\cdot 3)}\cdot p^{a_{2n}}\\
+		p^{a_1}\cdot p^{a_2 \cdot (2\cdot 1)}\cdot p^{a_3 \cdot (3\cdot 1)}\cdots p^{a_n \cdot (n\cdot 1)} = p^{a_{n+1} \cdot (n\cdot 1)}\cdots p^{a_{2n-2} \cdot (3\cdot 1)}\cdot p^{a_{2n-1} \cdot (2\cdot 1)}\cdot p^{a_{2n}}\\
+		p^{a_1}\cdot p^{a_2 \cdot (2\cdot 2)}\cdot p^{a_3 \cdot (3\cdot 2)}\cdots p^{a_n \cdot (n\cdot 2)} = p^{a_{n+1} \cdot (n\cdot 2)}\cdots p^{a_{2n-2} \cdot (3\cdot 2)}\cdot p^{a_{2n-1} \cdot (2\cdot 2)}\cdot p^{a_{2n}}\\
+		p^{a_1}\cdot p^{a_2 \cdot (2\cdot 3)}\cdot p^{a_3 \cdot (3\cdot 3)}\cdots p^{a_n \cdot (n\cdot 3)} = p^{a_{n+1} \cdot (n\cdot 3)}\cdots p^{a_{2n-2} \cdot (3\cdot 3)}\cdot p^{a_{2n-1} \cdot (2\cdot 3)}\cdot p^{a_{2n}}\\
 		\cdots \\
-		p^{a_1}\cdot p^{a_2 \cdot (2\cdot k)} \cdots p^{a_n \cdot (n\cdot k)} = p^{a_{n+1} \cdot (n\cdot k)}\cdots p^{a_{2n-1} \cdot (2\cdot k)}\cdot p^{a_{2n}}\\
+		p^{a_1}\cdot p^{a_2 \cdot (2\cdot k)}\cdot p^{a_3 \cdot (3\cdot k)}\cdots p^{a_n \cdot (n\cdot k)} = p^{a_{n+1} \cdot (n\cdot k)}\cdots p^{a_{2n-2} \cdot (3\cdot k)}\cdot p^{a_{2n-1} \cdot (2\cdot k)}\cdot p^{a_{2n}}\\
 	\end{cases}
 $$
 \end{pieradijums}
