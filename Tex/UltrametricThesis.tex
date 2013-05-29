@@ -64,11 +64,27 @@ TODO
 
 \tableofcontents
 
+\specnodala{Apzīmējumu saraksts}
+\setlength\LTleft{0pt}
+\setlength\LTright{0pt}
+\begin{longtable}{| c | p{28em} |}
+  \hline
+  \textbf{Apzīmējums} & \textbf{Atšifrējums}\\ 
+  \endhead
+
+  \hline
+  $U_pFA$ & Galīgs (vienvirziena) $p$-ultrametrisks automāts\\
+  $1U_pFA(k)$ ($2U_pFA(k)$) &  Galīgs $k$-galviņu vienvirziena (divvirzienu) $p$-ultrametrisks automāts\\
+  $1DFA(k)$ ($2DFA(k)$) &  Galīgs $k$-galviņu vienvirziena (divvirzienu) determinēts automāts\\
+  $1NFA(k)$ ($2NFA(k)$) &  Galīgs $k$-galviņu vienvirziena (divvirzienu) nedeterminēts automāts\\
+  $1PFA(k)$ ($2PFA(k)$) &  Galīgs $k$-galviņu vienvirziena (divvirzienu) varbūtisks automāts\\
+  \hline
+\end{longtable}
 
 \specnodala{Ievads}
 TODO
 
-\section {Definīcijas}
+\chapter {Definīcijas}
 \begin{definicija}
 Katram nenulles racionālam skaitlim $\alpha$ eksistē viennozīmīgi nosakāms sadalījums pirmreizinātājos - $\alpha = \pm 2^{\alpha_2}3^{\alpha_3}5^{\alpha_5}7^{\alpha_7} \cdots$, kur $\alpha_i$-tie ir veseli skaitļi, no kuriem tikai galīgs skaits ir nenulles. Par racionāla skaitļa $\alpha$ \textbf{$p$-adisko absolūto vērtību} (arī sauktu par \textbf{$p$-normu}) sauc 
 $||x||_p = \begin{cases}
@@ -160,25 +176,23 @@ $$, tad saka, ka vārds $w$ tiek akceptēts, citādi -- noraidīts.
 
 %TODO sameklēt visas pareizrakstības kļūdas, piem., ari
 
-\specnodala{Apzīmējumu saraksts}
-\setlength\LTleft{0pt}
-\setlength\LTright{0pt}
-\begin{longtable}{| c | p{28em} |}
-  \hline
-  \textbf{Apzīmējums} & \textbf{Atšifrējums}\\ 
-  \endhead
+Ultrametriskas Tjūringa mašīnas definīcija tiek iegūta dabiskā veida paplašinot J. Hopcroft un J. Ullman ~\citep{Hopcroft1979} 1979. gadā ieviesto definīciju.
+\begin{definicija}
+Par Tjūringa mašīnu sauc kortežu $M= \langle Q, \Gamma, b, \Sigma, \delta, q_0, F \rangle$, kur:
+\begin{itemize}
+	\item $Q$ ir galīga netukša stāvokļu kopa,
+	\item $\Gamma$ ir galīga netukša kopa -- darba alfabēts,
+	\item $b \in \Gamma$ ir "tukšais" simbols (drīkst atrasties uz lentes neierobežoti daudz eksemplāros),
+	\item $\Sigma\subseteq\Gamma\setminus\{b\}$ ieejas alfabēts,
+	\item $q_0 \in Q$ ir sākuma stāvoklis,
+	\item $F \subseteq Q$ is the set of ''final'' or ''accepting states''.
+	\item $\delta: Q \setminus F \times \Gamma \rightarrow Q \times \Gamma \times \{L,N,R\}$ ir daļēji definēta pārejas funkcija, kur $L$ apzīmē mašīnas galviņas pabīdīšanu pa kreisi , $R$ -- pabīdīšanu pa labi, un $N$ norāda, ka mašīnas galviņa netiek pārvietota.
+\end{itemize}
+\end{definicija}
 
-  \hline
-  $U_pFA$ & Galīgs (vienvirziena) $p$-ultrametrisks automāts\\
-  $1U_pFA(k)$ ($2U_pFA(k)$) &  Galīgs $k$-galviņu vienvirziena (divvirzienu) $p$-ultrametrisks automāts\\
-  $1DFA(k)$ ($2DFA(k)$) &  Galīgs $k$-galviņu vienvirziena (divvirzienu) determinēts automāts\\
-  $1NFA(k)$ ($2NFA(k)$) &  Galīgs $k$-galviņu vienvirziena (divvirzienu) nedeterminēts automāts\\
-  $1PFA(k)$ ($2PFA(k)$) &  Galīgs $k$-galviņu vienvirziena (divvirzienu) varbūtisks automāts\\
-  \hline
-\end{longtable}
 
-\section {Rezultāti}
-\subsection {Vairāk-galviņu automāti}
+\chapter {Rezultāti}
+\section {Vairāk-galviņu automāti}
 \begin{teorema}
 Katram $k \geq 1 \in \mathbb{N}$ eksistē valoda $L_k$, tāda ka:\\ 
 1) katram $k \geq 1 \in \mathbb{N}$ eksistē $1U_pFA(1)$, kas atpazīst $L_k$,\\ %TODO varbut arī var regulētu..
@@ -244,6 +258,12 @@ $$
 Apskatīsim šīs sistēmas determinantu. Izdalot $i$-to rindiņu ar $i$ katram $1 \leq i \leq n$, pirmajā kolonnā iegūstam koeficientus
 $1, \frac{1}{2}, \frac{1}{3}, \ldots, \frac{1}{n}$,
 tātad matricā nav divu lineāri atkarīgu rindiņu, un matricas determinants ir atšķirīgs no nulles. Tā kā dotā vienādojumu sistēma ir homogēna, tai eksistē tikai triviālais atrisinājums.
+
+$2)$ TODO
+
+$3)$ TODO
+
+$4)$ TODO
 \end{pieradijums}
 
 \printbibliography
