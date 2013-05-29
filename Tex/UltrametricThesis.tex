@@ -178,21 +178,51 @@ $$, tad saka, ka vārds $w$ tiek akceptēts, citādi -- noraidīts.
 
 Ultrametriskas Tjūringa mašīnas definīcija tiek iegūta dabiskā veida paplašinot J. Hopcroft un J. Ullman ~\citep{Hopcroft1979} 1979. gadā ieviesto definīciju.
 \begin{definicija}
-Par Tjūringa mašīnu sauc kortežu $M= \langle Q, \Gamma, b, \Sigma, \delta, q_0, F \rangle$, kur:
+Par $p$-ultrametrisku Tjūringa mašīnu sauc kortežu $M= \langle Q, \Gamma, b, \Sigma, \delta, q_0, F \rangle$, kur:
 \begin{itemize}
 	\item $Q$ ir galīga netukša stāvokļu kopa,
 	\item $\Gamma$ ir galīga netukša kopa -- darba alfabēts,
 	\item $b \in \Gamma$ ir "tukšais" simbols (drīkst atrasties uz lentes neierobežoti daudz eksemplāros),
 	\item $\Sigma\subseteq\Gamma\setminus\{b\}$ ieejas alfabēts,
 	\item $q_0 \in Q$ ir sākuma stāvoklis,
-	\item $F \subseteq Q$ is the set of ''final'' or ''accepting states''.
+	\item $F \subseteq Q$ ir akceptējošo stāvokļu kopa.
 	\item $\delta: Q \setminus F \times \Gamma \rightarrow Q \times \Gamma \times \{L,N,R\}$ ir daļēji definēta pārejas funkcija, kur $L$ apzīmē mašīnas galviņas pabīdīšanu pa kreisi , $R$ -- pabīdīšanu pa labi, un $N$ norāda, ka mašīnas galviņa netiek pārvietota.
 \end{itemize}
 \end{definicija}
 
 
 \chapter {Rezultāti}
-\section {Vairāk-galviņu automāti}
+\section {Vairākgalviņu automāti}
+\subsection{Ultrametriska automāta simulācija}
+Nākamās nodaļas pierādījumos tiks izmantota iespēja ultrametrisku vairākgalviņu automātu simulēt ar ultrametrisku Tjūringa mašīnu. Šeit tiks parādīti vispārīgie principi, kas ir šādas simulācijas pamatā.
+
+%TODO vēl paskaidrojumi
+$$
+	\begin{array}{lcl}
+		q_0\# & \rightarrow_1 & q_1\#L\\
+		q_10 & \rightarrow_1 & q_11L\\
+		q_11 & \rightarrow_1 & q_20R\\
+		q_1| & \rightarrow_1 & q_1|L\\
+		q_20 & \rightarrow_1 & q_20R\\
+		q_21 & \rightarrow_1 & q_21R\\
+		q_2| & \rightarrow_1 & q_2|R\\
+		q_2\# & \rightarrow_1 & q_1\#L\\
+		q_2\# & \rightarrow_1 & q_u\#L\\
+		q_1\# & \rightarrow_1 & q_3\#R\\
+		q_30 & \rightarrow_1 & q_30R\\
+		q_31 & \rightarrow_1 & q_31R\\
+		q_3| & \rightarrow_1 & q_3|R\\
+		q_3\# & \rightarrow_1 & q_u\#L\\
+		q_3\# & \rightarrow_1 & q_u\#L\\
+		q_u0 & \rightarrow_\frac{1}{2} & q_u0L\\
+		q_u1 & \rightarrow_\frac{1}{2} & q_u1L\\
+		q_u| & \rightarrow_1 & q_u'|R\\
+		q_u'0 & \rightarrow_1 & q_u'0R\\
+		q_u'1 & \rightarrow_1 & q_u'1R\\
+	\end{array}
+$$
+
+\subsection{Vienvirziena ultrametriski vairākgalviņu automāti}
 \begin{teorema}
 Katram $k \geq 1 \in \mathbb{N}$ eksistē valoda $L_k$, tāda ka:\\ 
 1) katram $k \geq 1 \in \mathbb{N}$ eksistē $1U_pFA(1)$, kas atpazīst $L_k$,\\ %TODO varbut arī var regulētu..
