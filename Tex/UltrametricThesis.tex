@@ -100,7 +100,7 @@ Galīgs $p$-ultrametrisks ($U_pFA$) automāts ir kortežs $\langle S, \Sigma, s_
 \begin{itemize}
   \item $S$ ir galīga stāvokļu kopa,
   \item $\Sigma$ ir galīga kopa, ($\$ \notin \Sigma$) -- ieejas alfabēts,
-  \item $s_0:S \rightarrow \mathbb{Q}_p$ ir sākotnējais amplitūdu sadalījums,
+  \item $s_0:S \rightarrow \mathbb{Q}_p$ ir sākotnējais amplitūdu sadalījums, %TODO vai tiešam pareizi?
   \item $\delta: \left( \Sigma \cup \left\{ \$ \right\} \right) \times S \times S \rightarrow \mathbb{Q}_p$ ir pārejas funkcija,
   \item $F \subseteq S$ ir akceptējošo stāvokļu kopa,
   \item $\Lambda = \left( \lambda, \diamond \right)$ ir akceptēšanas nosacījums, kur $\lambda \in \mathbb{R}$ ir akceptēšanas slieksnis, un $\diamond \in \left\{ \leq, \geq \right\}$.
@@ -176,9 +176,9 @@ $$, tad saka, ka vārds $w$ tiek akceptēts, citādi -- noraidīts.
 
 %TODO sameklēt visas pareizrakstības kļūdas, piem., ari
 
-Ultrametriskas Tjūringa mašīnas definīcija tiek iegūta dabiskā veida paplašinot J. Hopcroft un J. Ullman ~\citep{Hopcroft1979} 1979. gadā ieviesto definīciju.
+Ultrametriskas Tjūringa mašīnas definīcija tiek iegūta dabiskā veida paplašinot J. Hopcroft un J. Ullman ~\citep{Hopcroft1979} 1979. gadā ieviesto definīciju. Ērtības labad definēsim mašīnu ar vairākām darba lentēm.
 \begin{definicija}
-Par $p$-ultrametrisku Tjūringa mašīnu sauc kortežu $M= \langle Q, \Gamma, b, \Sigma, \delta, q_0, F \rangle$, kur:
+Par $p$-ultrametrisku Tjūringa mašīnu ar $k$ darba lentēm $(U_pTM(k))$ sauc kortežu $M= \langle Q, \Gamma, b, \Sigma, \delta, q_0, F \rangle$, kur:
 \begin{itemize}
 	\item $Q$ ir galīga netukša stāvokļu kopa,
 	\item $\Gamma$ ir galīga netukša kopa -- darba alfabēts,
@@ -186,9 +186,12 @@ Par $p$-ultrametrisku Tjūringa mašīnu sauc kortežu $M= \langle Q, \Gamma, b,
 	\item $\Sigma\subseteq\Gamma\setminus\{b\}$ ieejas alfabēts,
 	\item $q_0 \in Q$ ir sākuma stāvoklis,
 	\item $F \subseteq Q$ ir akceptējošo stāvokļu kopa.
-	\item $\delta: Q \setminus F \times \Gamma \rightarrow Q \times \Gamma \times \{L,N,R\}$ ir daļēji definēta pārejas funkcija, kur $L$ apzīmē mašīnas galviņas pabīdīšanu pa kreisi , $R$ -- pabīdīšanu pa labi, un $N$ norāda, ka mašīnas galviņa netiek pārvietota.
+	\item $\delta: Q \setminus F \times \Gamma^k \rightarrow Q \times \left(\Gamma \times \{L,N,R\} \times \mathbb{Q}_p \right)^k$ ir daļēji definēta pārejas funkcija, kur $L$ apzīmē mašīnas galviņas pabīdīšanu pa kreisi , $R$ -- pabīdīšanu pa labi, un $N$ norāda, ka mašīnas galviņa netiek pārvietota, un $\mathbb{Q}_p$ ir amplitūda, ar kādu tiek veikta pāreja.
 \end{itemize}
 \end{definicija}
+
+Līdzīgi kā ultrametrisku vairākgalviņu automātu gadījumā mašīna ar noteiktu amplitūdu atrodas kāda no tās iespējamajām konfigurācijām, bet tagad konfigurācija iekļauj vadības bloka stāvokli un visu $k$ lenšu saturu.
+%TODO kā aprēķina amplitūdas
 
 
 \chapter {Rezultāti}
@@ -197,6 +200,7 @@ Par $p$-ultrametrisku Tjūringa mašīnu sauc kortežu $M= \langle Q, \Gamma, b,
 Nākamās nodaļas pierādījumos tiks izmantota iespēja ultrametrisku vairākgalviņu automātu simulēt ar ultrametrisku Tjūringa mašīnu. Šeit tiks parādīti vispārīgie principi, kas ir šādas simulācijas pamatā.
 
 %TODO vēl paskaidrojumi
+
 $$
 	\begin{array}{lcl}
 		q_0\# & \rightarrow_1 & q_1\#L\\
@@ -222,13 +226,14 @@ $$
 	\end{array}
 $$
 
+
 \subsection{Vienvirziena ultrametriski vairākgalviņu automāti}
 \begin{teorema}
 Katram $k \geq 1 \in \mathbb{N}$ eksistē valoda $L_k$, tāda ka:\\ 
 1) katram $k \geq 1 \in \mathbb{N}$ eksistē $1U_pFA(1)$, kas atpazīst $L_k$,\\ %TODO varbut arī var regulētu..
 2) $L_k$ nevar atpazīt ne ar kādu $1DFA(k)$,\\
 3) $L_k$ nevar atpazīt ne ar kādu $1NFA(k)$,\\
-4) $L_k$ nevar atpazīt ne ar kādu $1PFA(1)$. 
+4) $L_k$ nevar atpazīt ne ar kādu $1PFA(1)$.
 \end{teorema}
 \begin{pieradijums} Meklētā valoda ir
 $$
