@@ -37,6 +37,7 @@
 
 %papildus matemātika
 \usepackage{mathtools}
+\allowdisplaybreaks
 
 %dalīšana kolonnās
 \usepackage{multicol}
@@ -206,35 +207,34 @@ Nākamās nodaļas pierādījumos tiks izmantota iespēja ultrametrisku vairākg
 
 %TODO vēl paskaidrojumi
 \begin{multicols}{2}
-\[
-	\begin{array}{lcl}
-		q_0\# & \rightarrow_1 & q_1\#L\\
-		q_10 & \rightarrow_1 & q_11L\\
-		q_11 & \rightarrow_1 & q_20R\\
-		q_1| & \rightarrow_1 & q_1|L\\
-		q_20 & \rightarrow_1 & q_20R\\
-		q_21 & \rightarrow_1 & q_21R\\
-		q_2| & \rightarrow_1 & q_2|R\\
-		q_2\# & \rightarrow_1 & q_1\#L\\
-		q_2\# & \rightarrow_1 & q_u\#L\\
-		q_1\# & \rightarrow_1 & q_3\#R\\
-	\end{array}
-\]
-
-\[ 
-	\begin{array}{lcl}
-		q_30 & \rightarrow_1 & q_30R\\
-		q_31 & \rightarrow_1 & q_31R\\
-		q_3| & \rightarrow_1 & q_3|R\\
-		q_3\# & \rightarrow_1 & q_u\#L\\
-		q_3\# & \rightarrow_1 & q_u\#L\\
-		q_u0 & \rightarrow_\frac{1}{2} & q_u0L\\
-		q_u1 & \rightarrow_\frac{1}{2} & q_u1L\\
-		q_u| & \rightarrow_1 & q_u'|R\\
-		q_u'0 & \rightarrow_1 & q_u'0R\\
-		q_u'1 & \rightarrow_1 & q_u'1R\\
-	\end{array}
-\]
+	\begin{align*}
+	\shortintertext{Atņem 1 no skaitļa}
+		q_0\# & \rightarrow_1 q_1\#L\\
+		q_10 & \rightarrow_1 q_11L\\
+		q_11 & \rightarrow_1 q_20R\\
+		q_1| & \rightarrow_1 q_1|L\\
+	\shortintertext{Iet atpakaļ uz skaitļa sākumu}
+		q_20 & \rightarrow_1 q_20R\\
+		q_21 & \rightarrow_1 q_21R\\
+		q_2| & \rightarrow_1 q_2|R\\
+		q_2\# & \rightarrow_1 q_1\#L\\
+	\shortintertext{Palielina īpaša stavokļa apmlitūdu par 1}
+		q_2\# & \rightarrow_1 q_u\#L\\
+	\shortintertext{Atrodas skaitļa sakumā, jo tas jau ir 0}
+		q_1\# & \rightarrow_1 q_3\#R\\
+	\shortintertext{Nodzēš pēdejā gajienā kļūdaini sarakstīto}
+		q_30 & \rightarrow_1 q_30R\\
+		q_31 & \rightarrow_1 q_31R\\
+		q_3| & \rightarrow_1 q_3|R\\
+	\shortintertext{Dala īpašā stāvokļa amplitūdu, atbilstoši ciparu skaitam aiz komata}
+		q_3\# & \rightarrow_1 q_u\#L\\
+		q_u0 & \rightarrow_\frac{1}{2} q_u0L\\
+		q_u1 & \rightarrow_\frac{1}{2} q_u1L\\
+	\shortintertext{Iet uz skaitļa sākumu}
+		q_u| & \rightarrow_1 q_u'|R\\
+		q_u'0 & \rightarrow_1 q_u'0R\\
+		q_u'1 & \rightarrow_1 q_u'1R\\
+	\end{align*}
 \end{multicols}
 
 \subsection{Vienvirziena ultrametriski vairākgalviņu automāti}
