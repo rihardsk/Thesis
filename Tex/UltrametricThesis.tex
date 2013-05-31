@@ -83,8 +83,8 @@ TODO
   $1dfa(k)$ ($2dfa(k)$) &  Galīgs $k$-galviņu vienvirziena (divvirzienu) determinēts automāts\\
   $1nfa(k)$ ($2nfa(k)$) &  Galīgs $k$-galviņu vienvirziena (divvirzienu) nedeterminēts automāts\\
   $1pfa(k)$ ($2pfa(k)$) &  Galīgs $k$-galviņu vienvirziena (divvirzienu) varbūtisks automāts\\
-  $u_ptm$ &  $p$-ultrametriska Tjūringa mašīna\\
-  $U_pTM$ &  Valodu klase, ko var atpazīt ar $p$-ultrametrisku Tjūringa mašīnu ar amplitūdām no kādas $log$-space $p$-konstruējamas kopas\\
+  $u_ptm$ &  $p$-ultrametriska Tjūringa mašīna ar $2$ lentēm, un ar $log$-space telpas sarežģītību\\
+  $U_pTM$ &  Valodu klase, ko var atpazīt ar $p$-ultrametrisku Tjūringa mašīnu ar $log$-space telpas sarežģītību, un ar amplitūdām no kādas $log$-space $p$-konstruējamas kopas\\
   $\widehat{C}$ & Valodu klases $C$ apakškopa, kas satur tikai valodas formā $1^{2^n}, n \in \mathbb{N}$, jeb precīzāk -- $\widehat{C} = \left\{ h | h \in C \wedge \exists n \in \mathbb{N} : h = 1^{2^n} \right\}$\\
   \hline
 \end{longtable}
@@ -202,6 +202,7 @@ Par $p$-ultrametrisku Tjūringa mašīnu ar $k$ darba lentēm $(U_pTM(k))$ sauc 
 
 Līdzīgi kā ultrametrisku vairākgalviņu automātu gadījumā mašīna ar noteiktu amplitūdu atrodas kāda no tās iespējamajām konfigurācijām, bet tagad konfigurācija iekļauj vadības bloka stāvokli un visu $k$ lenšu saturu.
 %TODO kā aprēķina amplitūdas
+%TODO ko nozīmē, ka mašīna akceptē vārdu
 
 
 \chapter {Rezultāti}
@@ -268,7 +269,7 @@ Tjūringa mašīnas programmas teksts.
 	\end{align*}
 \end{multicols}
 \end{pieradijums}
-
+%TODO pateikt, ka nav atkarīgs no p
 
 \subsection{Vienvirziena ultrametriski vairākgalviņu automāti}
 \begin{teorema}
@@ -341,9 +342,17 @@ $3)$ TODO
 $4)$ TODO
 \end{pieradijums}
 
-\begin{lemma}
-Katram naturālam skaitlim $k$
-\end{lemma}
+\begin{teorema}
+Katram naturālam skaitlim $k$ un pirmskaitlim $p$ izpildās $\widehat{U_pFA(k)} \subsetneqq \widehat{U_pTM}$.
+\end{teorema}
+\begin{pieradijums}
+Veidosim īpašu $p$-ultrametrisku Tjūringa mašīnu ar $2$ lentēm, un ar $log$-space telpas sarežģītību, sauktu par $T$, un parādīsim, ka tās atpazītā valoda nevar tikt atpazīta ar nevienu $p$-ultrametrisku automātu ar $k$ galviņām (visiem $k$).
+
+Līdzīgi kā parādīts nodaļas sākumā, $T$ veidosim tā, ka tā simulē ieejā saņemtu $u_pfa(k)$, sauktu par $A$. Atšķirībā no apraksta, $A$ "aprakstā" tieša veidā netiek iekļauts ieejas vārds, ko $A$ apstrādā. Tā vietā $A$ tiks darbināts uz ieejas virknes, t.i. -- uz sava "apraksta".
+
+Precīzāk -- $T$ uz 1. lentes atrodas vārds $1^m, m \in \mathbb{N}$, $T$ pārbauda, vai tas ir formā $1^{2^n}, n \in \mathbb{N}$ (vārdu noraida, ja tas neatbilst) un uz 2. lentes (sauksim par darba lenti) uzraksta $n$ binārā pierakstā, aizņemot $log(n)$ vietas. Tālāk $T$ uz darba lentes tiek izdalīta vieta $k$ skaitītājiem, kas norādīs $A$ galviņu pozīcijas uz ieejas vārda. Tā kā kā vērtības var būt robežās $\left[0, \ldots, 1^{2^n}$, tad tam tiek patērēts $k \cdot log(2^n)= k \cdot n$ vietas. %TODO nevajag novērtēt visur ar O()?
+Tas tiek darīts determinēti, pārejas veicot ar amplitūdu $1$. Tālāk $T$ darbina uz ieejas virknes kā parādīts nodaļas sākumā (1. lentes galviņa vairs netiek kustināta, tiek pārbaudīts, vai galviņām atbilstošie skaitītāji ir vārda robežās vai nē).
+\end{pieradijums}
 
 \printbibliography
 
