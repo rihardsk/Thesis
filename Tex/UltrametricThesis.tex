@@ -203,6 +203,7 @@ Par $p$-ultrametrisku Tjūringa mašīnu ar $k$ darba lentēm $(U_pTM(k))$ sauc 
 Līdzīgi kā ultrametrisku vairākgalviņu automātu gadījumā mašīna ar noteiktu amplitūdu atrodas kāda no tās iespējamajām konfigurācijām, bet tagad konfigurācija iekļauj vadības bloka stāvokli un visu $k$ lenšu saturu.
 %TODO kā aprēķina amplitūdas
 %TODO ko nozīmē, ka mašīna akceptē vārdu
+%TODO gamma -> sigma
 
 
 \chapter {Rezultāti}
@@ -225,7 +226,7 @@ Simulācija tiek realizēta šādi. $p$-Ultrametriska galīga $k$ galviņu autom
 Atceramies, ka $A$ savas darbības laikā iziet cauri vairāku konfigurāciju virknei, un katrā laika momentā $A$ var "paralēli" būt vairākās konfigurācijās ar dažādām amplitūdām. %TODO pateikt šo pie definīcijas
 Ja $A$ atrodas kāda konfigurācijā ar amplitūdu $a$, tad $T$ to simulēs, ar atbilstošo amplitūdu atrodoties konfigurācijā, kur darba lentes saturs atbilst attiecīgajai $A$ konfigurācijai.
 
-Lai parādītu, ka $T$ var šādā veidā simulēt $A$, jāparāda, ka $T$ ir spējīgs veikt katru $A$ pāreju. Parādīsim, ka, ja $A$ ir pāreja no $q_1$ uz $q_2$ ar amplitūdu $a_1$ (pieņemsim, ka tā ir apzīmēta ar numuru $i$ ) un pāreja no $q_1$ uz $q_3$ ar amplitūdu $a_2$ (pieņemsim, ka tā ir apzīmēta ar numuru $j$), tad $T$ atrodoties $q_1$ atbilstošajā konfigurācijā var "paralēli" veikt pārejas uz $q_2$ un $q_3$ atbilstošajām konfigurācijām ar attiecīgajām amplitūdām. Tas tiek darīts, $U$ sazarojoties un abos gadījumos ar amplitūdu $1$ īpašā vietā uz lentes ierakstot vai nu skaitli $i$ vai $j$, kas attiecīgi atbilst pirmajai un otrajai $A$ pārejai. Ierakstīšana tiek veikta determinēti, pārejas veicot ar amplitūdu $1$. Tālāk tiek darbināta apakšprogramma, kas ierakstītajam skaitlim atbilstošo amplitūdu $a_1$ vai $a_2$ ielasa īpašā stāvoklī $q_u$ (tā kā tika uzstādīta prasība, ka ir no $log$-space $p$-konstruējamas kopas, tad šāda apakšprogramma eksistē). Tālāk no stāvokļa $q_u$ tiek pāriets uz bloku, kas darba lenti izmaina atbilstoši pārejai, kas atbilst uz lentas ierakstītajam skaitlim (tas tiek darīts determinēti, pārejas veicot ar amplitūdu $1$). Tā kā vienīgā pāreja, kas ir atšķirīga no $1$ tiek veikta pārejot no $q_u$, tad darbības beigās uz $U$ darba lentes ar amplitūdu $1 \cdot 1 \cdots 1 \cdot a_1 = a_1$ ir ieraksts, kas atbilst $A$ konfigurācijai pēc pārejas $i$ izdarīšanas, un ar amplitūdu $1 \cdot 1 \cdots 1 \cdot a_2 = a_2$ -- ieraksts, kas atbilst $A$ konfigurācijai pēc pārejas $j$ izdarīšanas.
+Lai parādītu, ka $T$ var šādā veidā simulēt $A$, jāparāda, ka $T$ ir spējīgs veikt katru $A$ pāreju. Parādīsim, ka, ja $A$ ir pāreja no $q_1$ uz $q_2$ ar amplitūdu $a_1$ (pieņemsim, ka tā ir apzīmēta ar numuru $i$ ) un pāreja no $q_1$ uz $q_3$ ar amplitūdu $a_2$ (pieņemsim, ka tā ir apzīmēta ar numuru $j$), tad $T$ atrodoties $q_1$ atbilstošajā konfigurācijā var "paralēli" veikt pārejas uz $q_2$ un $q_3$ atbilstošajām konfigurācijām ar attiecīgajām amplitūdām. Tas tiek darīts, $U$ sazarojoties un abos gadījumos ar amplitūdu $1$ īpašā vietā uz lentes ierakstot vai nu skaitli $i$ vai $j$, kas attiecīgi atbilst pirmajai un otrajai $A$ pārejai. Ierakstīšana tiek veikta determinēti, pārejas veicot ar amplitūdu $1$. Tālāk tiek darbināta apakšprogramma, kas ierakstītajam skaitlim atbilstošo amplitūdu $a_1$ vai $a_2$ ielasa īpašā stāvoklī $q_u$ (tā kā tika uzstādīta prasība, ka ir no $log$-space $p$-konstruējamas kopas, tad šāda apakšprogramma eksistē). Tālāk no stāvokļa $q_u$ tiek pāriets uz bloku, kas darba lenti izmaina atbilstoši pārejai, kas atbilst uz lentas ierakstītajam skaitlim (tas tiek darīts determinēti, pārejas veicot ar amplitūdu $1$). Tā kā vienīgā pāreja, kas ir atšķirīga no $1$ tiek veikta, pārejot no $q_u$, tad darbības beigās uz $U$ darba lentes ar amplitūdu $1 \cdot 1 \cdots 1 \cdot a_1 = a_1$ ir ieraksts, kas atbilst $A$ konfigurācijai pēc pārejas $i$ izdarīšanas, un ar amplitūdu $1 \cdot 1 \cdots 1 \cdot a_2 = a_2$ -- ieraksts, kas atbilst $A$ konfigurācijai pēc pārejas $j$ izdarīšanas.
 
 %TODO zimējums
 
@@ -351,10 +352,35 @@ Veidosim īpašu $p$-ultrametrisku Tjūringa mašīnu ar $2$ lentēm, un ar $log
 Līdzīgi kā parādīts nodaļas sākumā, $T$ veidosim tā, ka tā simulē ieejā saņemtu $u_pfa(k)$, sauktu par $A$. Atšķirībā no apraksta, $A$ "aprakstā" tieša veidā netiek iekļauts ieejas vārds, ko $A$ apstrādā. Tā vietā $A$ tiks darbināts uz ieejas virknes, t.i. -- uz sava "apraksta".
 
 Precīzāk -- $T$ uz 1. lentes atrodas vārds $1^m, m \in \mathbb{N}$, $T$ pārbauda, vai tas ir formā $1^{2^n}, n \in \mathbb{N}$ (vārdu noraida, ja tas neatbilst) un uz 2. lentes (sauksim par darba lenti) uzraksta $n$ binārā pierakstā, aizņemot $log(n)$ vietas. Tiek pārbaudīts, vai $n$ pieraksts sintaktiski atbilst kādam $u_pfa(k)$; vārdu noraida, ja tas neatbilst. Tālāk $T$ uz darba lentes tiek izdalīta vieta $k$ skaitītājiem, kas norādīs $A$ galviņu pozīcijas uz ieejas vārda. Tā kā kā vērtības var būt robežās $\left[0, \ldots, 1^{2^n} \right]$, tad tam tiek patērēts $k \cdot log(2^n)= k \cdot n$ vietas. %TODO nevajag novērtēt visur ar O()?
-Tas tiek darīts determinēti, pārejas veicot ar amplitūdu $1$. Tālāk $T$ darbina uz ieejas virknes kā parādīts nodaļas sākumā (1. lentes galviņa vairs netiek kustināta, tiek pārbaudīts, vai galviņām atbilstošie skaitītāji ir vārda robežās, vai nē). Rezultātā $T$ ar attiecīgajām amplitūdām ir nonācis visās iespējamajās konfigurācijās, kur $A$ var nonākt apstrādājot vārdu. Tālāk $T$ skatās, vai darba lentes saturs liecina, ka $A$ ir nonācis akceptējošā stāvoklī, un vārdu noraida, ja $A$ ir akceptējoša stāvoklī, un akceptē, ja $A$ nav nonācis akceptējoša stāvoklī. Tādējādi $T$ ar tādu pašu amplitūdu kā $A$, dod pretēju rezultātu.
+Tas tiek darīts determinēti, pārejas veicot ar amplitūdu $1$. Tālāk $T$ darbina uz ieejas virknes kā parādīts nodaļas sākumā (1. lentes galviņa vairs netiek kustināta, tiek pārbaudīts, vai galviņām atbilstošie skaitītāji ir vārda robežās, vai nē). Rezultātā $T$ ar attiecīgajām amplitūdām ir nonācis visās iespējamajās konfigurācijās, kur $A$ var nonākt apstrādājot vārdu. Tālāk $T$ skatās, vai darba lentes saturs liecina, ka $A$ ir nonācis akceptējošā stāvoklī, un vārdu noraida, ja $A$ ir akceptējošā stāvoklī, un akceptē, ja $A$ nav nonācis akceptējoša stāvoklī. Tādējādi $T$ ar tādu pašu amplitūdu kā $A$, dod pretēju rezultātu.
 
 Apskatīsim valodu $L(T)$, ko akceptē $T$. Ir skaidri redzams, ka katram $u_pfa(k)$, ko apzīmēsim ar $J$, eksistē tāds vārds, kas pieder $L(T)$, bet nepieder $L(J)$, vai nepieder $L(T)$, bet pieder $L(J)$ -- $J$ apraksts.
 \end{pieradijums}
+
+Tāpat kā ~\citep{Macarie1995} un ~\citep{Monien1980} tiks izmantota funkcija
+\[
+	f_k : \left\{ 1^{2^n} | n \in \mathbb{N} \right\} \rightarrow \left\{ 1^{2^n} | n \in \mathbb{N} \right\} \textrm{, kur } f_k( 1^{2^n}) = 1^{2^{k \cdot n}}
+\]
+
+\begin{lemma}
+Katrai valodai $H \in \widehat{U_pTM}$ eksistē naturāls skaitlis $u$, tāds ka $f_u(H) \in \widehat{U_pFA(5)}$.
+\end{lemma}
+\begin{pieradijums}
+Parādīsim, kā $u_ptm$, sauktu par $T$, kas atpazīst $H$, pārveidot par citu $u_ptm$, sauktu par $T'$, ko iespējams aizstāt ar $p$-ultrametrisku $3$ skaitītāju mašīnu, no kā viegli seko, ka eksistē $u_pfa(k)$, kas atpazīst ar $f_u$ "izstiepto" $H$ variantu.
+
+Veidosim $T'$, kas simulēt $T$. $T'$ uz darba lentes glabās šādu informāciju:
+\begin{itemize}
+	\item ieejas vārda bināru reprezentāciju,
+	\item $T$ 1. lentes galviņas pozīciju (sauksim par ieejas lenti),
+	\item $T$ 2. lentes saturu (sauksim par darba lenti), %kas aizņem $O(log n)$ vietu,
+	\item $T$ darba lentes galviņas pozīciju.
+\end{itemize} %TODO telpas novērtējumi
+Visu šo informāciju, sākot darbu, $T'$ var sagatavot determinēti, pārejas veicot ar amplitūdu $1$. Tālāk $T'$ izmanto tikai darba lenti. Uz $T'$ darba lentes $T$ simulēšanu veikt ir vienkāršāk nekā ultrametrisko automātu gadījumā, jo $T'$ var izmantot oriģinālo $T$ vadības bloku, un pārejas nav jāsimulē uz lentes.
+
+Var redzēt, ka $T'$ var uzbūvēt atbilstošu $p$-ultrametrisku $5$ skaitītāju mašīnu. Pirmie divi skaitītāji tiek izmantoti, lai attēlotu $T'$ ieejas lentes saturu, otrie divi -- lai attēlotu darba lentes saturu --, un pēdējais -- kā palīg skaitītājs, lai nodrošinātu dalīšanu un reizināšanu ar $2$. Tā kā vairākgalviņu automāta galviņas pozīcija tiešā veidā atbilst skaitlim skaitītajā. Tad $5$ skaitītāju mašīnu var aizstāt ar $p$-ultrametrisku galīgu $5$ galviņu automātu. Tomēr, tā kā vairākgalviņu automāta galviņas nedrīkst iziet ārpus lentes robežām, tad tas nevar simulēt patvaļīgi lielus skaitītājus. To, ka ieejas vārdi ir pietiekami gari, lai automāts simulētu $T'$ darba lentes saturu, nodrošina piemeklējot pietiekami lielu $u$.
+\end{pieradijums}
+%TODO definēt skaitītaju mašīnu
+%TODO deterministiski -> determinēti
 
 \printbibliography
 
