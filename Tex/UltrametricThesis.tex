@@ -37,6 +37,17 @@
 
 %papildus matemātika
 \usepackage{mathtools}
+\newenvironment{thmenum}
+ {\begin{enumerate}[label=\upshape(\arabic*),ref=\thethm(\arabic*)]}
+ {\end{enumerate}}
+ 
+%TODO
+%pārrakstīt formā
+%\begin{thmenum}
+%\item \label{foo} Foo
+%\item \label{bar} Bar
+%\item \label{baz} Baz
+%\end{thmenum}
 
 
 %dalīšana kolonnās
@@ -345,7 +356,7 @@ $3)$ TODO
 $4)$ TODO
 \end{pieradijums}
 
-\begin{teorema}
+\begin{teorema} \label{atdalisana}
 Katram naturālam skaitlim $k$ un pirmskaitlim $p$ izpildās $\widehat{U_pFA(k)} \subsetneqq \widehat{U_pTM}$.
 \end{teorema}
 \begin{pieradijums}
@@ -364,7 +375,7 @@ Tāpat kā ~\citep{Macarie1995} un ~\citep{Monien1980} tiks izmantota funkcija
 	f_k : \left\{ 1^{2^n} | n \in \mathbb{N} \right\} \rightarrow \left\{ 1^{2^n} | n \in \mathbb{N} \right\} \textrm{, kur } f_k( 1^{2^n}) = 1^{2^{k \cdot n}}
 \]
 
-\begin{lemma}
+\begin{lemma} \label{skaititaji}
 Katrai valodai $L \in \widehat{U_pTM}$ eksistē naturāls skaitlis $u$, tāds ka
 \[
 	f_u(L) \in \widehat{U_pFA(5)}.
@@ -387,7 +398,7 @@ Var redzēt, ka $T'$ var uzbūvēt atbilstošu $p$-ultrametrisku $5$ skaitītāj
 %TODO definēt skaitītaju mašīnu
 %TODO deterministiski -> determinēti
 
-\begin{lemma}
+\begin{lemma} \label{reizinajums}
 Visām valodām $L \in \widehat{U_pTM}$ un visiem $u, v \geq 1, u, v \in \mathbb{N}$ izpildās
 \[
 	f_u(L) \in \widehat{U_pFA(v)} \Rightarrow L \in \widehat{U_pFA(u \cdot v)}.
@@ -400,7 +411,7 @@ Apskatīsim $A$ darbību, ja ieejā saņemts vārds $f_u(l), l = 1^{2^n} \in L, 
 Šī simulācija notiek līdzīgi kā varbūtiskajā gadījumā ~\citep{Macarie1995}. %TODO pārbaudīt vai nav arī nedeterminētajā
 \end{pieradijums}
 
-\begin{lemma}
+\begin{lemma} \label{plus1}
 Visām valodām $L \in \widehat{U_pTM}$ un visiem $u > v > 1, u, v \in \mathbb{N}$ izpildās
 \[
 	f_{u+1}(L) \in \widehat{U_pFA(v)} \Rightarrow f_u(L) \in \widehat{U_FA(v + 1)}.
@@ -420,6 +431,19 @@ Visi skaitā $v$ nepieciešamie $x_i$ tiek kodēti ar $A'$ $(v+1)$-mo galviņu. 
 Tā kā katrai $A$ galviņas kustībai atbilst kāda $A'$ galviņas kustība, tad atbilstošās pārejas var veikt ar vienādām amplitūdām, un vārdu akceptēšanas amplitūdas saglabājas.
 
 Šīs simulācija notiek līdzīgi kā varbūtiskajā ~\citep{Macarie1995} un nedeterminētajā ~\citep{Monien1980} gadījumā.
+\end{pieradijums}
+
+Rezultāts par $k + 1$ galviņas pārākumu pār $k$ viegli seko no iepriekšējām lemmām un teorēmas \ref{atdalisana}.
+\begin{teorema}
+Visiem $k \geq 2 \in \mathbb{N}$ izpildās
+\[
+	\widehat{U_pFA(k)} \subsetneqq \widehat{U_pFA(k + 1)}.
+\]
+\end{teorema}
+\begin{pieradijums}
+Pierādām no pretējā, parādot, ka no pieņēmuma, ka eksistē tāds $h \geq 2$, kam $\widehat{U_pFA(h)} = \widehat{U_pFA(h + 1)}$ seko, $\widehat{U_pFA(h \cdot (h + 1))} = \widehat{U_pTM}$, kas ir pretrunā ar teorēmu \ref{atdalisana}.
+
+Ņemam kādu $L \in \widehat{U_pTM}$ kādam pirmskaitlim $p$. No lemmas \ref{skaititaji} seko, ka eksistē tāds $m \in \mathbb{N}$, ka $f_m(L) \in \widehat{U_pFA(5)}$. Tātad arī $f_m(L) \in \widehat{U_pFA(h)}$. No lemmas \ref{plus1} seko, ka, ja $m > h + 1$ tad $f_{m-1}(L) \in \widehat{U_pFA(h + 1)} = \widehat{U_pFA(h)}$. Ņemam $m = m - 1$, un atkārtojam, līdz nonākam pie $f_m(L) \in \widehat{U_pFA(h)}$, un $m = h + 1$. Tad no lemmas \ref{reizinajums} seko, ka, ja $f_m(L) \in \widehat{U_pFA(h)}$, tad $L \in \widehat{U_pFA(h \cdot m)} = \widehat{U_pFA(h \cdot (h + 1))}$. Kas ir pretrunā ar teorēmu \ref{atdalisana}.
 \end{pieradijums}
 
 \printbibliography
