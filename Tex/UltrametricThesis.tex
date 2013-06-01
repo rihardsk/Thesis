@@ -302,52 +302,46 @@ L_k = \left\{ w_1 1 w_2 1 \ldots 1 w_{2n} |
 \]
 Tālāk tiks pierādīts, ka $L_k$ apmierina teorēmas punktus.
 
-$1)$ Tiks parādīts, kā patvaļīgai valodai $L_k$ uzbūvēt $1U_pFA(1)$ katram pirmskaitlim $p$. Automāts, sāk darbu ar amplitūdu $1$ $k$ dažādos sākuma stāvokļos $q_{1,1},q_{1,2},\ldots,q_{1,k}$. No katra no šiem stāvokļiem izies "zars", kas būs atbildīgs par amplitūdas krāšanu vienā no $k$ dažādiem akceptējošajiem stāvokļiem $q_{2k,1},q_{2k,2},\ldots,q_{2k,k}$.
+$1)$ Tiks parādīts, kā patvaļīgai valodai $L_k$ uzbūvēt $1U_pFA(1)$ katram pirmskaitlim $p$. Automāts, sāk darbu ar amplitūdu $1$ $n$ dažādos sākuma stāvokļos $q_{1,1,1},q_{1,2,1},\ldots,q_{1,n,1}$. No katra no šiem stāvokļiem izies "zars", kas būs atbildīgs par amplitūdas krāšanu vienā no $n$ dažādiem akceptējošajiem stāvokļiem $q_{2n,1,2},q_{2n,2,2},\ldots,q_{2n,n,2}$. Katrā zarā būs divu veidu stāvokļi -- 1. grupas stāvokļi $q_{i,j,1}$ būs atbildīgi par amplitūdu "ģenerēšanu" un 2. grupas stāvokļi $q_{i,j,2}$ -- par amplitūdu "krāšanu", $i \in \left[1, 2n \right], j \in \left[1, n \right]$.
 
-Ielasot $0$, atrodoties kādā no sākuma stāvokļiem $q_{1,i}, 1 \leq i \leq k$, stāvokļa amplitūda tiek pareizināta ar $p$. Ielasot $1$ automāts ar amplitūdu $1$ pāriet no $q_{1,i}$ uz stāvokli $q_{2,i}$ (tādējādi tur pārnesot sakrāto amplitūdu). Tālāk stāvoklī $q_{2,i}$, ielasot $0$, amplitūda tiek pareizināta ar $p^{i\cdot 2}$, stāvoklī $q_{3,i}$ -- ar $p^{i\cdot 3}$ (katrā stāvoklī $q_{j,i}$ pārejot uz $q_{j+1,i}$ ar amplitūdu $1$, ja ielasīts $1$), u.t.t., līdz ir ielasīti $n$ simboli $1$. Šajā brīdī automāts sakrāto amplitūdu katrā zarā tādā pašā veidā sāk dalīt ar attiecīgajām $p$ pakāpēm tikai apgrieztā secība -- stāvoklī $q_{n+1,i}$ -- ar $p^{i\cdot n}$, stāvoklī $q_{n+2,i}$ -- ar $p^{i\cdot n-1}$, u.t.t. Jeb precīzāk -- stāvoklī $q_{j,i}$ ielasot $0$, stāvokļa amplitūda tiek pareizināta ar
+Ielasot $0$, atrodoties kādā no pirmās grupas stāvokļiem $q_{i,j,1}$, kam $i \leq n$, stāvokļa amplitūda tiek saglabāta nemainīga, un ar amplitūdu $1$ tiek pāriets uz 2. grupas stāvokli $q_{i,j,2}$, tādējādi sakrāto amplitūdu pieskaitot $q_{i,j,2}$. Ielasot $0$, 2. grupas stāvokļos $q_{i,j,2}$ amplitūda tiek saglabāta nemainīga. Ielasot $1$ 1. grupas stāvoklī $q_{i,j,1}$, kam $i < n$, automāts ar amplitūdu $j + 1$ pāriet uz stāvokli $q_{i + 1,j,1}$, tādējādi nonākot tur ar amplitūdu $(j + 1) \cdot \left| q_{i + 1,j,1} \right|$. %TODO definēt |stāvoklis|
+Savukārt, ielasot $0$ 1. grupas stāvoklī $q_{i,j,1}$, kam $i > n$, stāvokļa amplitūda tiek saglabāta nemainīga, $q_{i,j,2}$ tagad tiek pāriets ar amplitūdu $-1$. Ielasot $1$ 1. grupas stāvoklī $q_{i,j,1}$, kam $i \geq n$, automāts uz stāvokli $q_{i + 1,j,1}$ pāriet ar amplitūdu $-(j + 1)$. Ielasot $1$ 2. grupas stāvoklī ar amplitūdu $1$ tiek pāriets no $q_{i,j,1}$ uz $q_{i + 1,j,1}$. Izņēmums ir stāvokļi pēdējā kolonnā -- $q_{2n,j,1}$ un $q_{2n,j,2}$ -- tā kā tie atbild par vārda pēdējā fragmenta ielasīšanu, tad tiem pāreja, ielasot $1$ netiek definēta.
+
+Rezultātā, ja tika ielasīts vārds $0^{a_1}10^{a_2}10^{a_3}1\ldots 10^{a_{2n}}$, katrā no akceptējošajiem stāvokļiem $q_{2n,j,2}$ ir sakrājusies amplitūda
 \[
-r = \begin{cases}
-		p^{i\cdot j} &\mbox{ja } 1 \leq j \leq n; \\
-		p^\frac{1}{i\cdot (2n-j+1)} & \mbox{ja } n \leq j \leq 2n. \end{cases}
+	a_1 + a_2 \cdot (j + 1) + a_3 \cdot (j + 1)^2 + \cdots + a_n \cdot (j + 1)^{n - 1} - a_{n+1} \cdot (j + 1)^{n - 1} - a_{n+2} \cdot (j + 1)^{n - 2} - \cdots - a_{2n},
 \]
-, un, ielasot $1$, ar amplitūdu $1$ tiek pāriets uz $q_{j+1,i}$.
-
-Rezultātā, ja tika ielasīts vārds $0^{a_1}10^{a_2}10^{a_3}1\ldots 10^{a_{2n}}$, katrā no beigu stāvokļiem $q_{2n,i}$ ir sakrājusies amplitūda
-$p^{a_1}\cdot p^{a_2 \cdot (2\cdot i)}\cdot p^{a_3 \cdot (3\cdot i)}\cdots p^{a_n \cdot (n\cdot i)} \cdot \frac{1}{p^{a_{n+1} \cdot (n\cdot i)}}\cdots \frac{1}{p^{a_{2n-2} \cdot (3\cdot i)}}\cdot \frac{1}{p^{a_{2n-1} \cdot (2\cdot i)}}\cdot \frac{1}{p^{a_{2n}}}$,
-kas ir vienāda ar $1$, ja vārds pieder valodai; t.i., ja
-$a_1 = a_{2n} \wedge a_2 = a_{2n-1} \wedge \ldots \wedge a_n = a_{n+1}$.
+kas ir vienāda ar $0$, ja vārds pieder valodai; t.i., ja
+\[
+	a_1 = a_{2n} \wedge a_2 = a_{2n-1} \wedge \ldots \wedge a_n = a_{n+1}.
+\]
 Iegūstam, ka vārds pieder valodai tad un tikai tad, ja ir apmierināta šāda vienādojumu sistēma:
 \begin{gather*}
 \allowdisplaybreaks
 	\begin{cases}
-		p^{a_1}\cdot p^{a_2 \cdot (2\cdot 1)} \cdots p^{a_n \cdot (n\cdot 1)} \cdot \frac{1}{p^{a_{n+1} \cdot (n\cdot 1)}}\cdots \frac{1}{p^{a_{2n-1} \cdot (2\cdot 1)}}\cdot \frac{1}{p^{a_{2n}}} = 1\\
-		p^{a_1}\cdot p^{a_2 \cdot (2\cdot 2)}\cdots p^{a_n \cdot (n\cdot 2)} \cdot \frac{1}{p^{a_{n+1} \cdot (n\cdot 2)}}\cdots \frac{1}{p^{a_{2n-1} \cdot (2\cdot 2)}}\cdot \frac{1}{p^{a_{2n}}} = 1\\
-		p^{a_1}\cdot p^{a_2 \cdot (2\cdot 3)}\cdots p^{a_n \cdot (n\cdot 3)} \cdot \frac{1}{p^{a_{n+1} \cdot (n\cdot 3)}}\cdots \frac{1}{p^{a_{2n-1} \cdot (2\cdot 3)}}\cdot \frac{1}{p^{a_{2n}}} = 1\\
+		a_1 + a_2 \cdot 2 + a_3 \cdot 2^2 + \cdots + a_n \cdot 2^{n - 1} - a_{n+1} \cdot 2^{n - 1} - a_{n+2} \cdot 2^{n - 2} - \cdots - a_{2n} = 0 \\
+		a_1 + a_2 \cdot 3 + a_3 \cdot 3^2 + \cdots + a_n \cdot 3^{n - 1} - a_{n+1} \cdot 3^{n - 1} - a_{n+2} \cdot 3^{n - 2} - \cdots - a_{2n} = 0\\
+		a_1 + a_2 \cdot 4 + a_3 \cdot 4^2 + \cdots + a_n \cdot 4^{n - 1} - a_{n+1} \cdot 4^{n - 1} - a_{n+2} \cdot 4^{n - 2} - \cdots - a_{2n} = 0\\
 		\cdots \\
-		p^{a_1}\cdot p^{a_2 \cdot (2\cdot n)}\cdots p^{a_n \cdot (n\cdot n)} \cdot \frac{1}{p^{a_{n+1} \cdot (n\cdot n)}}\cdots \frac{1}{p^{a_{2n-1} \cdot (2\cdot n)}}\cdot \frac{1}{p^{a_{2n}}} = 1\\
+		\begin{split}
+		a_1 + a_2 \cdot (n + 1) + a_3 \cdot (n + 1)^2 + \cdots + a_n \cdot (n + 1)^{n - 1} - a_{n+1} \cdot (n + 1)^{n - 1} \\
+		\qquad- a_{n+2} \cdot (n + 1)^{n - 2} - \cdots - a_{2n} = 0\\
+		\end{split}
 	\end{cases}\\
 \intertext{pārrakstot}
 	\begin{cases}
-		p^{a_1}\cdot p^{a_2 \cdot (2\cdot 1)} \cdots p^{a_n \cdot (n\cdot 1)} = p^{a_{n+1} \cdot (n\cdot 1)}\cdots p^{a_{2n-1} \cdot (2\cdot 1)}\cdot p^{a_{2n}}\\
-		p^{a_1}\cdot p^{a_2 \cdot (2\cdot 2)} \cdots p^{a_n \cdot (n\cdot 2)} = p^{a_{n+1} \cdot (n\cdot 2)}\cdots p^{a_{2n-1} \cdot (2\cdot 2)}\cdot p^{a_{2n}}\\
-		p^{a_1}\cdot p^{a_2 \cdot (2\cdot 3)} \cdots p^{a_n \cdot (n\cdot 3)} = p^{a_{n+1} \cdot (n\cdot 3)}\cdots p^{a_{2n-1} \cdot (2\cdot 3)}\cdot p^{a_{2n}}\\
+		(a_1 - a_{2n}) + 2 \cdot (a_2 - a_{2n-1}) + 2^2 \cdot (a_3 - a_{2n-2}) + \cdots + 2^{n - 1} \cdot (a_n - a_{n+1}) = 0\\
+		(a_1 - a_{2n}) + 3 \cdot (a_2 - a_{2n-1}) + 3^2 \cdot (a_3 - a_{2n-2}) + \cdots + 3^{n - 1} \cdot (a_n - a_{n+1}) = 0\\
+		(a_1 - a_{2n}) + 4 \cdot (a_2 - a_{2n-1}) + 4^2 \cdot (a_3 - a_{2n-2}) + \cdots + 4^{n - 1} \cdot (a_n - a_{n+1}) = 0\\
 		\cdots \\
-		p^{a_1}\cdot p^{a_2 \cdot (2\cdot n)} \cdots p^{a_n \cdot (n\cdot n)} = p^{a_{n+1} \cdot (n\cdot n)}\cdots p^{a_{2n-1} \cdot (2\cdot n)}\cdot p^{a_{2n}}\\
-	\end{cases}\\
-\intertext{pārrakstot iegūstam}
-	\begin{cases}
-		(a_1 - a_{2n}) + (2\cdot 1) \cdot (a_2 - a_{2n-1}) + (3 \cdot 1)\cdot (a_3 - a_{2n-2}) + \cdots + (n \cdot 1) \cdot (a_n - a_{n+1}) = 0\\
-		(a_1 - a_{2n}) + (2\cdot 2) \cdot (a_2 - a_{2n-1}) + (3 \cdot 2)\cdot (a_3 - a_{2n-2}) + \cdots + (n \cdot 2) \cdot (a_n - a_{n+1}) = 0\\
-		(a_1 - a_{2n}) + (2\cdot 3) \cdot (a_2 - a_{2n-1}) + (3 \cdot 3)\cdot (a_3 - a_{2n-2}) + \cdots + (n \cdot 3) \cdot (a_n - a_{n+1}) = 0\\
-		\cdots \\
-		(a_1 - a_{2n}) + (2\cdot n) \cdot (a_2 - a_{2n-1}) + (3 \cdot n)\cdot (a_3 - a_{2n-2}) + \cdots + (n \cdot n) \cdot (a_n - a_{n+1}) = 0\\
+		\begin{split}
+		(a_1 - a_{2n}) + (n + 1) \cdot (a_2 - a_{2n-1}) + (n + 1)^2 \cdot (a_3 - a_{2n-2}) + \cdots \\
+		\qquad+ (n + 1)^{n - 1} \cdot (a_n - a_{n+1}) = 0\\
+		\end{split}	
 	\end{cases}
 \end{gather*}
 
-Apskatīsim šīs sistēmas determinantu. Izdalot $i$-to rindiņu ar $i$ katram $1 \leq i \leq n$, pirmajā kolonnā iegūstam koeficientus
-$1, \frac{1}{2}, \frac{1}{3}, \ldots, \frac{1}{n}$,
-tātad matricā nav divu lineāri atkarīgu rindiņu, un matricas determinants ir atšķirīgs no nulles. Tā kā dotā vienādojumu sistēma ir homogēna, tai eksistē tikai triviālais atrisinājums.
-%TODO nav taisnība. vajag Vandermonda variantu
+Var redzēt, ka vienādojumu sistēmas koeficienti veido Vandermonda matricu, tātad sistēmas determinants ir nenulles, un, tā kā dotā vienādojumu sistēma ir homogēna, tai eksistē tikai triviālais atrisinājums.
 
 $2)$ TODO
 
