@@ -37,7 +37,7 @@
 
 %papildus matemātika
 \usepackage{mathtools}
-\allowdisplaybreaks
+
 
 %dalīšana kolonnās
 \usepackage{multicol}
@@ -241,6 +241,7 @@ Skaitlis $a$ uz lentes tiks padots formā $\triangleright a_n a_{n-1} \cdots a_1
 Tjūringa mašīnas programmas teksts.
 \begin{multicols}{2}
 	\begin{align*}
+	\allowdisplaybreaks
 	\shortintertext{Atņem $1$ no $a$}
 		q_0\triangleleft & \rightarrow_1 q_1\triangleleft L\\
 		q_10 & \rightarrow_1 q_11L\\
@@ -306,6 +307,7 @@ kas ir vienāda ar $1$, ja vārds pieder valodai; t.i., ja
 $a_1 = a_{2n} \wedge a_2 = a_{2n-1} \wedge \ldots \wedge a_n = a_{n+1}$.
 Iegūstam, ka vārds pieder valodai tad un tikai tad, ja ir apmierināta šāda vienādojumu sistēma:
 \begin{gather*}
+\allowdisplaybreaks
 	\begin{cases}
 		p^{a_1}\cdot p^{a_2 \cdot (2\cdot 1)} \cdots p^{a_n \cdot (n\cdot 1)} \cdot \frac{1}{p^{a_{n+1} \cdot (n\cdot 1)}}\cdots \frac{1}{p^{a_{2n-1} \cdot (2\cdot 1)}}\cdot \frac{1}{p^{a_{2n}}} = 1\\
 		p^{a_1}\cdot p^{a_2 \cdot (2\cdot 2)}\cdots p^{a_n \cdot (n\cdot 2)} \cdot \frac{1}{p^{a_{n+1} \cdot (n\cdot 2)}}\cdots \frac{1}{p^{a_{2n-1} \cdot (2\cdot 2)}}\cdot \frac{1}{p^{a_{2n}}} = 1\\
@@ -363,10 +365,13 @@ Tāpat kā ~\citep{Macarie1995} un ~\citep{Monien1980} tiks izmantota funkcija
 \]
 
 \begin{lemma}
-Katrai valodai $H \in \widehat{U_pTM}$ eksistē naturāls skaitlis $u$, tāds ka $f_u(H) \in \widehat{U_pFA(5)}$.
+Katrai valodai $L \in \widehat{U_pTM}$ eksistē naturāls skaitlis $u$, tāds ka
+\[
+	f_u(L) \in \widehat{U_pFA(5)}.
+\]
 \end{lemma}
 \begin{pieradijums}
-Parādīsim, kā $u_ptm$, sauktu par $T$, kas atpazīst $H$, pārveidot par citu $u_ptm$, sauktu par $T'$, ko iespējams aizstāt ar $p$-ultrametrisku $3$ skaitītāju mašīnu, no kā viegli seko, ka eksistē $u_pfa(k)$, kas atpazīst ar $f_u$ "izstiepto" $H$ variantu.
+Parādīsim, kā $u_ptm$, sauktu par $T$, kas atpazīst $L$, pārveidot par citu $u_ptm$, sauktu par $T'$, ko iespējams aizstāt ar $p$-ultrametrisku $3$ skaitītāju mašīnu, no kā viegli seko, ka eksistē $u_pfa(k)$, kas atpazīst ar $f_u$ "izstiepto" $L$ variantu.
 
 Veidosim $T'$, kas simulēt $T$. $T'$ uz darba lentes glabās šādu informāciju:
 \begin{itemize}
@@ -381,6 +386,41 @@ Var redzēt, ka $T'$ var uzbūvēt atbilstošu $p$-ultrametrisku $5$ skaitītāj
 \end{pieradijums}
 %TODO definēt skaitītaju mašīnu
 %TODO deterministiski -> determinēti
+
+\begin{lemma}
+Visām valodām $L \in \widehat{U_pTM}$ un visiem $u, v \geq 1, u, v \in \mathbb{N}$ izpildās
+\[
+	f_u(L) \in \widehat{U_pFA(v)} \Rightarrow L \in \widehat{U_pFA(u \cdot v)}.
+\]
+\end{lemma}
+\begin{pieradijums}
+Premisā minēto $U_pFA(v)$ sauksim par $A$, un sekās minēto $U_pFA(u \cdot v)$ -- par $A'$. %TODO premisa, sekas - varbūt nevajag
+Apskatīsim $A$ darbību, ja ieejā saņemts vārds $f_u(l), l = 1^{2^n} \in L, n \in \mathbb{N}$. Pozīciju uz ieejas vārda katrai no automāta $A$ $v$ galviņām var aprakstīt naturālu ar skaitli robežās $\left[0, 2^{u \cdot n} -1 \right]$. Šo skaitli var arī izteikt ar $u$ cipariem pie bāzes $2^n$. Tā kā katras $A'$ galviņas pozīciju uz ieejas vārda varam aprakstīt ar ciparu pie bāzes $2^n$, tad katru no $A$ galviņām var simulēt ar $u$ $A'$ galviņām. Tā kā katrai $A$ galviņas kustībai atbilst kāda $A'$ galviņas kustība, tad atbilstošās pārejas var veikt ar vienādām amplitūdām, un vārdu akceptēšanas amplitūdas saglabājas.
+
+Šī simulācija notiek līdzīgi kā varbūtiskajā gadījumā ~\citep{Macarie1995}. %TODO pārbaudīt vai nav arī nedeterminētajā
+\end{pieradijums}
+
+\begin{lemma}
+Visām valodām $L \in \widehat{U_pTM}$ un visiem $u > v > 1, u, v \in \mathbb{N}$ izpildās
+\[
+	f_{u+1}(L) \in \widehat{U_pFA(v)} \Rightarrow f_u(L) \in \widehat{U_FA(v + 1)}.
+\]
+\end{lemma}
+\begin{pieradijums}
+Premisā minēto $U_pFA(v)$ sauksim par $A$, un sekās minēto $U_pFA(v + 1)$ -- par $A'$. %TODO premisa, sekas - varbūt nevajag
+Apskatīsim $A$ darbību, ja ieejā saņemts vārds $f_{u+1}(l), l = 1^{2^n} \in L, n \in \mathbb{N}$. Pozīciju uz lentes katrai no automāta $A$ $v$ galviņām var aprakstīt naturālu ar skaitli $h_i$ robežās $h_i \in \left[0, 2^{(u + 1) \cdot n} + 1 \right]$. Simulēsim $h_i$ pozīciju automātā $A'$ ar galviņu $g_i$ un papildus skaitli $x_i \in \left[ 0, 2^n \right]$, tā, ka $h_i = g_i + x_i \cdot 2^{u \cdot n}$. Var redzēt, ka šādi var aprakstīt skaitļus vajadzīgajā intervālā
+\begin{align*}
+	2^{u \cdot n} + (2^n - 1) \cdot 2^{u \cdot n} & =\\
+	2^{u \cdot n} \cdot (1 + (2^n - 1)) & =\\
+	2^{u \cdot n + n} & =\\
+	2^{(u + 1) \cdot n}.\\
+\end{align*}
+
+
+Tā kā katrai $A$ galviņas kustībai atbilst kāda $A'$ galviņas kustība, tad atbilstošās pārejas var veikt ar vienādām amplitūdām, un vārdu akceptēšanas amplitūdas saglabājas.
+
+Šīs simulācija notiek līdzīgi kā varbūtiskajā ~\citep{Macarie1995} un nedeterminētajā ~\citep{Monien1980} gadījumā.
+\end{pieradijums}
 
 \printbibliography
 
