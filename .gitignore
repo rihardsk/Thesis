@@ -1,7 +1,7 @@
-﻿*.aux
+*.aux
 *.aux
 *.log
-*.pdf
+Tex/*.pdf
 *.synctex.gz
 *.toc
 *.bbl

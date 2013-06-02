@@ -49,6 +49,9 @@
 %\item \label{baz} Baz
 %\end{thmenum}
 
+%images
+\usepackage{graphicx}
+\usepackage{float}
 
 %dalīšana kolonnās
 \usepackage{multicol}
@@ -236,6 +239,13 @@ $1)$ Tiks parādīts, kā patvaļīgai valodai $L_k$ uzbūvēt $1U_pFA(1)$ katra
 
 Ielasot $0$, atrodoties kādā no pirmās grupas stāvokļiem $q_{i,j,1}$, kam $i \leq n$, stāvokļa amplitūda tiek saglabāta nemainīga, un ar amplitūdu $1$ tiek pāriets uz 2. grupas stāvokli $q_{i,j,2}$, tādējādi sakrāto amplitūdu pieskaitot $q_{i,j,2}$. Ielasot $0$, 2. grupas stāvokļos $q_{i,j,2}$ amplitūda tiek saglabāta nemainīga. Ielasot $1$ 1. grupas stāvoklī $q_{i,j,1}$, kam $i < n$, automāts ar amplitūdu $j + 1$ pāriet uz stāvokli $q_{i + 1,j,1}$, tādējādi nonākot tur ar amplitūdu $(j + 1) \cdot \left| q_{i + 1,j,1} \right|$. %TODO definēt |stāvoklis|
 Savukārt, ielasot $0$ 1. grupas stāvoklī $q_{i,j,1}$, kam $i > n$, stāvokļa amplitūda tiek saglabāta nemainīga, $q_{i,j,2}$ tagad tiek pāriets ar amplitūdu $-1$. Ielasot $1$ 1. grupas stāvoklī $q_{i,j,1}$, kam $i \geq n$, automāts uz stāvokli $q_{i + 1,j,1}$ pāriet ar amplitūdu $-(j + 1)$. Ielasot $1$ 2. grupas stāvoklī ar amplitūdu $1$ tiek pāriets no $q_{i,j,1}$ uz $q_{i + 1,j,1}$. Izņēmums ir stāvokļi pēdējā kolonnā -- $q_{2n,j,1}$ un $q_{2n,j,2}$ -- tā kā tie atbild par vārda pēdējā fragmenta ielasīšanu, tad tiem pāreja, ielasot $1$ netiek definēta.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=\textwidth]{Img/1pfa.pdf}
+\caption{Automāts $0^n10^m10^h1 \cdots 10^h10^m10^n$ atpazīšanai.}
+\label{fig:1pfa}
+\end{figure}
 
 Rezultātā, ja tika ielasīts vārds $0^{a_1}10^{a_2}10^{a_3}1\ldots 10^{a_{2n}}$, katrā no akceptējošajiem stāvokļiem $q_{2n,j,2}$ ir sakrājusies amplitūda
 \[
