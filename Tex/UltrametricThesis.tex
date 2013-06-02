@@ -15,7 +15,7 @@
 \usepackage{csquotes}
 \usepackage[
     backend=biber,
-    style=numeric,
+    style=numeric-comp,
     natbib=true,
     url=false,
     doi=true%,
@@ -101,8 +101,14 @@ TODO
 \end{longtable}
 
 \specnodala{Ievads}
-TODO
+Ultrametriskus automātus un Tjūringa mašīnas 2012. gadā ir ieviesis Rūsiņš Freivalds ~\citep{Freivalds2012}. Tam ir sekojuši vairāki darbi, kur dažādi to aspekti ir pētīti padziļināti. 2013. gadā Baloža un līdzautoru ~\citep{KasparsBalodis2013} darbā ir pētīta ultrametrisku automātu apraksta sarežģītība, %TODO citādāk?
+tiek parādīts, ka ultrametriski automāti var sasniegt eksponenciālu pārsvaru stāvokļu skaita ziņā salīdzinot ar determinētiem automātiem, un 2013. gadā Krišlauka un līdzautoru darbā ~\citep{Krislauks2013} tiek pētīta ultrametrisku Tjūringa mašīnu galviņas pagriezienu sarežģītība.
 
+Ultrametrisku automāti ir līdzīgi varbūtiskajiem automātiem, bet atšķirība no tiem, ultrametriskajā gadījumā netiek prasīts, lai amplitūdas, kas atbilst varbūtības jēdzienam varbūtiskajos automātos, būtu robežās no 0 līdz 1. Tie var būt patvaļīgi racionāli skaitļi. Jāpiebilst, ka Paavo Turakainen 1969. gadā ~\citep{Turakainen1969} ir ieviesis līdzīgas konstrukcijas, kur arī "varbūtības" var būt patvaļīgi lieli skaitļi, un beigu stāvokļa varbūtība tiek salīdzināta ar kādu noteiktu slieksni, turklāt ir parādīts abas konstrukcijas ir ekvivalentas. Tomēr, atšķirībā no šiem pseido-varbūtiskajiem automātiem, ultrametrisko automātu definīcijā tiek izmantots $p$-adiskās normas jēdziens.
+
+Var teikt, ka Freivalda ieviestā definīcija ir dabīga, jo tiek pētīts vienīgais atlikušais maz pētītais nejaušību uzdošanas veids ~\citep{Freivalds2012}. Turklāt ultrametrisko automātu definīcijai ir pierādītas derīgas īpašības -- Balodis ar līdzautoriem ~\citep{KasparsBalodis2013} ir pierādījis, ka regulētu $p$-adisko automātu atpazīstamo valodu klase sakrīt ar regulāro valodu klasi.
+
+Darbā lielākā uzmanība tiek pievērsta jautājumam par valodu hierarhiju vairākgalviņu automātu gadījumā. Determinētiem, nedeterminētiem un varbūtiskiem galīgiem automātiem ir pierādīti vairāki rezultāti gan vienvirziena gan divvirzienu automātiem ~\citep{Holzer2009,Yao1978,Monien1980,Macarie1995}. Darbā tiek pētīts vai ultrametriskiem vairākgalviņu automātiem pastāv līdzīgi rezultāti attiecībā uz valodu dalījumu hierarhijas klasēs. Kā arī tiek pētītas valodu klašu savstarpējās attiecības salīdzinot ultrametriskos automātus ar klasiskajiem.
 \chapter{$p$-adiski skaitļi}
 \section{Ievads $p$-adiskos skaitļos}
 Par $p$-adisku ciparu sauc naturālu skaitli robežās no $0$ līdz $p-1$ (ieskaitot), kur $p$ ir patvaļīgs pirmskaitlis. Par $p$-adisku veselu skaitli sauc virkni $(a_i)_{i \in \mathbb{N}}$, kur $a_i$ ir $p$-disks cipars. To var pierakstīt kā $\cdots a_i \cdots a_2a_1a_0$.
