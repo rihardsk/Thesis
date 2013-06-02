@@ -134,19 +134,35 @@ Jāievēro, ka arī vispārīgajā $p$-adisko skaitļu gadījumā skaitļa piera
 $p$-adiskiem skaitļiem ir izpildāmas visas tās pašas aritmētiskās darbības -- saskaitīšana, atņemšana, reizināšana un dalīšana -- kas izpildāmas skaitļiem decimālajā pierakstā. Saskaitīšanu, atņemšanu un reizināšanu var izpildīt $p$-adiskos veselos skaitļos, bet dalīšanas rezultāts var būt pierakstām tikai $p$-adiskos skaitļos.
 
 Var redzēt, ka katram racionālam skaitlim $q$ eksistē tāds pirmskaitlis $p$, ka $q$ var tikt izteikts kā $p$-adisks vesels skaitlis. To pašu nevar teikt par reāliem skaitļiem. Pastāv iracionāli skaitļi, ko nevar izteikt kā $p$-adisku skaitli nevienam $p$. Tas gan nenozīmē, ka $p$-adiski skaitļi kādam $p$ būtu reālo skaitļu apakškopa -- ir kontinuums $p$-adisku skaitļu, kas neatbilst nevienam reālam skaitlim. %\cite{Rus12}
+
 \section{$p$-adiskas absolūtās vērtības}
+Funkcija $d: X \times X \rightarrow R_{\geq 0}$, kur $X$ ir netukša kopa, tiek saukta par metriku, ja tiek apmierinātas šādas īpašības:
+\begin{enumerate}
+\item $d(x,y) = 0$ tad un tikai tad, ja $x = y$,
+\item $d(x,y) = d(y,x)$,
+\item $d(x,y) \leq d(x,z) + d(z,y)$ visiem $z \in X$.
+\end{enumerate}
+Metrikas funkcija tiek izmantota, lai noteiktu attālumu starp diviem kopas elementiem. Elementa attālums līdz nullei $d(x,0)$ par tā normu, vai absolūto vērtību, un tiek apzīmēts ar $||x||$.
 
+Elementa norma apmierina šādas īpašības:
+\begin{enumerate}
+\item $||x||=0$ tad un tikai tad, ja $x=0$,
+\item $||x*y|| = ||x||*||y||$,
+\item $||x+y|| \leq ||x||+||y||$ (trīsstūra nevienādība).
+\end{enumerate}
+Ja trešo īpašību var aizstāt ar tas spēcīgāko variantu -- stingro trīsstūra nevienādību $||x+y|| \leq max(||x||,||y||)$ --, tad normu sauc par ultrametrisku. Citādi to sauc par Arhimedisku. %\cite{Rus12}
 
-\chapter {Definīcijas}
 \begin{definicija}
 Katram nenulles racionālam skaitlim $\alpha$ eksistē viennozīmīgi nosakāms sadalījums pirmreizinātājos - $\alpha = \pm 2^{\alpha_2}3^{\alpha_3}5^{\alpha_5}7^{\alpha_7} \cdots$, kur $\alpha_i$-tie ir veseli skaitļi, no kuriem tikai galīgs skaits ir nenulles. Par racionāla skaitļa $\alpha$ \textbf{$p$-adisko absolūto vērtību} (arī sauktu par \textbf{$p$-normu}) sauc 
-$||x||_p = \begin{cases}
-p^{-\alpha_p}, \textrm{ja } \alpha \neq 0 \\
-0, \textrm{ja } \alpha = 0
-\end{cases} $
+\[
+||x||_p = \begin{cases}
+p^{-\alpha_p}, &\textrm{ja } \alpha \neq 0 \\
+0, &\textrm{ja } \alpha = 0.
+\end{cases}
+\]
 \end{definicija}
 
-
+\chapter {Definīcijas}
 Ultrametriski automāti tiek definēti kā ~\citep{KasparsBalodis2013}.
 \begin{definicija}
 Galīgs $p$-ultrametrisks ($U_pFA$) automāts ir kortežs $\langle S, \Sigma, s_0, \delta, F, \Lambda \rangle$, kur
