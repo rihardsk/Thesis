@@ -103,6 +103,31 @@ TODO
 \specnodala{Ievads}
 TODO
 
+\chapter{$p$-adiski skaitļi}
+\section{Ievads $p$-adiskos skaitļos}
+Par $p$-adisku ciparu sauc naturālu skaitli robežās no $0$ līdz $p-1$ (ieskaitot), kur $p$ ir patvaļīgs pirmskaitlis. Par $p$-adisku veselu skaitli sauc virkni $(a_i)_{i \in \mathbb{N}}$, kur $a_i$ ir $p$-disks cipars. To var pierakstīt kā $\cdots a_i \cdots a_2a_1a_0$.
+Šī virkne atbilst naturālam skaitlim
+\[\sum\limits_{i=0}^{+\infty}a_ip^i,
+\]
+kur $p$ ir izvēlētais pirmskaitlis un skaitīšanas sistēmas bāze. Šī virkne ir bezgalīga uz kreiso pusi. Naturālo skaitļu attēlojumiem $p$-adiskos skaitļos tikai galīgs skaits ciparu būs nenulles. Naturālam skaitlim $n$, tā $p$-adiskās reprezentācijas nenulles daļa precīzi sakritīs ar skaitļa pierakstu bāzē $p$. Kā piemēru varam apskatīt skaitli $42$ kas pie bāzes $5$ tiek pierakstīts kā $132$, un līdz ar to tā reprezentācija $5$-adiskos skaitļos ir $\cdots 0 \cdots 0132$.
+
+Negatīviem un racionāliem skaitļiem situācija ir ievērojami citāda. Kā piemēru apskatīsim skaitli $\frac{1}{2}$ un tā $5$-adisko reprezentāciju. $\frac{1}{2}$ definē kā skaitli, ko, saskaitot ar sevi, iegūst $1$. $1$ $5$-adiskā reprezentācija ir $\cdots 0 \cdots 001$. To zinot varam izteikt $\frac{1}{2}$ $5$-adiskos skaitļos:
+\[
+\begin{tabular}{rrrrrrrrr|}
+&$\cdots$ &2 &2 &2 &2 &2 &3\\
++&$\cdots$ &2 &2 &2 &2 &2 &3\\
+\hline
+\hline
+&$\cdots$ &0 &0 &0 &0 &0 &1\\
+\hline
+\end{tabular}
+\]
+Interesantā kārtā gandrīz jebkuru racionālu skaitli var līdzīgi izteikt kā $p$-adisku veselu skaitli. %TODO atsauce
+Izņēmumi kādam konkrētam $p$ ir skaitļi formā $\frac{a}{b}$, kur $a$ nedalās ar $p$, bet $b$ ar $p$ dalās. %TODO atsauce
+
+\section{$p$-adiskas absolūtās vērtības}
+
+
 \chapter {Definīcijas}
 \begin{definicija}
 Katram nenulles racionālam skaitlim $\alpha$ eksistē viennozīmīgi nosakāms sadalījums pirmreizinātājos - $\alpha = \pm 2^{\alpha_2}3^{\alpha_3}5^{\alpha_5}7^{\alpha_7} \cdots$, kur $\alpha_i$-tie ir veseli skaitļi, no kuriem tikai galīgs skaits ir nenulles. Par racionāla skaitļa $\alpha$ \textbf{$p$-adisko absolūto vērtību} (arī sauktu par \textbf{$p$-normu}) sauc 
