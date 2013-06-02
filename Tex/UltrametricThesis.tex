@@ -56,6 +56,9 @@
 %dalīšana kolonnās
 \usepackage{multicol}
 
+%saraksti
+\usepackage{enumitem}
+
 \fakultate{Datorikas}
 \nosaukums{Ultrametriski automāti}
 \darbaveids{Bakalaura}
@@ -218,12 +221,18 @@ Valodā $L(M)$, ko akceptē automāts $M$ ietilpst tie un tikai tie vārdi, ko a
 $\triangleright w \triangleleft$. Jeb precīzāk - $L(M)=\left\{ w \in \Sigma^* | \left(w,s_0,\left(1,\ldots,1\right)\right) \vdash^* \left(w,s,\left(p_1,\ldots,p_k\right)\right), s \in F, \textrm{un } M \textrm{apstājas } \left(w,s,\left(p_1,\ldots,p_k\right)\right)\right\}$. %TODO pabeigt par 2DFA(k).
 
 \section{Attiecība ar klasiskajiem automātiem}
+Vienvirziena vairākgalviņu automātiem gan determinētā gan nedeterminētā gadījumā ir pierādītas stingri iekļaujošas klases valodām, ko automāts var atpazīt atkarībā no galviņu skaita ~\citep{Holzer2009,Yao1978}. 1978. gadā ~\citet{Yao1978} parādīja, ka, lai atdalītu valodu klasi, ko var atpazīt ar $1dfa(k)$, no tās, ko var atpazīt ar $1dfa(k+1)$, pietiek ar valodu
+\[
+	L_n = \left\{w_1\$w_2\$ \ldots \$w_{2n} | w_i \in \left\{a,b\right\}^* \textrm{ un } w_i = w_{2n+1−i} \textrm{ visiem } 1 \leq i \leq n \right\}.
+\]
+Mēs apskatīsim līdzīgu valodu -- $L_k$.
 \begin{teorema}
-Katram $k \geq 1 \in \mathbb{N}$ eksistē valoda $L_k$, tāda ka:\\ 
-1) katram $k \geq 1 \in \mathbb{N}$ eksistē $1U_pFA(1)$, kas atpazīst $L_k$,\\ %TODO varbut arī var regulētu..
-2) $L_k$ nevar atpazīt ne ar kādu $1DFA(k)$,\\
-3) $L_k$ nevar atpazīt ne ar kādu $1NFA(k)$,\\
-4) $L_k$ nevar atpazīt ne ar kādu $1PFA(1)$.
+Katram $k \geq 1 \in \mathbb{N}$ eksistē valoda $L_k$, tāda ka:
+\begin{enumerate}[label={(\arabic*)}]
+	\item katram $k \geq 1 \in \mathbb{N}$ eksistē $1U_pFA(1)$, kas atpazīst $L_k$, %TODO varbut arī var regulētu..
+	\item $L_k$ nevar atpazīt ne ar kādu $1DFA(k)$,
+	\item $L_k$ nevar atpazīt ne ar kādu $1NFA(k)$.
+\end{enumerate}
 \end{teorema}
 \begin{pieradijums} Meklētā valoda ir
 \[
@@ -235,7 +244,7 @@ L_k = \left\{ w_1 1 w_2 1 \ldots 1 w_{2n} |
 \]
 Tālāk tiks pierādīts, ka $L_k$ apmierina teorēmas punktus.
 
-$1)$ Tiks parādīts, kā patvaļīgai valodai $L_k$ uzbūvēt $1U_pFA(1)$ katram pirmskaitlim $p$. Automāts, sāk darbu ar amplitūdu $1$ $n$ dažādos sākuma stāvokļos $q_{1,1,1},q_{1,2,1},\ldots,q_{1,n,1}$. No katra no šiem stāvokļiem izies "zars", kas būs atbildīgs par amplitūdas krāšanu vienā no $n$ dažādiem akceptējošajiem stāvokļiem $q_{2n,1,2},q_{2n,2,2},\ldots,q_{2n,n,2}$. Katrā zarā būs divu veidu stāvokļi -- 1. grupas stāvokļi $q_{i,j,1}$ būs atbildīgi par amplitūdu "ģenerēšanu" un 2. grupas stāvokļi $q_{i,j,2}$ -- par amplitūdu "krāšanu", $i \in \left[1, 2n \right], j \in \left[1, n \right]$.
+$(1)$ Tiks parādīts, kā patvaļīgai valodai $L_k$ uzbūvēt $1U_pFA(1)$ katram pirmskaitlim $p$. Automāts, sāk darbu ar amplitūdu $1$ $n$ dažādos sākuma stāvokļos $q_{1,1,1},q_{1,2,1},\ldots,q_{1,n,1}$. No katra no šiem stāvokļiem izies "zars", kas būs atbildīgs par amplitūdas krāšanu vienā no $n$ dažādiem akceptējošajiem stāvokļiem $q_{2n,1,2},q_{2n,2,2},\ldots,q_{2n,n,2}$. Katrā zarā būs divu veidu stāvokļi -- 1. grupas stāvokļi $q_{i,j,1}$ būs atbildīgi par amplitūdu "ģenerēšanu" un 2. grupas stāvokļi $q_{i,j,2}$ -- par amplitūdu "krāšanu", $i \in \left[1, 2n \right], j \in \left[1, n \right]$.
 
 Ielasot $0$, atrodoties kādā no pirmās grupas stāvokļiem $q_{i,j,1}$, kam $i \leq n$, stāvokļa amplitūda tiek saglabāta nemainīga, un ar amplitūdu $1$ tiek pāriets uz 2. grupas stāvokli $q_{i,j,2}$, tādējādi sakrāto amplitūdu pieskaitot $q_{i,j,2}$. Ielasot $0$, 2. grupas stāvokļos $q_{i,j,2}$ amplitūda tiek saglabāta nemainīga. Ielasot $1$ 1. grupas stāvoklī $q_{i,j,1}$, kam $i < n$, automāts ar amplitūdu $j + 1$ pāriet uz stāvokli $q_{i + 1,j,1}$, tādējādi nonākot tur ar amplitūdu $(j + 1) \cdot \left| q_{i + 1,j,1} \right|$. %TODO definēt |stāvoklis|
 Savukārt, ielasot $0$ 1. grupas stāvoklī $q_{i,j,1}$, kam $i > n$, stāvokļa amplitūda tiek saglabāta nemainīga, $q_{i,j,2}$ tagad tiek pāriets ar amplitūdu $-1$. Ielasot $1$ 1. grupas stāvoklī $q_{i,j,1}$, kam $i \geq n$, automāts uz stāvokli $q_{i + 1,j,1}$ pāriet ar amplitūdu $-(j + 1)$. Ielasot $1$ 2. grupas stāvoklī ar amplitūdu $1$ tiek pāriets no $q_{i,j,1}$ uz $q_{i + 1,j,1}$. Izņēmums ir stāvokļi pēdējā kolonnā -- $q_{2n,j,1}$ un $q_{2n,j,2}$ -- tā kā tie atbild par vārda pēdējā fragmenta ielasīšanu, tad tiem pāreja, ielasot $1$ netiek definēta. Automāta shēma redzama attēlā \ref{fig:1pfa}.
@@ -283,12 +292,12 @@ Iegūstam, ka vārds pieder valodai tad un tikai tad, ja ir apmierināta šāda 
 
 Var redzēt, ka vienādojumu sistēmas koeficienti veido Vandermonda matricu, tātad sistēmas determinants ir nenulles, un, tā kā dotā vienādojumu sistēma ir homogēna, tai eksistē tikai triviālais atrisinājums.
 
-$2)$ TODO
+$(2)$ Pierādījis ~\citet{Freivalds1982}, pierādījums līdzīgai valodai atrodams arī ~\citep{Yao1978}. Pierādījuma ideja balstās uz faktu, ka divas galviņas, kas izmantotas kāda viena pāra pārbaudīšanai, nevar izmantot vairs neviena cita pāra pārbaudei. No tā arī seko, ka, ja valodas pāru fragmentu skaits $n$ ir lielāks par visu iespējamo galviņu pāru skaitu ${k\choose 2}$, tad valodu nevar atpazīt ar $k$ galviņām.
 
-$3)$ TODO
-
-$4)$ TODO
+$(3)$ Pierādījis ~\citet{Freivalds1982}, pierādījums līdzīgai valodai atrodams arī ~\citep{Yao1978}.
 \end{pieradijums}
+
+Jāpiebilst, ka ar konstantu galviņu skaitu $L_k$ atpazīšanai pietiek arī varbūtiskiem automātiem. ~\citet{Freivalds1982} ir parādījis, ka jebkuram $\epsilon > 0$ eksistē $1pfa$, kas atpazīst katru vārdu $L_k$ ar varbūtību $1$, un noraida katru vārdu, kas nepieder, ar varbūtību vismaz $1 - \epsilon$.
 
 \chapter{Divvirzienu automāti}
 \section{Definīcijas}
