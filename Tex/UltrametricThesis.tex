@@ -387,7 +387,7 @@ $p$-Ultrametriska galīga $k$ galviņu automāta aprakstu var uzdot ar bināru v
 	\item pārejas starp stāvokļiem un to amplitūdas %TODO cik daudz vietas aizņem?
 \end{itemize}
 
-Simulācija tiek realizēta šādi. $p$-Ultrametriska galīga $k$ galviņu automāta ar pāreju amplitūdām no $log$-space $p$-konstruējamas kopas, saukta par $A$, simulēšanai tiek veidota $p$-ultrametriska $2$ lenšu Tjūringa mašīna, saukta par $T$. $T$ uz ieejas lentes tiek padots $A$ apraksts viena burta alfabētā formā $1^{2^n}, n \in \mathbb{N}$. Sākot darbu $T$ ielasa ieejas vārdu un determinēti, pārejas veicot ar amplitūdu $1$, sagatavo 2. lentu, tur ierakstot skaitli $n$ binārā pierakstā. $n$ ir simulējamā automāta $A$ apraksts. Tiek arī izdalīta vieta apjomā $k \cdot n$ $k$ skaitītājiem, kas norādīs $A$ galviņu pozīcijas. Tālākajā simulācijas gaitā tiks izmantota tikai 2. lente (lai arī rakstīšanai var izmantot abas lentes, ērtībai sauksim 2. lenti par darba lenti).
+Simulācija tiek realizēta šādi. $p$-Ultrametriska galīga $k$ galviņu automāta ar pāreju amplitūdām no $log$-space $p$-konstruējamas kopas, saukta par $A$, simulēšanai tiek veidota $p$-ultrametriska $2$ lenšu Tjūringa mašīna, saukta par $T$. $T$ uz ieejas lentes tiek padots $A$ apraksts viena burta alfabētā formā $1^{2^n}, n \in \mathbb{N}$. Sākot darbu $T$ ielasa ieejas vārdu un determinēti, pārejas veicot ar amplitūdu $1$, sagatavo 2. lentu, tur ierakstot skaitli $n$ binārā pierakstā. $n$ ir simulējamā automāta $A$ apraksts. Tiek arī izdalīta vieta apjomā $O(k \cdot n)$ $k$ skaitītājiem, kas norādīs $A$ galviņu pozīcijas. Tālākajā simulācijas gaitā tiks izmantota tikai 2. lente (lai arī rakstīšanai var izmantot abas lentes, ērtībai sauksim 2. lenti par darba lenti).
 
 Atceramies, ka $A$ savas darbības laikā iziet cauri vairāku konfigurāciju virknei, un katrā laika momentā $A$ var "paralēli" būt vairākās konfigurācijās ar dažādām amplitūdām.
 Ja $A$ atrodas kāda konfigurācijā ar amplitūdu $a$, tad $T$ to simulēs, ar atbilstošo amplitūdu atrodoties konfigurācijā, kur darba lentes saturs atbilst attiecīgajai $A$ konfigurācijai.
@@ -460,7 +460,7 @@ Veidosim īpašu $p$-ultrametrisku Tjūringa mašīnu ar $2$ lentēm, un ar $log
 
 Līdzīgi kā parādīts nodaļas sākumā, $T$ veidosim tā, ka tā simulē ieejā saņemtu $u_pfa(k)$, sauktu par $A$. Atšķirībā no apraksta, $A$ "aprakstā" tieša veidā netiek iekļauts ieejas vārds, ko $A$ apstrādā. Tā vietā $A$ tiks darbināts uz ieejas virknes, t.i. -- uz sava "apraksta".
 
-Precīzāk -- $T$ uz 1. lentes atrodas vārds $1^m, m \in \mathbb{N}$, $T$ pārbauda, vai tas ir formā $1^{2^n}, n \in \mathbb{N}$ (vārdu noraida, ja tas neatbilst) un uz 2. lentes (sauksim par darba lenti) uzraksta $n$ binārā pierakstā, aizņemot $log(n)$ vietas. Tiek pārbaudīts, vai $n$ pieraksts sintaktiski atbilst kādam $u_pfa(k)$; vārdu noraida, ja tas neatbilst. Tālāk $T$ uz darba lentes tiek izdalīta vieta $k$ skaitītājiem, kas norādīs $A$ galviņu pozīcijas uz ieejas vārda. Tā kā kā vērtības var būt robežās $\left[0, \ldots, 1^{2^n} \right]$, tad tam tiek patērēts $k \cdot log(2^n)= k \cdot n$ vietas. %TODO nevajag novērtēt visur ar O()?
+Precīzāk -- $T$ uz 1. lentes atrodas vārds $1^m, m \in \mathbb{N}$, $T$ pārbauda, vai tas ir formā $1^{2^n}, n \in \mathbb{N}$ (vārdu noraida, ja tas neatbilst) un uz 2. lentes (sauksim par darba lenti) uzraksta $n$ binārā pierakstā, aizņemot $O(log(n))$ vietas. Tiek pārbaudīts, vai $n$ pieraksts sintaktiski atbilst kādam $u_pfa(k)$; vārdu noraida, ja tas neatbilst. Tālāk $T$ uz darba lentes tiek izdalīta vieta $k$ skaitītājiem, kas norādīs $A$ galviņu pozīcijas uz ieejas vārda. Tā kā kā vērtības var būt robežās $\left[0, \ldots, 1^{2^n} \right]$, tad tam tiek patērēts $O(k \cdot log(2^n)) \sim O(k \cdot n)$ vietas. %TODO nevajag novērtēt visur ar O()?
 Tas tiek darīts determinēti, pārejas veicot ar amplitūdu $1$. Tālāk $T$ darbina uz ieejas virknes kā parādīts nodaļas sākumā (1. lentes galviņa vairs netiek kustināta, tiek pārbaudīts, vai galviņām atbilstošie skaitītāji ir vārda robežās, vai nē). Rezultātā $T$ ar attiecīgajām amplitūdām ir nonācis visās iespējamajās konfigurācijās, kur $A$ var nonākt apstrādājot vārdu. Tālāk $T$ skatās, vai darba lentes saturs liecina, ka $A$ ir nonācis akceptējošā stāvoklī, un vārdu noraida, ja $A$ ir akceptējošā stāvoklī, un akceptē, ja $A$ nav nonācis akceptējoša stāvoklī. Tādējādi $T$ ar tādu pašu amplitūdu kā $A$, dod pretēju rezultātu.
 
 Apskatīsim valodu $L(T)$, ko akceptē $T$. Ir skaidri redzams, ka katram $u_pfa(k)$, ko apzīmēsim ar $J$, eksistē tāds vārds, kas pieder $L(T)$, bet nepieder $L(J)$, vai nepieder $L(T)$, bet pieder $L(J)$ -- $J$ apraksts.
@@ -474,7 +474,7 @@ Tāpat kā ~\citep{Macarie1995} un ~\citep{Monien1980} tiks izmantota funkcija
 \begin{lemma} \label{skaititaji}
 Katrai valodai $L \in \widehat{U_pTM}$ eksistē naturāls skaitlis $u$, tāds ka
 \[
-	f_u(L) \in \widehat{U_pFA(5)}.
+	f_u(L) \in \widehat{U_pFA(3)}.
 \]
 \end{lemma}
 \begin{pieradijums}
@@ -484,7 +484,7 @@ Veidosim $T'$, kas simulēt $T$. $T'$ uz darba lentes glabās šādu informācij
 \begin{itemize}
 	\item ieejas vārda bināru reprezentāciju,
 	\item $T$ 1. lentes galviņas pozīciju (sauksim par ieejas lenti),
-	\item $T$ 2. lentes saturu (sauksim par darba lenti), %kas aizņem $O(log n)$ vietu,
+	\item $T$ 2. lentes saturu (sauksim par darba lenti) (aizņem $O(log n)$ vietas),
 	\item $T$ darba lentes galviņas pozīciju.
 \end{itemize} %TODO telpas novērtējumi
 Uz $T'$ darba lentes $T$ simulēšanu veikt ir vienkāršāk nekā ultrametrisko automātu gadījumā, jo $T'$ var izmantot oriģinālo $T$ vadības bloku, un pārejas nav jāsimulē uz lentes. $T$ simulācijā $T'$ izmanto tikai darba lenti.
@@ -498,7 +498,7 @@ Var redzēt, ka var uzbūvēt $T'$ atbilstošu $p$-ultrametrisku $3$ reģistru m
 \label{fig:skaititaji}
 \end{figure}
 
-Tā kā vairākgalviņu automāta galviņas pozīcija tiešā veidā atbilst skaitlim skaitītajā. Tad $5$ skaitītāju mašīnu var aizstāt ar $p$-ultrametrisku galīgu $5$ galviņu automātu. Tomēr, tā kā vairākgalviņu automāta galviņas nedrīkst iziet ārpus lentes robežām, tad tas nevar simulēt patvaļīgi lielus skaitītājus. To, ka ieejas vārdi ir pietiekami gari, lai automāts simulētu $T'$ darba lentes saturu, nodrošina piemeklējot pietiekami lielu $u$.
+Tā kā vairākgalviņu automāta galviņas pozīcija tiešā veidā atbilst skaitlim reģistrā, un simulējamā Tjūringa mašīna ir ar $log$-space telpas sarežģītību, tad $3$ reģistru mašīnu var aizstāt ar $p$-ultrametrisku galīgu $3$ galviņu automātu. Tomēr, tā kā vairākgalviņu automāta galviņas nedrīkst iziet ārpus lentes robežām, tad tas nevar simulēt patvaļīgi lielus skaitītājus. To, ka ieejas vārdi ir pietiekami gari, lai automāts simulētu $T'$ darba lentes saturu, nodrošina piemeklējot pietiekami lielu $u$.
 \end{pieradijums}
 
 \begin{lemma} \label{reizinajums}
@@ -529,7 +529,7 @@ Apskatīsim $A$ darbību, ja ieejā saņemts vārds $f_{u+1}(l), l = 1^{2^n} \in
 	2^{u \cdot n + n} & =\\
 	2^{(u + 1) \cdot n}.\\
 \end{align*}
-Visi skaitā $v$ nepieciešamie $x_i$ tiek kodēti ar $A'$ $(v+1)$-mo galviņu. %TODO pateikt, ka tas nav triviāli?
+Visi skaitā $v$ nepieciešamie $x_i$ tiek kodēti ar $A'$ $(v+1)$-mo galviņu to dara līdzīgi kā ~\citep{Monien1980}.
 To var panākt, ja uz $A'$ lentes ir pietiekami daudz vietas, t.i., ja $(2^n)^v < 2^{u \cdot n}$, no kā seko prasība $v < u$.
 
 Tā kā katrai $A$ galviņas kustībai atbilst kāda $A'$ galviņas kustība, tad atbilstošās pārejas var veikt ar vienādām amplitūdām, un vārdu akceptēšanas amplitūdas saglabājas.
@@ -547,7 +547,7 @@ Visiem $k \geq 2 \in \mathbb{N}$ izpildās
 \begin{pieradijums}
 Pierādām no pretējā, parādot, ka no pieņēmuma, ka eksistē tāds $h \geq 2$, kam $\widehat{U_pFA(h)} = \widehat{U_pFA(h + 1)}$ seko, $\widehat{U_pFA(h \cdot (h + 1))} = \widehat{U_pTM}$, kas ir pretrunā ar teorēmu \ref{atdalisana}.
 
-Ņemam kādu $L \in \widehat{U_pTM}$ kādam pirmskaitlim $p$. No lemmas \ref{skaititaji} seko, ka eksistē tāds $m \in \mathbb{N}$, ka $f_m(L) \in \widehat{U_pFA(5)}$. Tātad arī $f_m(L) \in \widehat{U_pFA(h)}$. No lemmas \ref{plus1} seko, ka, ja $m > h + 1$ tad $f_{m-1}(L) \in \widehat{U_pFA(h + 1)} = \widehat{U_pFA(h)}$. Ņemam $m = m - 1$, un atkārtojam, līdz nonākam pie $f_m(L) \in \widehat{U_pFA(h)}$, un $m = h + 1$. Tad no lemmas \ref{reizinajums} seko, ka, ja $f_m(L) \in \widehat{U_pFA(h)}$, tad $L \in \widehat{U_pFA(h \cdot m)} = \widehat{U_pFA(h \cdot (h + 1))}$. Kas ir pretrunā ar teorēmu \ref{atdalisana}.
+Ņemam kādu $L \in \widehat{U_pTM}$ kādam pirmskaitlim $p$. No lemmas \ref{skaititaji} seko, ka eksistē tāds $m \in \mathbb{N}$, ka $f_m(L) \in \widehat{U_pFA(3)}$. Tātad arī $f_m(L) \in \widehat{U_pFA(h)}$. No lemmas \ref{plus1} seko, ka, ja $m > h + 1$ tad $f_{m-1}(L) \in \widehat{U_pFA(h + 1)} = \widehat{U_pFA(h)}$. Ņemam $m = m - 1$, un atkārtojam, līdz nonākam pie $f_m(L) \in \widehat{U_pFA(h)}$, un $m = h + 1$. Tad no lemmas \ref{reizinajums} seko, ka, ja $f_m(L) \in \widehat{U_pFA(h)}$, tad $L \in \widehat{U_pFA(h \cdot m)} = \widehat{U_pFA(h \cdot (h + 1))}$. Kas ir pretrunā ar teorēmu \ref{atdalisana}.
 \end{pieradijums}
 \begin{sekas}
 Tā kā $U_pFA(k + 1)$ sevī iekļauj $U_pFA(k)$, un tikko tika parādīts, ka eksistē tāda valoda, ko var atpazīt ar $k+1$ galviņu, bet nevar ar $k$, tad galviņu hierarhijas rezultāts ir spēkā arī valodām vairāku burtu alfabētā:
