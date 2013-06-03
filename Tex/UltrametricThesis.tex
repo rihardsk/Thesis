@@ -220,7 +220,12 @@ $\left(d_1, \ldots, d_k \right) \in \delta \left( \left( a_{p_1}, \ldots a_{p_k}
 kur $w = a_1a_2 \ldots a_n$ ir ieejas vārds, un $a_0=\triangleright$, un $a_{n+1}=\triangleleft$. $\vdash$ refleksīvais, tranzitīvais slēgums tiek apzīmēts ar $\vdash^*$.
 
 Valodā $L(M)$, ko akceptē automāts $M$ ietilpst tie un tikai tie vārdi, ko akceptē $M$. $2NFA(k)$ akceptē tos un tikai tos vārdus $w$, kam pastāv kāda konfigurāciju virkne, kas noved pie automāta apstāšanās akceptējoša stāvoklī, ja uz ieejas lentes ir
-$\triangleright w \triangleleft$. Jeb precīzāk - $L(M)=\left\{ w \in \Sigma^* | \left(w,s_0,\left(1,\ldots,1\right)\right) \vdash^* \left(w,s,\left(p_1,\ldots,p_k\right)\right), s \in F, \textrm{un } M \textrm{apstājas } \left(w,s,\left(p_1,\ldots,p_k\right)\right)\right\}$. %TODO pabeigt par 2DFA(k).
+$\triangleright w \triangleleft$. Jeb precīzāk - 
+\begin{multline*}
+	L(M)=\left\{ w \in \Sigma^* | \left(w,s_0,\left(1,\ldots,1\right)\right) \vdash^* \left(w,s,\left(p_1,\ldots,p_k\right)\right), s \in F,\right.\\
+	\left.\textrm{un } M \textrm{ apstājas } \left(w,s,\left(p_1,\ldots,p_k\right)\right)\right\}.
+\end{multline*}
+%TODO pabeigt par 2DFA(k).
 
 \section{Attiecība ar klasiskajiem automātiem}
 Vienvirziena vairākgalviņu automātiem gan determinētā gan nedeterminētā gadījumā ir pierādītas stingri iekļaujošas klases valodām, ko automāts var atpazīt atkarībā no galviņu skaita ~\citep{Holzer2009,Yao1978}. 1978. gadā ~\citet{Yao1978} parādīja, ka, lai atdalītu valodu klasi, ko var atpazīt ar $1dfa(k)$, no tās, ko var atpazīt ar $1dfa(k+1)$, pietiek ar valodu
@@ -351,22 +356,20 @@ Par $p$-ultrametrisku Tjūringa mašīnu ar $k$ darba lentēm $(U_pTM(k))$ sauc 
 \begin{itemize}
 	\item $Q$ ir galīga netukša stāvokļu kopa,
 	\item $\Gamma$ ir galīga netukša kopa -- darba alfabēts,
-	\item $b \in \Gamma$ ir "tukšais" simbols (drīkst atrasties uz lentes neierobežoti daudz eksemplāros),
-	\item $\Sigma\subseteq\Gamma\setminus\{b\}$ ieejas alfabēts,
-	\item $q_0 \in Q$ ir sākuma stāvoklis,
+	\item $b \in \Sigma$ ir "tukšais" simbols (drīkst atrasties uz lentes neierobežoti daudz eksemplāros),
+	\item $\Sigma\subseteq\Sigma\setminus\{b\}$ ieejas alfabēts,
+	\item $q_0 \in Q_p$ ir sākotnējais amplitūdu sadalījums,
 	\item $F \subseteq Q$ ir akceptējošo stāvokļu kopa.
-	\item $\delta: Q \setminus F \times \Gamma^k \rightarrow Q \times \left(\Gamma \times \{L,N,R\} \times \mathbb{Q}_p \right)^k$ ir daļēji definēta pārejas funkcija, kur $L$ apzīmē mašīnas galviņas pabīdīšanu pa kreisi , $R$ -- pabīdīšanu pa labi, un $N$ norāda, ka mašīnas galviņa netiek pārvietota, un $\mathbb{Q}_p$ ir amplitūda, ar kādu tiek veikta pāreja.
+	\item $\delta: Q \setminus F \times \Sigma^k \rightarrow Q \times \left(\Sigma \times \{L,N,R\} \times \mathbb{Q}_p \right)^k$ ir daļēji definēta pārejas funkcija, kur $L$ apzīmē mašīnas galviņas pabīdīšanu pa kreisi , $R$ -- pabīdīšanu pa labi, un $N$ norāda, ka mašīnas galviņa netiek pārvietota, un $\mathbb{Q}_p$ ir amplitūda, ar kādu tiek veikta pāreja.
 \end{itemize}
 \end{definicija}
 
-Līdzīgi kā ultrametrisku vairākgalviņu automātu gadījumā mašīna ar noteiktu amplitūdu atrodas kāda no tās iespējamajām konfigurācijām, bet tagad konfigurācija iekļauj vadības bloka stāvokli un visu $k$ lenšu saturu.
-%TODO kā aprēķina amplitūdas
+Līdzīgi kā ultrametrisku vairākgalviņu automātu gadījumā mašīna ar noteiktu amplitūdu atrodas kāda no tās iespējamajām konfigurācijām, bet tagad konfigurācija iekļauj vadības bloka stāvokli un visu $k$ lenšu saturu. Amplitūda, ar kādu mašīna $i$-tajā solī atrodas kāda konfigurācijā tiek aprēķināta analogi tam, kā norādīts ultrametrisko vairākgalviņu automātu gadījumā.
 %TODO ko nozīmē, ka mašīna akceptē vārdu
-%TODO gamma -> sigma
 
 Ultrametriski vairāku skaitītāju automāti arī tiks izmantoti kā starpposms pierādījumos.
 \begin{definicija}
-Par $p$-ultrametrisku $k$ skaitītāju automātu tiek saukts
+Galīgs $p$-ultrametrisks $k$ reģistru automāts (turpmāk arī mašīna) ($2U_pRA(k)$) sastāv no vadības bloka ar ultrametriskām pārejām, un $k$ reģistriem, kas satur naturālus skaitļus. Automāts sak darbu ar ieejas vārdu pirmajā reģistrā, un ar amplitūdu, kas atbilst sākotnējajam emplitūdu sadalījumam, kāda no vadības bloka stāvokļiem. Katram no reģistriem var tikt pielietots predikāts $\stackrel{?}{=} 0$ un operācija $+1$ vai $-1$. Katrai vadības bloka pārejai var tikt norādīts predikāts vai operācija, kas izpildās veicot pāreju, kā arī amplitūda. Vārda akceptēšanas kritēriji ir analogi ultrametrisko automātu definīcijā izmantotajiem.
 \end{definicija}
 
 \section{Ultrametriska automāta simulācija}
@@ -397,7 +400,15 @@ Racionālie skaitļi veido $log$-space $p$-konstruējamu kopu.
 \begin{pieradijums}
 Parādīsim, ka jebkuram pirmskaitlim $p$ eksistē $p$-ultrametriska vienas lentes Tjūringa mašīna, kas ieejā saņemot racionāla skaitļa $a$ pierakstu binārā formā, savas darbības beigās nonāk īpašā stāvoklī $q_u$ ar amplitūdu $a$.
 
-Skaitlis $a$ uz lentes tiks padots formā $\triangleright a_n a_{n-1} \cdots a_1 \cdot a_0 | a_{-1} a_{-2} \cdots a_{-m} \triangleleft$, kur $\sum\limits_{i=-m}^n a_i \cdot 2^i = a$ ($|$ ir atdalītājsimbols). Mašīna sākotnēji, ignorējot atdalītājsimbolu, cikliski no skaitļa $a \cdot 2^m$ atņem $1$, katru reizi to izdarot, palielinot $q_u$ amplitūdu par $1$. Kad uz lentas atrodas vairs tikai $00 \cdots 0|00 \cdots 0$, mašīna $q_u$ sakrāto amplitūdu izdala ar $2^m$. $\rightarrow_i$ norāda, ka pāreja tiek veikta ar amplitūdu $i$.
+Skaitlis $a$ uz lentes tiks padots formā
+\[
+	\triangleright a_n a_{n-1} \cdots a_1 \cdot a_0 | a_{-1} a_{-2} \cdots a_{-m} \triangleleft,
+\]
+kur $\sum\limits_{i=-m}^n a_i \cdot 2^i = a$ ($|$ ir atdalītājsimbols). Mašīna sākotnēji, ignorējot atdalītājsimbolu, cikliski no skaitļa $a \cdot 2^m$ atņem $1$, katru reizi to izdarot, palielinot $q_u$ amplitūdu par $1$. Kad uz lentas atrodas vairs tikai
+\[
+	00 \cdots 0|00 \cdots 0,
+\]
+mašīna $q_u$ sakrāto amplitūdu izdala ar $2^m$. $\rightarrow_i$ norāda, ka pāreja tiek veikta ar amplitūdu $i$.
 
 Tjūringa mašīnas programmas teksts.
 \begin{multicols}{2}
