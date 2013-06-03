@@ -294,7 +294,7 @@ Iegūstam, ka vārds pieder valodai tad un tikai tad, ja ir apmierināta šāda 
 
 Var redzēt, ka vienādojumu sistēmas koeficienti veido Vandermonda matricu, tātad sistēmas determinants ir nenulles, un, tā kā dotā vienādojumu sistēma ir homogēna, tai eksistē tikai triviālais atrisinājums.
 
-$(2)$ Pierādījis ~\citet{Freivalds1982}, pierādījums līdzīgai valodai atrodams arī ~\citep{Yao1978}. Pierādījuma ideja balstās uz faktu, ka divas galviņas, kas izmantotas kāda viena pāra pārbaudīšanai, nevar izmantot vairs neviena cita pāra pārbaudei. No tā arī seko, ka, ja valodas pāru fragmentu skaits $n$ ir lielāks par visu iespējamo galviņu pāru skaitu ${k\choose 2}$, tad valodu nevar atpazīt ar $k$ galviņām.
+$(2)$ Pierādījis ~\citet{Freivalds1982} ~\citep{Freivalds1979}, pierādījums līdzīgai valodai atrodams arī ~\citep{Yao1978}. Pierādījuma ideja balstās uz faktu, ka divas galviņas, kas izmantotas kāda viena pāra pārbaudīšanai, nevar izmantot vairs neviena cita pāra pārbaudei. No tā arī seko, ka, ja valodas pāru fragmentu skaits $n$ ir lielāks par visu iespējamo galviņu pāru skaitu ${k\choose 2}$, tad valodu nevar atpazīt ar $k$ galviņām.
 
 $(3)$ Pierādījis ~\citet{Freivalds1982}, pierādījums līdzīgai valodai atrodams arī ~\citep{Yao1978}.
 \end{pieradijums}
@@ -363,6 +363,11 @@ Līdzīgi kā ultrametrisku vairākgalviņu automātu gadījumā mašīna ar not
 %TODO kā aprēķina amplitūdas
 %TODO ko nozīmē, ka mašīna akceptē vārdu
 %TODO gamma -> sigma
+
+Ultrametriski vairāku skaitītāju automāti arī tiks izmantoti kā starpposms pierādījumos.
+\begin{definicija}
+Par $p$-ultrametrisku $k$ skaitītāju automātu tiek saukts
+\end{definicija}
 
 \section{Ultrametriska automāta simulācija}
 Nākamās nodaļas pierādījumos tiks izmantota iespēja ultrametrisku vairākgalviņu automātu simulēt ar ultrametrisku Tjūringa mašīnu. Šeit tiks parādīti vispārīgie principi, kas ir šādas simulācijas pamatā, izmantotās idejas ir līdzīgas kā ~\citep{Macarie1995} varbūtisko automātu gadījumā.
@@ -470,9 +475,18 @@ Veidosim $T'$, kas simulēt $T$. $T'$ uz darba lentes glabās šādu informācij
 	\item $T$ 2. lentes saturu (sauksim par darba lenti), %kas aizņem $O(log n)$ vietu,
 	\item $T$ darba lentes galviņas pozīciju.
 \end{itemize} %TODO telpas novērtējumi
-Visu šo informāciju, sākot darbu, $T'$ var sagatavot determinēti, pārejas veicot ar amplitūdu $1$. Tālāk $T'$ izmanto tikai darba lenti. Uz $T'$ darba lentes $T$ simulēšanu veikt ir vienkāršāk nekā ultrametrisko automātu gadījumā, jo $T'$ var izmantot oriģinālo $T$ vadības bloku, un pārejas nav jāsimulē uz lentes.
+Uz $T'$ darba lentes $T$ simulēšanu veikt ir vienkāršāk nekā ultrametrisko automātu gadījumā, jo $T'$ var izmantot oriģinālo $T$ vadības bloku, un pārejas nav jāsimulē uz lentes. $T$ simulācijā $T'$ izmanto tikai darba lenti.
 
-Var redzēt, ka $T'$ var uzbūvēt atbilstošu $p$-ultrametrisku $5$ skaitītāju mašīnu. Pirmie divi skaitītāji tiek izmantoti, lai attēlotu $T'$ ieejas lentes saturu, otrie divi -- lai attēlotu darba lentes saturu --, un pēdējais -- kā palīg skaitītājs, lai nodrošinātu dalīšanu un reizināšanu ar $2$. Tā kā vairākgalviņu automāta galviņas pozīcija tiešā veidā atbilst skaitlim skaitītajā. Tad $5$ skaitītāju mašīnu var aizstāt ar $p$-ultrametrisku galīgu $5$ galviņu automātu. Tomēr, tā kā vairākgalviņu automāta galviņas nedrīkst iziet ārpus lentes robežām, tad tas nevar simulēt patvaļīgi lielus skaitītājus. To, ka ieejas vārdi ir pietiekami gari, lai automāts simulētu $T'$ darba lentes saturu, nodrošina piemeklējot pietiekami lielu $u$.
+Var redzēt, ka var uzbūvēt $T'$ atbilstošu $p$-ultrametrisku $3$ reģistru mašīnu. Ja ieejas vārds ir $1^{2n}$, tad mašīna sak darbu ar $n$ bināro reprezentāciju pirmajā reģistrā un ar $0$ pārējos. Var pārliecināties, ka izmantojot pirmos divus reģistrus, kuros darbības laikā atrodas skaitļi $v$ un $h^{rev}$, un trešo reģistru kā palīgmainīgo, iespējams simulēt $T'$ darba lenti. Lai to panāktu tiek izmantota iespēja reģistriem pieskaitīt un atņemt $1$, un tos saturu reizināt un dalīt ar $2$, ko palīdz realizēt trešais -- papildus reģistrs. Tas shematiski parādīts attēlā \ref{fig:skaititaji}.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.8\textwidth]{Img/skaititaji.pdf}
+\caption{Tjūringa mašīnas lentes satura simulēšana ar reģistriem.}
+\label{fig:skaititaji}
+\end{figure}
+
+Tā kā vairākgalviņu automāta galviņas pozīcija tiešā veidā atbilst skaitlim skaitītajā. Tad $5$ skaitītāju mašīnu var aizstāt ar $p$-ultrametrisku galīgu $5$ galviņu automātu. Tomēr, tā kā vairākgalviņu automāta galviņas nedrīkst iziet ārpus lentes robežām, tad tas nevar simulēt patvaļīgi lielus skaitītājus. To, ka ieejas vārdi ir pietiekami gari, lai automāts simulētu $T'$ darba lentes saturu, nodrošina piemeklējot pietiekami lielu $u$.
 \end{pieradijums}
 %TODO definēt skaitītaju mašīnu
 %TODO deterministiski -> determinēti
