@@ -41,8 +41,6 @@
  {\begin{enumerate}[label=\upshape(\arabic*),ref=\thethm(\arabic*)]}
  {\end{enumerate}}
  
-%TODO
-%pārrakstīt formā
 %\begin{thmenum}
 %\item \label{foo} Foo
 %\item \label{bar} Bar
@@ -227,7 +225,7 @@ $\triangleright w \triangleleft$. Jeb precīzāk -
 \end{multline*}
 %TODO pabeigt par 2DFA(k).
 
-\section{Attiecība ar klasiskajiem automātiem}
+\section{Attiecība pret klasiskajiem automātiem}
 Vienvirziena vairākgalviņu automātiem gan determinētā gan nedeterminētā gadījumā ir pierādītas stingri iekļaujošas klases valodām, ko automāts var atpazīt atkarībā no galviņu skaita ~\citep{Holzer2009,Yao1978}. 1978. gadā ~\citet{Yao1978} parādīja, ka, lai atdalītu valodu klasi, ko var atpazīt ar $1dfa(k)$, no tās, ko var atpazīt ar $1dfa(k+1)$, pietiek ar valodu
 \[
 	L_n = \left\{w_1\$w_2\$ \ldots \$w_{2n} | w_i \in \left\{a,b\right\}^* \textrm{ un } w_i = w_{2n+1−i} \textrm{ visiem } 1 \leq i \leq n \right\}.
@@ -297,7 +295,7 @@ Iegūstam, ka vārds pieder valodai tad un tikai tad, ja ir apmierināta šāda 
 	\end{cases}
 \end{gather*}
 
-Var redzēt, ka vienādojumu sistēmas koeficienti veido Vandermonda matricu, tātad sistēmas determinants ir nenulles, un, tā kā dotā vienādojumu sistēma ir homogēna, tai eksistē tikai triviālais atrisinājums.
+Var redzēt, ka vienādojumu sistēmas koeficienti veido Vandermonda matricu, tātad sistēmas determinants ir nenulles, un, tā kā dotā vienādojumu sistēma ir homogēna, tai eksistē tikai triviālais atrisinājums. Tomēr ja vārds nepieder valodai var gadīties, ka kādas ne vairāk kā $4$ atsevišķas rindiņas izpildās, bet tādā gadījumā vienmēr būs vismaz viena rindiņa, kas nav vienāda ar 0 (citādi būtu nenulles risinājums, un sistēmai būtu netriviāls atrisinājums). Tātad par slieksni varam izvēlēties 0, un teikt, ka vārds pieder valodai, ja akceptējošo stāvokļu beigu amplitūdu normu summa ir $\leq 0$, un nepieder, ja citādi.
 
 $(2)$ Pierādījis ~\citet{Freivalds1982} ~\citep{Freivalds1979}, pierādījums līdzīgai valodai atrodams arī ~\citep{Yao1978}. Pierādījuma ideja balstās uz faktu, ka divas galviņas, kas izmantotas kāda viena pāra pārbaudīšanai, nevar izmantot vairs neviena cita pāra pārbaudei. No tā arī seko, ka, ja valodas pāru fragmentu skaits $n$ ir lielāks par visu iespējamo galviņu pāru skaitu ${k\choose 2}$, tad valodu nevar atpazīt ar $k$ galviņām.
 
