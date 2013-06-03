@@ -136,6 +136,20 @@ Negatīviem un racionāliem skaitļiem situācija ir ievērojami citāda. Kā pi
 \hline
 \end{tabular}
 \]
+
+Atņemšana tiek veikta pēc tādiem pašiem principiem, bet ņemot vērā, ka skaitļu pieraksta virknes ir bezgalīgas, piemēram $7$-adiskiem skaitļiem:
+\[
+\begin{tabular}{rrrrrrrrr|}
+&$\cdots$ &0 &0 &0 &1 &3 &2\\
+-&$\cdots$ &0 &0 &0 &2 &3 &4\\
+\hline
+\hline
+&$\cdots$ &6 &6 &6 &3 &4 &3\\
+\hline
+\end{tabular}
+\]
+Turklāt var ievērot, ka arī negatīviem skaitļiem informāciju satur tikai galīgs skaits ciparu pozīciju. Pozīcijās, kas ir pietiekami tālu pa kreisi atkārtojas cipars $p-1$.
+
 Interesantā kārtā gandrīz jebkuru racionālu skaitli var līdzīgi izteikt kā $p$-adisku veselu skaitli.
 Izņēmumi kādam konkrētam $p$ ir skaitļi formā $\frac{a}{b}$, kur $a$ nedalās ar $p$, bet $b$ ar $p$ dalās.
 
@@ -176,7 +190,7 @@ p^{-\alpha_p}, &\textrm{ja } \alpha \neq 0 \\
 \]
 \end{definicija}
 
-Ar detalizētāku izklāstu par $p$-adiskiem skaitļiem iespējams iepazīties ~\citep{Madore}.
+Ar detalizētāku izklāstu par $p$-adiskiem skaitļiem iespējams iepazīties ~\citep{Madore}. Ar $p$-adisko skaitļu pielietojumu citās zinātnes nozarēs var iepazīties ~\citep{V.S.Vladimirov1995,Kozyrev2006,Dragovich2009}
 
 \chapter{Vienvirziena automāti}
 \section{Definīcijas}
@@ -560,14 +574,15 @@ Tā kā $U_pFA(k + 1)$ sevī iekļauj $U_pFA(k)$, un tikko tika parādīts, ka e
 \]
 \end{sekas}
 
-\chapter{Secinājumi}
+\chapter{Rezultāti}
 Darbā ultrametriskiem galīgiem vairakgalviņu automātiem ir sekmīgi pierādīti rezultāti, kas ir analoģiski tiem, kas literatūrā sastopami determinētiem, nedeterminētiem varbūtiskiem automātiem. Tiek stingri nošķirtas valodu klases, ko var atpazīt ar divvirzienu galīgiem $k$ galviņu ultrametriskiem automātiem, no tām, ko var atpazīt, izmantojot $k+1$ galviņu. Turklāt tiek arī ieviesta definīcija ultrametriskiem vairāku reģistru automātiem ultrametriskām, kas tāpat kā ultrametriskas Tjūringa mašīnas tiek izmantota, kā starpposms galviņu hierarhijas rezultātu pierādīšanai.
 
 Vienvirziena galīgiem ultrametriskiem automātiem ar vienu galviņu ir pierādīti rezultāti, kas parāda to pārākumu attiecībā pret determinētiem un nedeterminētiem automātiem ar $k$ galviņām. Līdzīgs sasniegums pastāv ari varbūtiskiem automātiem, lai arī literatūrā atrodami tikai rezultāti varbūtiskiem $2$ galviņu galīgiem automātiem.
 
-Pierādītie rezultāti pozitīvi atsaucas uz ultrametrisko automātu definīciju, kas ieviesta ir salīdzinoši nesen, pierādot īpašības, ko varētu sagaidīt, apskatot rezultātus klasiskajiem automātiem.
+\chapter{Secinājumi}
+Darbā ir radīts pamats turpmākiem dziļākiem pētījumiem divvirzienu ultrametrisku automātu galviņu hierarhijas jautājumā, kā arī ir pamats turpināt pētīt vienvirziena ultrametriskus automātus, jo tiem netika sasniegti analoģiski rezultāti. Vairāk uzmanības ir arī jāpievērš ieviestajai $p$-ultrametriski $log$-space konstruējamo kopu definīcijai, jo tā tiek izmantota kā būtisks elements ultrametrisku automātu simulācijā ar ultrametriskas Tjūringa mašīnas palīdzību. Darbā tika parādīts tikai tas, ka šādi konstruējama ir racionālo skaitļu kopa, lai gan interesi raisa arī citu skaitļu, piemēram, $p$-adisku veselu skaitļu, izmantošana par amplitūdām simulējamā automāta pārejās.
 
-Darbā ir arī radīts pamats turpmākiem dziļākiem pētījumiem divvirzienu ultrametrisku automātu galviņu hierarhijas jautājumā, kā arī ir pamats turpināt pētīt vienvirziena ultrametriskus automātus, jo tiem netika sasniegti analoģiski rezultāti. Vairāk uzmanības ir arī jāpievērš ieviestajai $p$-ultrametriski $log$-space konstruējamo kopu definīcijai, jo tā tiek izmantota kā būtisks elements ultrametrisku automātu simulācijā ar ultrametriskas Tjūringa mašīnas palīdzību. Darbā tika parādīts tikai tas, ka šādi konstruējama ir racionālo skaitļu kopa, lai gan interesi raisa arī citu skaitļu, piemēram, $p$-adisku veselu skaitļu, izmantošana par amplitūdām simulējamā automāta pārejās.
+Pierādītie rezultāti pozitīvi atsaucas uz ultrametrisko automātu definīciju, kas ieviesta ir salīdzinoši nesen, pierādot īpašības, ko varētu sagaidīt, apskatot rezultātus klasiskajiem automātiem.
 
 Autors uzskata, ka ir panākti nozīmīgi rezultāti galviņu hierarhijas jautājumos vairākgalviņu ultrametriskiem automātiem, tos nostādot klasisko automātu kontekstā, un paverot iespējas tālākiem pētījumiem.
 
