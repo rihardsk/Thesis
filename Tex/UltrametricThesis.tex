@@ -372,8 +372,13 @@ Galīgs $p$-ultrametrisks $k$ reģistru automāts (turpmāk arī mašīna) ($2U_
 \section{Ultrametriska automāta simulācija}
 Nākamās nodaļas pierādījumos tiks izmantota iespēja ultrametrisku vairākgalviņu automātu simulēt ar ultrametrisku Tjūringa mašīnu. Šeit tiks parādīti vispārīgie principi, kas ir šādas simulācijas pamatā, izmantotās idejas ir līdzīgas kā ~\citep{Macarie1995} varbūtisko automātu gadījumā.
 
-Vienkāršības labad var pieņemt, ka simulējamajam automātam no katra stāvokļa iziet ne vairāk kā $2$ pārejas. Tiks aprakstīts veids, kā veidot $p$-ultrametrisku $2$ lenšu Tjūringa mašīnu, kas, ieejā saņemot $p$-ultrametriska $k$ galviņu automāta aprakstu, akceptē tos un tikai tos vārdus, ko simulējamais automāts. Tā kā turpmākajā darbā šādas simulācijas nepieciešamība tiks apskatīta tikai darbojoties ar vārdiem viena burta alfabētā, tad tiks parādīts veids, kā automāta aprakstu uzdot izmantojot viena burta alfabētu; konkrētāk -- vārdus formā $1^{2^n}, n \in \mathbb{N}$. Vēl tiek prasīts, lai simulējamā automāta amplitūdas būtu $log$-space $p$-konstruējamas skaitļu kopas. Par $log$-space $p$-konstruējamu skaitļu kopu sauksim tādu kopu, kam eksistē $p$-ultrametriska Tjūringa mašīna ar $log$-space telpas sarežģītību, kas, saņemot ieejā kaut kādu skaitļa, kas pieder kopai, "aprakstu", spēj nonākt kādā īpaši atzīmētā stāvoklī ar amplitūdu kas atbilst "aprakstam". Zemāk tiks parādīts, ka šāda ultrametriska Tjūringa mašīna pastāv amplitūdām racionālos skaitļos binārajā pierakstā.
-%TODO pateikt, kāpēc vajag log space telpas sarežģītību
+Vienkāršības labad var pieņemt, ka simulējamajam automātam no katra stāvokļa iziet ne vairāk kā $2$ pārejas. Tiks aprakstīts veids, kā veidot $p$-ultrametrisku $2$ lenšu Tjūringa mašīnu, kas, ieejā saņemot $p$-ultrametriska $k$ galviņu automāta aprakstu, akceptē tos un tikai tos vārdus, ko simulējamais automāts. Tā kā turpmākajā darbā šādas simulācijas nepieciešamība tiks apskatīta tikai darbojoties ar vārdiem viena burta alfabētā, tad tiks parādīts veids, kā automāta aprakstu uzdot izmantojot viena burta alfabētu; konkrētāk -- vārdus formā $1^{2^n}, n \in \mathbb{N}$. Vēl tiek prasīts, lai simulējamā automāta amplitūdas būtu $log$-space $p$-konstruējamas skaitļu kopas.
+
+\begin{definicija}
+Par $log$-space $p$-konstruējamu skaitļu kopu sauksim tādu kopu, kam eksistē $p$-ultrametriska Tjūringa mašīna ar $log$-space telpas sarežģītību, kas, saņemot ieejā kaut kādu skaitļa, kas pieder kopai, "aprakstu", spēj nonākt kādā īpaši atzīmētā stāvoklī ar amplitūdu kas atbilst "aprakstam".
+\end{definicija}
+
+Zemāk tiks parādīts, ka šāda ultrametriska Tjūringa mašīna pastāv amplitūdām racionālos skaitļos binārajā pierakstā.
 
 $p$-Ultrametriska galīga $k$ galviņu automāta aprakstu var uzdot ar bināru virkni, pēc kārtas norādot:
 \begin{itemize}
@@ -405,8 +410,8 @@ kur $\sum\limits_{i=-m}^n a_i \cdot 2^i = a$ ($|$ ir atdalītājsimbols). Mašī
 \]
 mašīna $q_u$ sakrāto amplitūdu izdala ar $2^m$. $\rightarrow_i$ norāda, ka pāreja tiek veikta ar amplitūdu $i$.
 
-Tjūringa mašīnas programmas teksts.
-\begin{multicols}{2}
+Tjūringa mašīnas programmas teksts:
+%\begin{multicols}{2}
 	\begin{align*}
 	\allowdisplaybreaks
 	\shortintertext{Atņem $1$ no $a$}
@@ -436,10 +441,10 @@ Tjūringa mašīnas programmas teksts.
 		q_u0 & \rightarrow_1 q_u0R\\
 		q_u1 & \rightarrow_1 q_u1R\\
 	\end{align*}
-\end{multicols}
+%\end{multicols}
+
+Var redzēt, ka algoritms nav atkarīgs no $p$.
 \end{pieradijums}
-%TODO pateikt, ka nav atkarīgs no p
-%TODO definēt log-space konstruējamu kopu
 
 \section{Vairākgalviņu automāti}
 ~\citet{Monien1980} ir parādījis, ka galīgiem determinētiem un nedeterminētiem automātiem valodu klase, ko var atpazīt, izmantojot $k$ galviņas, stingri iekļaujas valodu klasē, ko var atpazīt ar $k+1$ galviņu. Vēlāk, izmantojot līdzīgas metodes, ~\citet{Macarie1995} pierādīja atbilstošos rezultātus arī galīgiem varbūtiskiem automātiem. Tālāk tiks pierādīts, ka tādi paši rezultāti ir spēkā arī ultrametriskiem automātiem.
