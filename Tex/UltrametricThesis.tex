@@ -380,14 +380,14 @@ Par $log$-space $p$-konstruējamu skaitļu kopu sauksim tādu kopu, kam eksistē
 
 Zemāk tiks parādīts, ka šāda ultrametriska Tjūringa mašīna pastāv amplitūdām racionālos skaitļos binārajā pierakstā.
 
-$p$-Ultrametriska galīga $k$ galviņu automāta aprakstu var uzdot ar bināru virkni, pēc kārtas norādot:
+$p$-ultrametriska galīga $k$ galviņu automāta aprakstu var uzdot ar bināru virkni, pēc kārtas norādot:
 \begin{itemize}
 	\item automāta stāvokļu skaitu,
 	\item galviņu skaitu,
 	\item pārejas starp stāvokļiem un to amplitūdas %TODO cik daudz vietas aizņem?
 \end{itemize}
 
-Simulācija tiek realizēta šādi. $p$-Ultrametriska galīga $k$ galviņu automāta ar pāreju amplitūdām no $log$-space $p$-konstruējamas kopas, saukta par $A$, simulēšanai tiek veidota $p$-ultrametriska $2$ lenšu Tjūringa mašīna, saukta par $T$. $T$ uz ieejas lentes tiek padots $A$ apraksts viena burta alfabētā formā $1^{2^n}, n \in \mathbb{N}$. Sākot darbu $T$ ielasa ieejas vārdu un determinēti, pārejas veicot ar amplitūdu $1$, sagatavo 2. lentu, tur ierakstot skaitli $n$ binārā pierakstā. $n$ ir simulējamā automāta $A$ apraksts. Tiek arī izdalīta vieta apjomā $O(k \cdot n)$ $k$ skaitītājiem, kas norādīs $A$ galviņu pozīcijas. Tālākajā simulācijas gaitā tiks izmantota tikai 2. lente (lai arī rakstīšanai var izmantot abas lentes, ērtībai sauksim 2. lenti par darba lenti).
+Simulācija tiek realizēta šādi. $p$-ultrametriska galīga $k$ galviņu automāta ar pāreju amplitūdām no $log$-space $p$-konstruējamas kopas, saukta par $A$, simulēšanai tiek veidota $p$-ultrametriska $2$ lenšu Tjūringa mašīna, saukta par $T$. $T$ uz ieejas lentes tiek padots $A$ apraksts viena burta alfabētā formā $1^{2^n}, n \in \mathbb{N}$. Sākot darbu $T$ ielasa ieejas vārdu un determinēti, pārejas veicot ar amplitūdu $1$, sagatavo 2. lentu, tur ierakstot skaitli $n$ binārā pierakstā. $n$ ir simulējamā automāta $A$ apraksts. Tiek arī izdalīta vieta apjomā $O(k \cdot n)$ $k$ skaitītājiem, kas norādīs $A$ galviņu pozīcijas. Tālākajā simulācijas gaitā tiks izmantota tikai 2. lente (lai arī rakstīšanai var izmantot abas lentes, ērtībai sauksim 2. lenti par darba lenti).
 
 Atceramies, ka $A$ savas darbības laikā iziet cauri vairāku konfigurāciju virknei, un katrā laika momentā $A$ var "paralēli" būt vairākās konfigurācijās ar dažādām amplitūdām.
 Ja $A$ atrodas kāda konfigurācijā ar amplitūdu $a$, tad $T$ to simulēs, ar atbilstošo amplitūdu atrodoties konfigurācijā, kur darba lentes saturs atbilst attiecīgajai $A$ konfigurācijai.
