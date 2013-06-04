@@ -280,7 +280,7 @@ Tālāk tiks pierādīts, ka $L_k$ apmierina teorēmas punktus.
 $(1)$ Tiks parādīts, kā patvaļīgai valodai $L_k$ uzbūvēt $1u_pfa(1)$ katram pirmskaitlim $p$. Automāts, sāk darbu ar amplitūdu $1$ $n$ dažādos sākuma stāvokļos $q_{1,1,1},q_{1,2,1},\ldots,q_{1,n,1}$. No katra no šiem stāvokļiem izies "zars", kas būs atbildīgs par amplitūdas krāšanu vienā no $n$ dažādiem akceptējošajiem stāvokļiem $q_{2n,1,2},q_{2n,2,2},\ldots,q_{2n,n,2}$. Katrā zarā būs divu veidu stāvokļi -- 1. grupas stāvokļi $q_{i,j,1}$ būs atbildīgi par amplitūdu "ģenerēšanu" un 2. grupas stāvokļi $q_{i,j,2}$ -- par amplitūdu "krāšanu", $i \in \left[1, 2n \right], j \in \left[1, n \right]$.
 
 Ielasot $0$, atrodoties kādā no pirmās grupas stāvokļiem $q_{i,j,1}$, kam $i \leq n$, stāvokļa amplitūda tiek saglabāta nemainīga, un ar amplitūdu $1$ tiek pāriets uz 2. grupas stāvokli $q_{i,j,2}$, tādējādi sakrāto amplitūdu pieskaitot $q_{i,j,2}$. Ielasot $0$, 2. grupas stāvokļos $q_{i,j,2}$ amplitūda tiek saglabāta nemainīga. Ielasot $1$ 1. grupas stāvoklī $q_{i,j,1}$, kam $i < n$, automāts ar amplitūdu $j + 1$ pāriet uz stāvokli $q_{i + 1,j,1}$, tādējādi nonākot tur ar amplitūdu $(j + 1) \cdot \left| q_{i + 1,j,1} \right|$ (ar $|q_i|$ apzīmējam stāvokļa $q_i$ amplitūdu).
-Savukārt, ielasot $0$ 1. grupas stāvoklī $q_{i,j,1}$, kam $i > n$, stāvokļa amplitūda tiek saglabāta nemainīga, $q_{i,j,2}$ tagad tiek pāriets ar amplitūdu $-1$. Ielasot $1$ 1. grupas stāvoklī $q_{i,j,1}$, kam $i \geq n$, automāts uz stāvokli $q_{i + 1,j,1}$ pāriet ar amplitūdu $-(j + 1)$. Ielasot $1$ 2. grupas stāvoklī ar amplitūdu $1$ tiek pāriets no $q_{i,j,1}$ uz $q_{i + 1,j,1}$. Izņēmums ir stāvokļi pēdējā kolonnā -- $q_{2n,j,1}$ un $q_{2n,j,2}$ -- tā kā tie atbild par vārda pēdējā fragmenta ielasīšanu, tad tiem pāreja, ielasot $1$ netiek definēta. Automāta shēma redzama attēlā \ref{fig:1pfa}.
+Savukārt, ielasot $0$ 1. grupas stāvoklī $q_{i,j,1}$, kam $i > n$, stāvokļa amplitūda tiek saglabāta nemainīga, no $q_{i,j,2}$ tagad tiek pāriets ar amplitūdu $-1$. Ielasot $1$ 1. grupas stāvoklī $q_{i,j,1}$, kam $i \geq n$, automāts uz stāvokli $q_{i + 1,j,1}$ pāriet ar amplitūdu $-(j + 1)$. Ielasot $1$ 2. grupas stāvoklī ar amplitūdu $1$ tiek pāriets no $q_{i,j,1}$ uz $q_{i + 1,j,1}$. Izņēmums ir stāvokļi pēdējā kolonnā -- $q_{2n,j,1}$ un $q_{2n,j,2}$ -- tā kā tie atbild par vārda pēdējā fragmenta ielasīšanu, tad tiem pāreja, ielasot $1$ netiek definēta. Automāta shēma redzama attēlā \ref{fig:1pfa}.
 
 \begin{figure}[h!]
 \centering
@@ -336,7 +336,7 @@ Jāpiebilst, ka ar konstantu galviņu skaitu $L_k$ atpazīšanai pietiek arī va
 \section{Definīcijas}
 Lai gan izmantosim tikai 2 lenšu automātus, definēsim tos patvaļīgam skaitam lenšu.
 \begin{definicija}
-$p$-ultrametrisks $k$ lenšu automāts sastāv no galīga $p$-ultrametriska vadības bloka, un $k$ galviņām, kas pozicionētas katra uz savas lentas, no kuras informāciju var nolasīt. Uz katras no lentām, automātam sākot darbu, atrodas ieejas vārds, un automāta galviņas atrodas to sākumos. Savas darbības laikā automāta vadības bloks veic pārejas ar noteiktam amplitūdām, norādot kādu simbolu ielasīšanai atbilst pāreja, un kuras no kā galviņām rezultātā pārvietot uz priekšu. Visām galviņām sasniedzot vārda beigas, automātam atļauts izdarīt vēl pēdējo darbību, pēc kā tiek aprēķinātas akceptējošo stāvokļu amplitūdu $p$ normas, un salīdzinātas pret noteikto slieksni. Amplitūdu aprēķināšana automāta konfigurācijai notiek analoģiski ultrametrisko automātu definīcijā norādītajai.
+$p$-ultrametrisks $k$ lenšu automāts sastāv no galīga $p$-ultrametriska vadības bloka, un $k$ galviņām, kas pozicionētas katra uz savas lentas, no kuras informāciju var nolasīt. Uz katras no lentām, automātam sākot darbu, atrodas ieejas vārds, un automāta galviņas atrodas to sākumos. Savas darbības laikā automāta vadības bloks veic pārejas ar noteiktam amplitūdām, norādot kādu simbolu ielasīšanai atbilst pāreja, un kuras no $k$ galviņām rezultātā pārvietot uz priekšu. Visām galviņām sasniedzot vārda beigas, automātam atļauts izdarīt vēl pēdējo darbību, pēc kā tiek aprēķinātas akceptējošo stāvokļu amplitūdu $p$ normas, un salīdzinātas pret noteikto slieksni. Amplitūdu aprēķināšana automāta konfigurācijai notiek analoģiski ultrametrisko automātu definīcijā norādītajai.
 \end{definicija}
 
 \section{Valodu pāru atpazīšana}
@@ -344,7 +344,7 @@ Pierādīsim no varbūtiskiem automātiem aizgūtu rezultātu $2$ lenšu automā
 \begin{teorema}
 Valodu $L_b$, kas sastāv no vārdu pāriem $(0^m,0^n10^k)$ formā
 \[
-	L_b={(0^m,0^n10^k)|m=n=k \in \mathbb{N}}
+	L_b=\left\{(0^m,0^n10^k)|m=n=k \in \mathbb{N} \right\}
 \]
 \begin{enumerate}[label={(\arabic*)}]
 	\item var atpazīt ar $2$ lenšu galīgu $p$-ultrametrisku automātu jebkuram pirmskaitlim $p \geq 3$,
@@ -383,7 +383,7 @@ Lai arī pierādījums viegli seko no līdzīga rezultāta varbūtiskajā gadīj
 
 \chapter{Divvirzienu automāti}
 \section{Definīcijas}
-Ultrametrisku vairākgalviņu definīcija tiek iegūta visdabiskākajā veidā paplašinot ~\citep{KasparsBalodis2013} ieviesto ultrametrisko automātu definīciju. Par pamatu tiek ņemta arī ~\citep{Holzer2009} ieviestā vairākgalviņu automātu definīcija.
+Ultrametrisku vairākgalviņu galīgu automātu definīcija tiek iegūta visdabiskākajā veidā paplašinot ~\citep{KasparsBalodis2013} ieviesto ultrametrisko automātu definīciju. Par pamatu tiek ņemta arī ~\citep{Holzer2009} ieviestā vairākgalviņu automātu definīcija.
 
 \begin{definicija}
 Par galīgu $k$-galviņu divvirzienu $p$-ultrametrisku automātu ($2u_pfa(k)$) tiek saukts kortežs $\langle S, \Sigma, k, s_0, \delta, F, \Lambda \rangle$, kur
@@ -427,10 +427,10 @@ Ultrametriskas Tjūringa mašīnas darbā tiks izmantotas, lai pierādītu rezul
 
 Ultrametriskas Tjūringa mašīnas definīcija tiek iegūta dabiskā veida paplašinot J. Hopcroft un J. Ullman ~\citep{Hopcroft1979} 1979. gadā ieviesto definīciju. Ērtības labad definēsim mašīnu ar vairākām darba lentēm.
 \begin{definicija}
-Par $p$-ultrametrisku Tjūringa mašīnu ar $k$ darba lentēm $(U_pTM(k))$ sauc kortežu $M= \langle Q, \Gamma, b, \Sigma, \delta, q_0, F \rangle$, kur:
+Par $p$-ultrametrisku Tjūringa mašīnu ar $k$ darba lentēm $(U_pTM(k))$ sauc kortežu $M= \langle Q, \Sigma, b, \Sigma, \delta, q_0, F \rangle$, kur:
 \begin{itemize}
 	\item $Q$ ir galīga netukša stāvokļu kopa,
-	\item $\Gamma$ ir galīga netukša kopa -- darba alfabēts,
+	\item $\Sigma$ ir galīga netukša kopa -- darba alfabēts,
 	\item $b \in \Sigma$ ir "tukšais" simbols (drīkst atrasties uz lentes neierobežoti daudz eksemplāros),
 	\item $\Sigma\subseteq\Sigma\setminus\{b\}$ ieejas alfabēts,
 	\item $q_0 \in Q_p$ ir sākotnējais amplitūdu sadalījums,
@@ -439,11 +439,11 @@ Par $p$-ultrametrisku Tjūringa mašīnu ar $k$ darba lentēm $(U_pTM(k))$ sauc 
 \end{itemize}
 \end{definicija}
 
-Līdzīgi kā ultrametrisku vairākgalviņu automātu gadījumā mašīna ar noteiktu amplitūdu atrodas kāda no tās iespējamajām konfigurācijām, bet tagad konfigurācija iekļauj vadības bloka stāvokli un visu $k$ lenšu saturu. Amplitūda, ar kādu mašīna $i$-tajā solī atrodas kāda konfigurācijā tiek aprēķināta analogi tam, kā norādīts ultrametrisko vairākgalviņu automātu gadījumā. Darba robežās sakot, ka Tjūringa mašīna akceptē vārdu, mēs sapratīsim, ka mašīna apstājas vadības bloka akceptējoša stāvoklī. Līdz ar to, vārda akceptēšanai var izvirzīt analoģiskus nosacījumus kā ultrametriskiem vairākgalviņu automātiem (jāievēro tikai, ka tagad automāta konfigurācijā ietilpst arī no lentes saturs, un amplitūda tiek piekārtota tam kombinācijā ar vadības bloka stāvokli).
+Līdzīgi kā ultrametrisku vairākgalviņu automātu gadījumā mašīna ar noteiktu amplitūdu atrodas kāda no tās iespējamajām konfigurācijām, bet tagad konfigurācija iekļauj vadības bloka stāvokli un visu $k$ lenšu saturu. Amplitūda, ar kādu mašīna $i$-tajā solī atrodas kāda konfigurācijā tiek aprēķināta analogi tam, kā norādīts ultrametrisko vairākgalviņu automātu gadījumā. Darba robežās, sakot, ka Tjūringa mašīna akceptē vārdu, mēs sapratīsim, ka mašīna apstājas vadības bloka akceptējoša stāvoklī. Līdz ar to, vārda akceptēšanai var izvirzīt analoģiskus nosacījumus kā ultrametriskiem vairākgalviņu automātiem (jāievēro tikai, ka tagad automāta konfigurācijā ietilpst arī no lentes saturs, un amplitūda tiek piekārtota tam kombinācijā ar vadības bloka stāvokli).
 
 Ultrametriski vairāku reģistru automāti arī tiks izmantoti kā starpposms pierādījumos.
 \begin{definicija}
-Galīgs $p$-ultrametrisks $k$ reģistru automāts (turpmāk arī mašīna) ($2U_pRA(k)$) sastāv no vadības bloka ar ultrametriskām pārejām, un $k$ reģistriem, kas satur naturālus skaitļus. Automāts sak darbu ar ieejas vārdu pirmajā reģistrā, un ar amplitūdu, kas atbilst sākotnējajam emplitūdu sadalījumam, kāda no vadības bloka stāvokļiem. Katram no reģistriem var tikt pielietots predikāts $\stackrel{?}{=} 0$ un operācija $+1$ vai $-1$. Katrai vadības bloka pārejai var tikt norādīts predikāts vai operācija, kas izpildās veicot pāreju, kā arī amplitūda. Vārda akceptēšanas kritēriji ir analogi ultrametrisko automātu definīcijā izmantotajiem.
+Galīgs $p$-ultrametrisks $k$ reģistru automāts (turpmāk arī mašīna) ($2u_pra(k)$) sastāv no vadības bloka ar ultrametriskām pārejām, un $k$ reģistriem, kas satur naturālus skaitļus. Automāts sāk darbu ar ieejas vārdu pirmajā reģistrā, un ar amplitūdu, kas atbilst sākotnējajam amplitūdu sadalījumam, kāda no vadības bloka stāvokļiem. Katram no reģistriem var tikt pielietots predikāts $\stackrel{?}{=} 0$ un operācija $+1$ vai $-1$. Katrai vadības bloka pārejai var tikt norādīts predikāts vai operācija, kas izpildās veicot pāreju, kā arī amplitūda. Vārda akceptēšanas kritēriji ir analogi ultrametrisko automātu definīcijā izmantotajiem.
 \end{definicija}
 
 \section{Ultrametriska automāta simulācija}
@@ -452,7 +452,7 @@ Nākamās nodaļas pierādījumos tiks izmantota iespēja ultrametrisku vairākg
 Vienkāršības labad var pieņemt, ka simulējamajam automātam no katra stāvokļa iziet ne vairāk kā $2$ pārejas. Tiks aprakstīts veids, kā veidot $p$-ultrametrisku $2$ lenšu Tjūringa mašīnu, kas, ieejā saņemot $p$-ultrametriska $k$ galviņu automāta aprakstu, akceptē tos un tikai tos vārdus, ko simulējamais automāts. Tā kā turpmākajā darbā šādas simulācijas nepieciešamība tiks apskatīta tikai darbojoties ar vārdiem viena burta alfabētā, tad tiks parādīts veids, kā automāta aprakstu uzdot izmantojot viena burta alfabētu; konkrētāk -- vārdus formā $1^{2^n}, n \in \mathbb{N}$. Vēl tiek prasīts, lai simulējamā automāta amplitūdas būtu $log$-space $p$-konstruējamas skaitļu kopas.
 
 \begin{definicija}
-Par $log$-space $p$-konstruējamu skaitļu kopu sauksim tādu kopu, kam eksistē $p$-ultrametriska Tjūringa mašīna ar $log$-space telpas sarežģītību, kas, saņemot ieejā kaut kādu skaitļa, kas pieder kopai, "aprakstu", spēj nonākt kādā īpaši atzīmētā stāvoklī ar amplitūdu kas atbilst "aprakstam".
+Par $log$-space $p$-konstruējamu skaitļu kopu sauksim tādu kopu, kam eksistē $p$-ultrametriska Tjūringa mašīna ar $log$-space telpas sarežģītību, kas, saņemot ieejā kaut kādu skaitļa, kas pieder kopai, "aprakstu", spēj nonākt kādā īpaši atzīmētā stāvoklī ar amplitūdu, kas atbilst "aprakstam".
 \end{definicija}
 
 Zemāk tiks parādīts, ka šāda ultrametriska Tjūringa mašīna pastāv amplitūdām racionālos skaitļos binārajā pierakstā.
@@ -469,7 +469,7 @@ Simulācija tiek realizēta šādi. $p$-ultrametriska galīga $k$ galviņu autom
 Atceramies, ka $A$ savas darbības laikā iziet cauri vairāku konfigurāciju virknei, un katrā laika momentā $A$ var "paralēli" būt vairākās konfigurācijās ar dažādām amplitūdām.
 Ja $A$ atrodas kāda konfigurācijā ar amplitūdu $a$, tad $T$ to simulēs, ar atbilstošo amplitūdu atrodoties konfigurācijā, kur darba lentes saturs atbilst attiecīgajai $A$ konfigurācijai.
 
-Lai parādītu, ka $T$ var šādā veidā simulēt $A$, jāparāda, ka $T$ ir spējīgs veikt katru $A$ pāreju. Parādīsim, ka, ja $A$ ir pāreja no $q_1$ uz $q_2$ ar amplitūdu $a_1$ (pieņemsim, ka tā ir apzīmēta ar numuru $i$ ) un pāreja no $q_1$ uz $q_3$ ar amplitūdu $a_2$ (pieņemsim, ka tā ir apzīmēta ar numuru $j$), tad $T$ atrodoties $q_1$ atbilstošajā konfigurācijā var "paralēli" veikt pārejas uz $q_2$ un $q_3$ atbilstošajām konfigurācijām ar attiecīgajām amplitūdām. Tas tiek darīts, $U$ sazarojoties un abos gadījumos ar amplitūdu $1$ īpašā vietā uz lentes ierakstot vai nu skaitli $i$ vai $j$, kas attiecīgi atbilst pirmajai un otrajai $A$ pārejai. Ierakstīšana tiek veikta determinēti, pārejas veicot ar amplitūdu $1$. Tālāk tiek darbināta apakšprogramma, kas ierakstītajam skaitlim atbilstošo amplitūdu $a_1$ vai $a_2$ ielasa īpašā stāvoklī $q_u$ (tā kā tika uzstādīta prasība, ka ir no $log$-space $p$-konstruējamas kopas, tad šāda apakšprogramma eksistē). Tālāk no stāvokļa $q_u$ tiek pāriets uz bloku, kas darba lenti izmaina atbilstoši pārejai, kas atbilst uz lentas ierakstītajam skaitlim (tas tiek darīts determinēti, pārejas veicot ar amplitūdu $1$). Tā kā vienīgā pāreja, kas ir atšķirīga no $1$ tiek veikta, pārejot no $q_u$, tad darbības beigās uz $U$ darba lentes ar amplitūdu $1 \cdot 1 \cdots 1 \cdot a_1 = a_1$ ir ieraksts, kas atbilst $A$ konfigurācijai pēc pārejas $i$ izdarīšanas, un ar amplitūdu $1 \cdot 1 \cdots 1 \cdot a_2 = a_2$ -- ieraksts, kas atbilst $A$ konfigurācijai pēc pārejas $j$ izdarīšanas.
+Lai parādītu, ka $T$ var šādā veidā simulēt $A$, jāparāda, ka $T$ ir spējīgs veikt katru $A$ pāreju. Parādīsim, ka, ja $A$ ir pāreja no $q_1$ uz $q_2$ ar amplitūdu $a_1$ (pieņemsim, ka tā ir apzīmēta ar numuru $i$ ) un pāreja no $q_1$ uz $q_3$ ar amplitūdu $a_2$ (pieņemsim, ka tā ir apzīmēta ar numuru $j$), tad $T$ atrodoties $q_1$ atbilstošajā konfigurācijā var "paralēli" veikt pārejas uz $q_2$ un $q_3$ atbilstošajām konfigurācijām ar attiecīgajām amplitūdām. Tas tiek darīts, $U$ sazarojoties un abos gadījumos ar amplitūdu $1$ īpašā vietā uz lentes ierakstot vai nu skaitli $i$ vai $j$, kas attiecīgi atbilst pirmajai un otrajai $A$ pārejai. Ierakstīšana tiek veikta determinēti, pārejas veicot ar amplitūdu $1$. Tālāk tiek darbināta apakšprogramma, kas ierakstītajam skaitlim atbilstošo amplitūdu $a_1$ vai $a_2$ ielasa īpašā stāvoklī $q_u$ (tā kā tika uzstādīta prasība, ka ir no $log$-space $p$-konstruējamas kopas, tad šāda apakšprogramma eksistē). Tālāk no stāvokļa $q_u$ tiek pāriets uz bloku, kas darba lenti izmaina atbilstoši pārejai, kas atbilst uz lentas ierakstītajam skaitlim (tas tiek darīts determinēti, pārejas veicot ar amplitūdu $1$). Tā kā vienīgā pāreja, kas ir atšķirīga no $1$, tiek veikta, pārejot no $q_u$, tad darbības beigās uz $U$ darba lentes ar amplitūdu $1 \cdot 1 \cdots 1 \cdot a_1 = a_1$ ir ieraksts, kas atbilst $A$ konfigurācijai pēc pārejas $i$ izdarīšanas, un ar amplitūdu $1 \cdot 1 \cdots 1 \cdot a_2 = a_2$ -- ieraksts, kas atbilst $A$ konfigurācijai pēc pārejas $j$ izdarīšanas.
 
 \begin{teorema}
 Racionālie skaitļi veido $log$-space $p$-konstruējamu kopu.
@@ -481,7 +481,11 @@ Skaitlis $a$ uz lentes tiks padots formā
 \[
 	\triangleright a_n a_{n-1} \cdots a_1 \cdot a_0 | a_{-1} a_{-2} \cdots a_{-m} \triangleleft,
 \]
-kur $\sum\limits_{i=-m}^n a_i \cdot 2^i = a$ ($|$ ir atdalītājsimbols). Mašīna sākotnēji, ignorējot atdalītājsimbolu, cikliski no skaitļa $a \cdot 2^m$ atņem $1$, katru reizi to izdarot, palielinot $q_u$ amplitūdu par $1$. Kad uz lentas atrodas vairs tikai
+kur
+\[
+	\sum\limits_{i=-m}^n a_i \cdot 2^i = a \textrm{ ($|$ ir atdalītājsimbols).}
+\]
+Mašīna sākotnēji, ignorējot atdalītājsimbolu, cikliski no skaitļa $a \cdot 2^m$ atņem $1$, katru reizi to izdarot, palielinot $q_u$ amplitūdu par $1$. Kad uz lentas atrodas vairs tikai
 \[
 	00 \cdots 0|00 \cdots 0,
 \]
@@ -503,7 +507,7 @@ Tjūringa mašīnas programmas teksts:
 		q_2\triangleleft & \rightarrow_1 q_1\triangleleft L\\
 	\shortintertext{Palielina īpašā stavokļa apmlitūdu par $1$}
 		q_2\triangleleft & \rightarrow_1 q_u'\triangleleft L\\
-	\shortintertext{Atrodas $a$ sakumā, jo tas jau ir $0$}
+	\shortintertext{Atrodas $a$ sākumā, jo tas jau ir $0$}
 		q_1\triangleright & \rightarrow_1 q_3\triangleright R\\
 	\shortintertext{Nodzēš pēdejā gajienā kļūdaini sarakstīto}
 		q_30 & \rightarrow_1 q_30R\\
