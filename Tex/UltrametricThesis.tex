@@ -176,7 +176,7 @@ Funkcija $d: X \times X \rightarrow R_{\geq 0}$, kur $X$ ir netukša kopa, tiek 
 \item $d(x,y) = d(y,x)$,
 \item $d(x,y) \leq d(x,z) + d(z,y)$ visiem $z \in X$.
 \end{enumerate}
-Metrikas funkcija tiek izmantota, lai noteiktu attālumu starp diviem kopas elementiem. Elementa attālums līdz nullei $d(x,0)$ par tā normu, vai absolūto vērtību, un tiek apzīmēts ar $||x||$.
+Metrikas funkcija tiek izmantota, lai noteiktu attālumu starp diviem kopas elementiem. Elementa attālums līdz nullei $d(x,0)$ tiek saukts  par tā normu, vai absolūto vērtību, un tiek apzīmēts ar $||x||$.
 
 Elementa norma apmierina šādas īpašības:
 \begin{enumerate}
@@ -216,14 +216,17 @@ Katrā laika momentā katram automāta stāvoklim ir piekārtots $p$-adisks skai
 Automāts darbu sāk ar sākotnējo amplitūdu sadalījumu $s_0$.
 Tas pa vienam pēc kārtas apstrādā ieejas vārda $w = w_1 \ldots w_n$ simbolus.
 Amplitūdu sadalījums pēc $i$-tā simbola ielasīšanas tiek apzīmēts ar $s_i$, kur
-$s_i(y) = \sum_{x \in S}{s_{i-1}(x) \cdot \delta \left( w_i, x, y \right) }$ katram $y \in S$.
+\[
+	s_i(y) = \sum_{x \in S}{s_{i-1}(x) \cdot \delta \left( w_i, x, y \right) }
+\]
+katram $y \in S$.
 Pēc $n$-tā simbola ielasīšanas tādā pat veidā tiek apstrādāts beigu marķieris $\$$, iegūstot beigu amplitūdu sadalījumu $s_{n+1}$.
 Akceptēšanas nosacījums tiek piemērots akceptējošo stāvokļu beigu amplitūdu $p$-normu summai. Tas ir, ja $\sum_{x \in F}{\left| s_{n+1}(x) \right|_p} \diamond \lambda$, tad saka, ka vārds $w$ tiek akceptēts, citādi -- noraidīts.
 \end{definicija}
 
 Divvirzienu $k$-galviņu (kur $k\geq 1$) galīgs automāts sastāv no ieejas lentas, kas satur ieejas vārdu, pa kuru automāta galviņas drīkst pārvietoties abos virzienos, nepārkāpjot vārda galu atdalītājsimbolu  robežas. Simbolus uz ieejas lentas drīkst tikai lasīt. Formālāk:
 \begin{definicija}[~\cite{Holzer2009}]
-Par nedeterminētu divvirzienu $k$-galviņu galīgu automātu ($2NFA(k)$) tiek saukts kortežs $\langle S, \Sigma, k, s_0, \delta, F \rangle$, kur
+Par nedeterminētu divvirzienu $k$-galviņu galīgu automātu ($2nfa(k)$) tiek saukts kortežs $\langle S, \Sigma, k, s_0, \delta, F \rangle$, kur
 \begin{itemize}
 	\item $S$ ir galīga stāvokļu kopa,
 	\item $\Sigma$ ir galīga kopa, ($ \triangleright,\triangleleft \notin \Sigma$) -- ieejas alfabēts,
@@ -233,7 +236,7 @@ Par nedeterminētu divvirzienu $k$-galviņu galīgu automātu ($2NFA(k)$) tiek s
 	\item $F \subseteq S$ ir akceptējošo stāvokļu kopa.
 \end{itemize}
 \end{definicija}
-$2NFA(k)$ sākot darbu, visas tā galviņas ir novietotas uz vārda sakuma simbola. Automāts darbu beidz, kad pārejas funkcija dotajai automāta konfigurācijai nav definēta. Par $2nfa(k)$ konfigurāciju kādā laika momentā $t\geq 0$ sauc kortežu $c_t=\left(w,s,p\right)$, kur $w$ ir ieejas vārds, $s\in S$ ir pašreizējais stāvoklis, un
+$2nfa(k)$ sākot darbu, visas tā galviņas ir novietotas uz vārda sakuma simbola. Automāts darbu beidz, kad pārejas funkcija dotajai automāta konfigurācijai nav definēta. Par $2nfa(k)$ konfigurāciju kādā laika momentā $t\geq 0$ sauc kortežu $c_t=\left(w,s,p\right)$, kur $w$ ir ieejas vārds, $s\in S$ ir pašreizējais stāvoklis, un
 $p = \left( p_1, \ldots, p_k \right) \in \left\{ 0, \ldots, |w| +1 \right\}^k $
 norāda pašreizējās galviņu pozīcijas. Pāreju no vienas konfigurācijas uz nākamo apzīmē ar $\vdash$. Pāreja
 $\left( w, s, \left( p_1, \ldots, p_k \right) \right) \vdash \left( w, s', \left( p_1+d_1, \ldots, p_k+d_k \right) \right)$
@@ -241,7 +244,7 @@ notiek tad un tikai tad, ja
 $\left(d_1, \ldots, d_k \right) \in \delta \left( \left( a_{p_1}, \ldots a_{p_k} \right) s, s' \right)$,
 kur $w = a_1a_2 \ldots a_n$ ir ieejas vārds, un $a_0=\triangleright$, un $a_{n+1}=\triangleleft$. $\vdash$ refleksīvais, tranzitīvais slēgums tiek apzīmēts ar $\vdash^*$.
 
-Valodā $L(M)$, ko akceptē automāts $M$ ietilpst tie un tikai tie vārdi, ko akceptē $M$. $2NFA(k)$ akceptē tos un tikai tos vārdus $w$, kam pastāv kāda konfigurāciju virkne, kas noved pie automāta apstāšanās akceptējoša stāvoklī, ja uz ieejas lentes ir
+Valodā $L(M)$, ko akceptē automāts $M$ ietilpst tie un tikai tie vārdi, ko akceptē $M$. $2nfa(k)$ akceptē tos un tikai tos vārdus $w$, kam pastāv kāda konfigurāciju virkne, kas noved pie automāta apstāšanās akceptējoša stāvoklī, ja uz ieejas lentes ir
 $\triangleright w \triangleleft$. Jeb precīzāk - 
 \begin{multline*}
 	L(M)=\left\{ w \in \Sigma^* | \left(w,s_0,\left(1,\ldots,1\right)\right) \vdash^* \left(w,s,\left(p_1,\ldots,p_k\right)\right), s \in F,\right.\\
@@ -259,9 +262,9 @@ Mēs apskatīsim līdzīgu valodu -- $L_k$.
 \begin{teorema}
 Katram $k \geq 1 \in \mathbb{N}$ eksistē valoda $L_k$, tāda ka:
 \begin{enumerate}[label={(\arabic*)}]
-	\item katram $k \geq 1 \in \mathbb{N}$ eksistē $1U_pFA(1)$, kas atpazīst $L_k$,
-	\item $L_k$ nevar atpazīt ne ar kādu $1DFA(k)$,
-	\item $L_k$ nevar atpazīt ne ar kādu $1NFA(k)$.
+	\item katram $k \geq 1 \in \mathbb{N}$ eksistē $1u_pfa(1)$, kas atpazīst $L_k$,
+	\item $L_k$ nevar atpazīt ne ar kādu $1dfa(k)$,
+	\item $L_k$ nevar atpazīt ne ar kādu $1nfa(k)$.
 \end{enumerate}
 \end{teorema}
 \begin{pieradijums} Meklētā valoda ir
@@ -274,7 +277,7 @@ L_k = \left\{ w_1 1 w_2 1 \ldots 1 w_{2n} |
 \]
 Tālāk tiks pierādīts, ka $L_k$ apmierina teorēmas punktus.
 
-$(1)$ Tiks parādīts, kā patvaļīgai valodai $L_k$ uzbūvēt $1U_pFA(1)$ katram pirmskaitlim $p$. Automāts, sāk darbu ar amplitūdu $1$ $n$ dažādos sākuma stāvokļos $q_{1,1,1},q_{1,2,1},\ldots,q_{1,n,1}$. No katra no šiem stāvokļiem izies "zars", kas būs atbildīgs par amplitūdas krāšanu vienā no $n$ dažādiem akceptējošajiem stāvokļiem $q_{2n,1,2},q_{2n,2,2},\ldots,q_{2n,n,2}$. Katrā zarā būs divu veidu stāvokļi -- 1. grupas stāvokļi $q_{i,j,1}$ būs atbildīgi par amplitūdu "ģenerēšanu" un 2. grupas stāvokļi $q_{i,j,2}$ -- par amplitūdu "krāšanu", $i \in \left[1, 2n \right], j \in \left[1, n \right]$.
+$(1)$ Tiks parādīts, kā patvaļīgai valodai $L_k$ uzbūvēt $1u_pfa(1)$ katram pirmskaitlim $p$. Automāts, sāk darbu ar amplitūdu $1$ $n$ dažādos sākuma stāvokļos $q_{1,1,1},q_{1,2,1},\ldots,q_{1,n,1}$. No katra no šiem stāvokļiem izies "zars", kas būs atbildīgs par amplitūdas krāšanu vienā no $n$ dažādiem akceptējošajiem stāvokļiem $q_{2n,1,2},q_{2n,2,2},\ldots,q_{2n,n,2}$. Katrā zarā būs divu veidu stāvokļi -- 1. grupas stāvokļi $q_{i,j,1}$ būs atbildīgi par amplitūdu "ģenerēšanu" un 2. grupas stāvokļi $q_{i,j,2}$ -- par amplitūdu "krāšanu", $i \in \left[1, 2n \right], j \in \left[1, n \right]$.
 
 Ielasot $0$, atrodoties kādā no pirmās grupas stāvokļiem $q_{i,j,1}$, kam $i \leq n$, stāvokļa amplitūda tiek saglabāta nemainīga, un ar amplitūdu $1$ tiek pāriets uz 2. grupas stāvokli $q_{i,j,2}$, tādējādi sakrāto amplitūdu pieskaitot $q_{i,j,2}$. Ielasot $0$, 2. grupas stāvokļos $q_{i,j,2}$ amplitūda tiek saglabāta nemainīga. Ielasot $1$ 1. grupas stāvoklī $q_{i,j,1}$, kam $i < n$, automāts ar amplitūdu $j + 1$ pāriet uz stāvokli $q_{i + 1,j,1}$, tādējādi nonākot tur ar amplitūdu $(j + 1) \cdot \left| q_{i + 1,j,1} \right|$ (ar $|q_i|$ apzīmējam stāvokļa $q_i$ amplitūdu).
 Savukārt, ielasot $0$ 1. grupas stāvoklī $q_{i,j,1}$, kam $i > n$, stāvokļa amplitūda tiek saglabāta nemainīga, $q_{i,j,2}$ tagad tiek pāriets ar amplitūdu $-1$. Ielasot $1$ 1. grupas stāvoklī $q_{i,j,1}$, kam $i \geq n$, automāts uz stāvokli $q_{i + 1,j,1}$ pāriet ar amplitūdu $-(j + 1)$. Ielasot $1$ 2. grupas stāvoklī ar amplitūdu $1$ tiek pāriets no $q_{i,j,1}$ uz $q_{i + 1,j,1}$. Izņēmums ir stāvokļi pēdējā kolonnā -- $q_{2n,j,1}$ un $q_{2n,j,2}$ -- tā kā tie atbild par vārda pēdējā fragmenta ielasīšanu, tad tiem pāreja, ielasot $1$ netiek definēta. Automāta shēma redzama attēlā \ref{fig:1pfa}.
@@ -383,7 +386,7 @@ Lai arī pierādījums viegli seko no līdzīga rezultāta varbūtiskajā gadīj
 Ultrametrisku vairākgalviņu definīcija tiek iegūta visdabiskākajā veidā paplašinot ~\citep{KasparsBalodis2013} ieviesto ultrametrisko automātu definīciju. Par pamatu tiek ņemta arī ~\citep{Holzer2009} ieviestā vairākgalviņu automātu definīcija.
 
 \begin{definicija}
-Par galīgu $k$-galviņu divvirzienu $p$-ultrametrisku automātu ($2U_pFA(k)$) tiek saukts kortežs $\langle S, \Sigma, k, s_0, \delta, F, \Lambda \rangle$, kur
+Par galīgu $k$-galviņu divvirzienu $p$-ultrametrisku automātu ($2u_pfa(k)$) tiek saukts kortežs $\langle S, \Sigma, k, s_0, \delta, F, \Lambda \rangle$, kur
 \begin{itemize}
 	\item $S$ ir galīga stāvokļu kopa,
 	\item $\Sigma$ ir galīga kopa, ($ \triangleright,\triangleleft \notin \Sigma$) -- ieejas alfabēts,
@@ -395,7 +398,7 @@ Par galīgu $k$-galviņu divvirzienu $p$-ultrametrisku automātu ($2U_pFA(k)$) t
 \end{itemize}
 \end{definicija}
 
-$2U_pFA(k)$ darbojas līdzīgi, kā $U_pFA$, ar to izņēmumu, ka automātam tagad ir $k$ galviņas, un tās var kustēties abos virzienos līdzīgi kā $2NFA(k)$. Atšķirībā no $U_pFA$ tagad amplitūdas tiek norādītas stāvokļa un galviņu pozīcijas pārim. Amplitūda ar kādu automāts atrodas stāvoklī $y \in S$ ar galviņām pozīcijās
+$2u_pfa(k)$ darbojas līdzīgi, kā $u_pfa$, ar to izņēmumu, ka automātam tagad ir $k$ galviņas, un tās var kustēties abos virzienos līdzīgi kā $2nfa(k)$. Atšķirībā no $u_pfa$ tagad amplitūdas tiek norādītas stāvokļa un galviņu pozīcijas pārim. Amplitūda ar kādu automāts atrodas stāvoklī $y \in S$ ar galviņām pozīcijās
 $\left( p_1, \ldots, p_k \right) \in \left\{ 0, \ldots, |w| +1 \right\}^k $
 pēc $i$-tās darbības veikšanas tiek apzīmēta ar
 \[
@@ -582,7 +585,7 @@ Visām valodām $L \in \widehat{U_pTM}$ un visiem $u, v \geq 1, u, v \in \mathbb
 \]
 \end{lemma}
 \begin{pieradijums}
-Premisā minēto $U_pFA(v)$ sauksim par $A$, un sekās minēto $U_pFA(u \cdot v)$ -- par $A'$.
+Premisā minēto $u_pfa(v)$ sauksim par $A$, un sekās minēto $u_pfa(u \cdot v)$ -- par $A'$.
 Apskatīsim $A$ darbību, ja ieejā saņemts vārds $f_u(l), l = 1^{2^n} \in L, n \in \mathbb{N}$. Pozīciju uz ieejas vārda katrai no automāta $A$ $v$ galviņām var aprakstīt naturālu ar skaitli robežās $\left[0, 2^{u \cdot n} -1 \right]$. Šo skaitli var arī izteikt ar $u$ cipariem pie bāzes $2^n$. Tā kā katras $A'$ galviņas pozīciju uz ieejas vārda varam aprakstīt ar ciparu pie bāzes $2^n$, tad katru no $A$ galviņām var simulēt ar $u$ $A'$ galviņām. Tā kā katrai $A$ galviņas kustībai atbilst kāda $A'$ galviņas kustība, tad atbilstošās pārejas var veikt ar vienādām amplitūdām, un vārdu akceptēšanas amplitūdas saglabājas.
 
 Šī simulācija notiek līdzīgi kā varbūtiskajā ~\citep{Macarie1995} un determinētajā gadījumā ~\citep{Monien1980}.
@@ -595,7 +598,7 @@ Visām valodām $L \in \widehat{U_pTM}$ un visiem $u > v > 1, u, v \in \mathbb{N
 \]
 \end{lemma}
 \begin{pieradijums}
-Premisā minēto $U_pFA(v)$ sauksim par $A$, un sekās minēto $U_pFA(v + 1)$ -- par $A'$.
+Premisā minēto $u_pfa(v)$ sauksim par $A$, un sekās minēto $u_pfa(v + 1)$ -- par $A'$.
 Apskatīsim $A$ darbību, ja ieejā saņemts vārds $f_{u+1}(l), l = 1^{2^n} \in L, n \in \mathbb{N}$. Pozīciju uz lentes katrai no automāta $A$ $v$ galviņām var aprakstīt naturālu ar skaitli $h_i$ robežās $h_i \in \left[0, 2^{(u + 1) \cdot n} + 1 \right]$. Simulēsim $h_i$ pozīciju automātā $A'$ ar galviņu $g_i$ un papildus skaitli $x_i \in \left[ 0, 2^n \right]$, tā, ka $h_i = g_i + x_i \cdot 2^{u \cdot n}$. Var redzēt, ka šādi var aprakstīt skaitļus vajadzīgajā intervālā
 \begin{align*}
 	2^{u \cdot n} + (2^n - 1) \cdot 2^{u \cdot n} & =\\
