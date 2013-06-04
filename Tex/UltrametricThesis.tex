@@ -5,7 +5,7 @@
 \usepackage{xunicode}
 \usepackage{xltxtra}
 
-%\usepackage[utf8]{inputenc}
+\usepackage[utf8]{inputenc}
 
 % languages
 \usepackage{fixlatvian}
@@ -19,21 +19,21 @@
 
 % bibliography
 %\usepackage{csquotes}
-\usepackage[
-    backend=biber,
-    style=numeric-comp,
-    natbib=true,
-    url=false,
-    doi=true%,
-    %eprint=false
-]{biblatex}
-\addbibresource{bibliography.bib}
 
-\usepackage[]{hyperref}
-\hypersetup{
-    colorlinks=false
-}
+% bibtex
+\usepackage[pdfauthor={Rihards Krišlauks},%
+pdftitle={Ultrametriski automāti},%
+pdfkeywords={ultrametric automata, p-adic numbers, multi-head automata, multi-tape automata, language classes, head hierarchy},%
+hidelinks=true,%
+pagebackref=false,%
+xetex]{hyperref}
+\hypersetup{colorlinks=false}
 \urlstyle{same}
+\usepackage{cite}
+%\usepackage{csquotes}
+
+%\usepackage{natbib}
+
 
 % toc
 \setcounter{secnumdepth}{3}
@@ -77,13 +77,13 @@
 \maketitle
 
 \begin{abstract-lv}
-Darbā tiek pētīts valodu iedalījums klasēs atkarībā no automāta galviņu skaita. Tiek aplūkoti rezultāti, kas sasniegti determinētiem, nedeterminētiem un varbūtiskiem vienvirziena un divvirzienu galīgiem automātiem, un tiek pierādīts, ka līdzīgi rezultāti pastāv arī divvirzienu galīgiem ultrametriskiem automātiem, kas tiek iegūti vispārinot ultrametrisku automātu definīciju, ko pavisam nesen ieviesis ~\citet{Freivalds2012}. Vienvirziena ultrametriskiem vienas galviņas automātiem tiek parādīts pārākums pār determinētiem un nedeterminētiem vairākgalviņu automātiem konkrētai valodai. Darbā kā starpposms pierādījumiem tiek izmantota ultrametrisku Tjūringa mašīnu definīcija un ultrametriskas vairāku reģistru mašīnas.
+Darbā tiek pētīts valodu iedalījums klasēs atkarībā no automāta galviņu skaita. Tiek aplūkoti rezultāti, kas sasniegti determinētiem, nedeterminētiem un varbūtiskiem vienvirziena un divvirzienu galīgiem automātiem, un tiek pierādīts, ka līdzīgi rezultāti pastāv arī divvirzienu galīgiem ultrametriskiem automātiem, kas tiek iegūti vispārinot ultrametrisku automātu definīciju, ko pavisam nesen ieviesis ~\cite{Freivalds2012}. Vienvirziena ultrametriskiem vienas galviņas automātiem tiek parādīts pārākums pār determinētiem un nedeterminētiem vairākgalviņu automātiem konkrētai valodai. Darbā kā starpposms pierādījumiem tiek izmantota ultrametrisku Tjūringa mašīnu definīcija un ultrametriskas vairāku reģistru mašīnas.
 \keywords{ultrametriski automāti, $p$-adiski skaitļi, vairākgalviņu automāti, vairāku lenšu automāti, valodu klases, galviņu hierarhija}
 \end{abstract-lv}
 \clearpage
 
 \begin{abstract-en}
-The work explores the language classes that arise with respect to the head count of a finite automaton. The results for deterministic non-deterministic and probabilistic automata are explored and similar results are proved for two-way ultrametric automata, which are viewed as a generalization of ultrametric finite automata that have just recently been introduced by ~\citet{Freivalds2012}. For the one-way setting it is shown that ultrametric one-head finite automata are more powerful than deterministic and non-deterministic automata for certain languages. Definitions for ultrametric Turing machines and ultrametric multi-register machines are introduced as a tool for proving the results.
+The work explores the language classes that arise with respect to the head count of a finite automaton. The results for deterministic non-deterministic and probabilistic automata are explored and similar results are proved for two-way ultrametric automata, which are viewed as a generalization of ultrametric finite automata that have just recently been introduced by ~\cite{Freivalds2012}. For the one-way setting it is shown that ultrametric one-head finite automata are more powerful than deterministic and non-deterministic automata for certain languages. Definitions for ultrametric Turing machines and ultrametric multi-register machines are introduced as a tool for proving the results.
 \keywords{ultrametric automata, $p$-adic numbers, multi-head automata, multi-tape automata, language classes, head hierarchy}
 \end{abstract-en}
 
@@ -112,14 +112,14 @@ The work explores the language classes that arise with respect to the head count
 \end{longtable}
 
 \specnodala{Ievads}
-Ultrametriskus automātus un Tjūringa mašīnas 2012. gadā ir ieviesis Rūsiņš Freivalds ~\citep{Freivalds2012}. Tam ir sekojuši vairāki darbi, kur dažādi to aspekti ir pētīti padziļināti. 2013. gadā Baloža un līdzautoru ~\citep{KasparsBalodis2013} darbā ir pētīta ultrametrisku automātu apraksta sarežģītība,
-tiek parādīts, ka ultrametriski automāti var sasniegt eksponenciālu pārsvaru stāvokļu skaita ziņā salīdzinot ar determinētiem automātiem, un 2013. gadā Krišlauka un līdzautoru darbā ~\citep{Krislauks2013} tiek pētīta ultrametrisku Tjūringa mašīnu galviņas pagriezienu sarežģītība.
+Ultrametriskus automātus un Tjūringa mašīnas 2012. gadā ir ieviesis Rūsiņš Freivalds ~\cite{Freivalds2012}. Tam ir sekojuši vairāki darbi, kur dažādi to aspekti ir pētīti padziļināti. 2013. gadā Baloža un līdzautoru ~\cite{KasparsBalodis2013} darbā ir pētīta ultrametrisku automātu apraksta sarežģītība,
+tiek parādīts, ka ultrametriski automāti var sasniegt eksponenciālu pārsvaru stāvokļu skaita ziņā salīdzinot ar determinētiem automātiem, un 2013. gadā Krišlauka un līdzautoru darbā ~\cite{Krislauks2013} tiek pētīta ultrametrisku Tjūringa mašīnu galviņas pagriezienu sarežģītība.
 
-Ultrametrisku automāti ir līdzīgi varbūtiskajiem automātiem, bet atšķirība no tiem, ultrametriskajā gadījumā netiek prasīts, lai amplitūdas, kas atbilst varbūtības jēdzienam varbūtiskajos automātos, būtu robežās no 0 līdz 1. Tie var būt patvaļīgi racionāli skaitļi. Jāpiebilst, ka Paavo Turakainen 1969. gadā ~\citep{Turakainen1969} ir ieviesis līdzīgas konstrukcijas, kur arī "varbūtības" var būt patvaļīgi lieli skaitļi, un beigu stāvokļa varbūtība tiek salīdzināta ar kādu noteiktu slieksni, turklāt ir parādīts abas konstrukcijas ir ekvivalentas. Tomēr, atšķirībā no šiem pseido-varbūtiskajiem automātiem, ultrametrisko automātu definīcijā tiek izmantots $p$-adiskās normas jēdziens.
+Ultrametrisku automāti ir līdzīgi varbūtiskajiem automātiem, bet atšķirība no tiem, ultrametriskajā gadījumā netiek prasīts, lai amplitūdas, kas atbilst varbūtības jēdzienam varbūtiskajos automātos, būtu robežās no 0 līdz 1. Tie var būt patvaļīgi racionāli skaitļi. Jāpiebilst, ka Paavo Turakainen 1969. gadā ~\cite{Turakainen1969} ir ieviesis līdzīgas konstrukcijas, kur arī "varbūtības" var būt patvaļīgi lieli skaitļi, un beigu stāvokļa varbūtība tiek salīdzināta ar kādu noteiktu slieksni, turklāt ir parādīts abas konstrukcijas ir ekvivalentas. Tomēr, atšķirībā no šiem pseido-varbūtiskajiem automātiem, ultrametrisko automātu definīcijā tiek izmantots $p$-adiskās normas jēdziens.
 
-Var teikt, ka Freivalda ieviestā definīcija ir dabīga, jo tiek pētīts vienīgais atlikušais maz pētītais nejaušību uzdošanas veids ~\citep{Freivalds2012}. Turklāt ultrametrisko automātu definīcijai ir pierādītas derīgas īpašības \textendash\ Balodis ar līdzautoriem ~\citep{KasparsBalodis2013} ir pierādījis, ka regulētu $p$-adisko automātu atpazīstamo valodu klase sakrīt ar regulāro valodu klasi.
+Var teikt, ka Freivalda ieviestā definīcija ir dabīga, jo tiek pētīts vienīgais atlikušais maz pētītais nejaušību uzdošanas veids ~\cite{Freivalds2012}. Turklāt ultrametrisko automātu definīcijai ir pierādītas derīgas īpašības \textendash\ Balodis ar līdzautoriem ~\cite{KasparsBalodis2013} ir pierādījis, ka regulētu $p$-adisko automātu atpazīstamo valodu klase sakrīt ar regulāro valodu klasi.
 
-Darbā lielākā uzmanība tiek pievērsta jautājumam par valodu hierarhiju vairākgalviņu automātu gadījumā. Determinētiem, nedeterminētiem un varbūtiskiem galīgiem automātiem ir pierādīti vairāki rezultāti gan vienvirziena gan divvirzienu automātiem ~\citep{Holzer2009,Yao1978,Monien1980,Macarie1995}. Darbā tiek pētīts vai ultrametriskiem vairākgalviņu automātiem pastāv līdzīgi rezultāti attiecībā uz valodu dalījumu hierarhijas klasēs. Kā arī tiek pētītas valodu klašu savstarpējās attiecības salīdzinot ultrametriskos automātus ar klasiskajiem.
+Darbā lielākā uzmanība tiek pievērsta jautājumam par valodu hierarhiju vairākgalviņu automātu gadījumā. Determinētiem, nedeterminētiem un varbūtiskiem galīgiem automātiem ir pierādīti vairāki rezultāti gan vienvirziena gan divvirzienu automātiem ~\cite{Holzer2009,Yao1978,Monien1980,Macarie1995}. Darbā tiek pētīts vai ultrametriskiem vairākgalviņu automātiem pastāv līdzīgi rezultāti attiecībā uz valodu dalījumu hierarhijas klasēs. Kā arī tiek pētītas valodu klašu savstarpējās attiecības salīdzinot ultrametriskos automātus ar klasiskajiem.
 \chapter{$p$-adiski skaitļi}
 \section{Ievads $p$-adiskos skaitļos}
 Par $p$-adisku ciparu sauc naturālu skaitli robežās no $0$ līdz $p-1$ (ieskaitot), kur $p$ ir patvaļīgs pirmskaitlis. Par $p$-adisku veselu skaitli sauc virkni $(a_i)_{i \in \mathbb{N}}$, kur $a_i$ ir $p$-disks cipars. To var pierakstīt kā $\cdots a_i \cdots a_2a_1a_0$.
@@ -164,7 +164,7 @@ Jāievēro, ka arī vispārīgajā $p$-adisko skaitļu gadījumā skaitļa piera
 
 $p$-adiskiem skaitļiem ir izpildāmas visas tās pašas aritmētiskās darbības -- saskaitīšana, atņemšana, reizināšana un dalīšana -- kas izpildāmas skaitļiem decimālajā pierakstā. Saskaitīšanu, atņemšanu un reizināšanu var izpildīt $p$-adiskos veselos skaitļos, bet dalīšanas rezultāts var būt pierakstām tikai $p$-adiskos skaitļos.
 
-Var redzēt, ka katram racionālam skaitlim $q$ eksistē tāds pirmskaitlis $p$, ka $q$ var tikt izteikts kā $p$-adisks vesels skaitlis. To pašu nevar teikt par reāliem skaitļiem. Pastāv iracionāli skaitļi, ko nevar izteikt kā $p$-adisku skaitli nevienam $p$. Tas gan nenozīmē, ka $p$-adiski skaitļi kādam $p$ būtu reālo skaitļu apakškopa -- ir kontinuums $p$-adisku skaitļu, kas neatbilst nevienam reālam skaitlim ~\citep{Freivalds2012}.
+Var redzēt, ka katram racionālam skaitlim $q$ eksistē tāds pirmskaitlis $p$, ka $q$ var tikt izteikts kā $p$-adisks vesels skaitlis. To pašu nevar teikt par reāliem skaitļiem. Pastāv iracionāli skaitļi, ko nevar izteikt kā $p$-adisku skaitli nevienam $p$. Tas gan nenozīmē, ka $p$-adiski skaitļi kādam $p$ būtu reālo skaitļu apakškopa -- ir kontinuums $p$-adisku skaitļu, kas neatbilst nevienam reālam skaitlim ~\cite{Freivalds2012}.
 
 \section{$p$-adiskas absolūtās vērtības}
 Funkcija $d: X \times X \rightarrow R_{\geq 0}$, kur $X$ ir netukša kopa, tiek saukta par metriku, ja tiek apmierinātas šādas īpašības:
@@ -181,7 +181,7 @@ Elementa norma apmierina šādas īpašības:
 \item $||x*y|| = ||x||*||y||$,
 \item $||x+y|| \leq ||x||+||y||$ (trīsstūra nevienādība).
 \end{enumerate}
-Ja trešo īpašību var aizstāt ar tas spēcīgāko variantu -- stingro trīsstūra nevienādību $||x+y|| \leq max(||x||,||y||)$ --, tad normu sauc par ultrametrisku. Citādi to sauc par Arhimedisku ~\citep{Freivalds2012}.
+Ja trešo īpašību var aizstāt ar tas spēcīgāko variantu -- stingro trīsstūra nevienādību $||x+y|| \leq max(||x||,||y||)$ --, tad normu sauc par ultrametrisku. Citādi to sauc par Arhimedisku ~\cite{Freivalds2012}.
 
 \begin{definicija}
 Katram nenulles racionālam skaitlim $\alpha$ eksistē viennozīmīgi nosakāms sadalījums pirmreizinātājos - $\alpha = \pm 2^{\alpha_2}3^{\alpha_3}5^{\alpha_5}7^{\alpha_7} \cdots$, kur $\alpha_i$-tie ir veseli skaitļi, no kuriem tikai galīgs skaits ir nenulles. Par racionāla skaitļa $\alpha$ \textbf{$p$-adisko absolūto vērtību} (arī sauktu par \textbf{$p$-normu}) sauc 
@@ -193,11 +193,11 @@ p^{-\alpha_p}, &\textrm{ja } \alpha \neq 0 \\
 \]
 \end{definicija}
 
-Ar detalizētāku izklāstu par $p$-adiskiem skaitļiem iespējams iepazīties ~\citep{Madore}. Ar $p$-adisko skaitļu pielietojumu citās zinātnes nozarēs var iepazīties ~\citep{V.S.Vladimirov1995,Kozyrev2006,Dragovich2009}
+Ar detalizētāku izklāstu par $p$-adiskiem skaitļiem iespējams iepazīties ~\cite{Madore}. Ar $p$-adisko skaitļu pielietojumu citās zinātnes nozarēs var iepazīties ~\cite{V.S.Vladimirov1995,Kozyrev2006,Dragovich2009}
 
 \chapter{Vienvirziena vairākgalviņu automāti}
 \section{Definīcijas}
-Ultrametriski automāti tiek definēti kā Baloža un līdzautoru darbā ~\citep{KasparsBalodis2013}.
+Ultrametriski automāti tiek definēti kā Baloža un līdzautoru darbā ~\cite{KasparsBalodis2013}.
 \begin{definicija}
 Galīgs $p$-ultrametrisks ($U_pFA$) automāts ir kortežs $\langle S, \Sigma, s_0, \delta, F, \Lambda \rangle$, kur
 \begin{itemize}
@@ -247,7 +247,7 @@ $\triangleright w \triangleleft$. Jeb precīzāk -
 %TODO pabeigt par 2DFA(k).
 
 \section{Attiecība pret klasiskajiem automātiem}
-Vienvirziena vairākgalviņu automātiem gan determinētā gan nedeterminētā gadījumā ir pierādītas stingri iekļaujošas klases valodām, ko automāts var atpazīt atkarībā no galviņu skaita ~\citep{Holzer2009,Yao1978}. 1978. gadā ~\citet{Yao1978} parādīja, ka, lai atdalītu valodu klasi, ko var atpazīt ar $1dfa(k)$, no tās, ko var atpazīt ar $1dfa(k+1)$, pietiek ar valodu
+Vienvirziena vairākgalviņu automātiem gan determinētā gan nedeterminētā gadījumā ir pierādītas stingri iekļaujošas klases valodām, ko automāts var atpazīt atkarībā no galviņu skaita ~\cite{Holzer2009,Yao1978}. 1978. gadā ~\cite{Yao1978} parādīja, ka, lai atdalītu valodu klasi, ko var atpazīt ar $1dfa(k)$, no tās, ko var atpazīt ar $1dfa(k+1)$, pietiek ar valodu
 \[
 	L_n = \left\{w_1\$w_2\$ \ldots \$w_{2n} | w_i \in \left\{a,b\right\}^* \textrm{ un } w_i = w_{2n+1−i} \textrm{ visiem } 1 \leq i \leq n \right\}.
 \]
@@ -318,12 +318,12 @@ Iegūstam, ka vārds pieder valodai tad un tikai tad, ja ir apmierināta šāda 
 
 Var redzēt, ka vienādojumu sistēmas koeficienti veido Vandermonda matricu, tātad sistēmas determinants ir nenulles, un, tā kā dotā vienādojumu sistēma ir homogēna, tai eksistē tikai triviālais atrisinājums. Tomēr ja vārds nepieder valodai var gadīties, ka kādas ne vairāk kā $4$ atsevišķas rindiņas izpildās, bet tādā gadījumā vienmēr būs vismaz viena rindiņa, kas nav vienāda ar 0 (citādi būtu nenulles risinājums, un sistēmai būtu netriviāls atrisinājums). Tātad par slieksni varam izvēlēties 0, un teikt, ka vārds pieder valodai, ja akceptējošo stāvokļu beigu amplitūdu normu summa ir $\leq 0$, un nepieder, ja citādi.
 
-$(2)$ Pierādījis ~\citet{Freivalds1982} ~\citep{Freivalds1979}, pierādījums līdzīgai valodai atrodams arī ~\citep{Yao1978}. Pierādījuma ideja balstās uz faktu, ka divas galviņas, kas izmantotas kāda viena pāra pārbaudīšanai, nevar izmantot vairs neviena cita pāra pārbaudei. No tā arī seko, ka, ja valodas pāru fragmentu skaits $n$ ir lielāks par visu iespējamo galviņu pāru skaitu ${k\choose 2}$, tad valodu nevar atpazīt ar $k$ galviņām.
+$(2)$ Pierādījis ~\cite{Freivalds1982} ~\cite{Freivalds1979}, pierādījums līdzīgai valodai atrodams arī ~\cite{Yao1978}. Pierādījuma ideja balstās uz faktu, ka divas galviņas, kas izmantotas kāda viena pāra pārbaudīšanai, nevar izmantot vairs neviena cita pāra pārbaudei. No tā arī seko, ka, ja valodas pāru fragmentu skaits $n$ ir lielāks par visu iespējamo galviņu pāru skaitu ${k\choose 2}$, tad valodu nevar atpazīt ar $k$ galviņām.
 
-$(3)$ Pierādījis ~\citet{Freivalds1982}, pierādījums līdzīgai valodai atrodams arī ~\citep{Yao1978}.
+$(3)$ Pierādījis ~\cite{Freivalds1982}, pierādījums līdzīgai valodai atrodams arī ~\cite{Yao1978}.
 \end{pieradijums}
 
-Jāpiebilst, ka ar konstantu galviņu skaitu $L_k$ atpazīšanai pietiek arī varbūtiskiem automātiem. ~\citet{Freivalds1982} ir parādījis, ka jebkuram $\epsilon > 0$ eksistē $1pfa$, kas atpazīst katru vārdu $L_k$ ar varbūtību $1$, un noraida katru vārdu, kas nepieder, ar varbūtību vismaz $1 - \epsilon$.
+Jāpiebilst, ka ar konstantu galviņu skaitu $L_k$ atpazīšanai pietiek arī varbūtiskiem automātiem. ~\cite{Freivalds1982} ir parādījis, ka jebkuram $\epsilon > 0$ eksistē $1pfa$, kas atpazīst katru vārdu $L_k$ ar varbūtību $1$, un noraida katru vārdu, kas nepieder, ar varbūtību vismaz $1 - \epsilon$.
 
 \chapter{Vienvirziena vairāku lenšu automāti}
 \section{Definīcijas}
@@ -347,7 +347,7 @@ Valodu $L_b$, kas sastāv no vārdu pāriem $(0^m,0^n10^k)$ formā
 \begin{pieradijums}
 Pieņemsim, ka vārds $0^n10^k$ ir novietots uz automāta pirmās lentes, un vārds $0^m$ -- uz otrās.
 
-$(1)$ Pierādījuma ideja tiešā veidā seko no līdzīga rezultāta varbūtiskiem automātiem ~\citep{Freivalds1979}. Būvēsim $2$ lenšu galīgu $p$-ultrametrisku automātu, kas atpazīst $L_b$. Automāts ar vienādu amplitūdu $1$ sāk darbu divos neatkarīgos zaros. Tālākā darbība katrā no zariem norit determinēti, veicot pārejas ar amplitūdu $1$. Pirmajā zarā automāts uz katriem $3$ vārda pirmās lentes simboliem pārvietojas $1$ simbolu uz otrās lentes, līdz uz pirmās lentes sastop atdalītājsimbolu $1$. Tālāk automāts uz katriem $3$ pirmās lentes simboliem pārvietojas $2$ simbolus uz otrās lentes. Ja abu lenšu galviņas nonāk vārda galā vienlaicīgi tad automāts ar amplitūdu $\frac{p}{2}$ pāriet uz akceptējošo stāvokli $q_{a}$, ja nē, tad akceptējošajā stāvoklī nonāk ar amplitūdu $1$. Vienkāršības labad pieņemsim, ka pa abiem vārdiem var noiet ar veselu soļu skaitu. Ja to nevar izdarīt, tad automātam ir jāatceras atlikums, kāds veidojas apstaigājot katru vārda daļu. Otrā zarā darbības notiek līdzīgi, tikai pretējā secībā -- apstrādājot pirmo vārda daļu, uz pirmās lentes noejot $3$ simbolus, uz otrās lentes pārvietojas $2$, un apstrādājot otro vārda daļu -- $1$. Otrajā zarā ar analoģisku nosacījumu pāriet uz akceptējošo stāvokli $q_{a}$.
+$(1)$ Pierādījuma ideja tiešā veidā seko no līdzīga rezultāta varbūtiskiem automātiem ~\cite{Freivalds1979}. Būvēsim $2$ lenšu galīgu $p$-ultrametrisku automātu, kas atpazīst $L_b$. Automāts ar vienādu amplitūdu $1$ sāk darbu divos neatkarīgos zaros. Tālākā darbība katrā no zariem norit determinēti, veicot pārejas ar amplitūdu $1$. Pirmajā zarā automāts uz katriem $3$ vārda pirmās lentes simboliem pārvietojas $1$ simbolu uz otrās lentes, līdz uz pirmās lentes sastop atdalītājsimbolu $1$. Tālāk automāts uz katriem $3$ pirmās lentes simboliem pārvietojas $2$ simbolus uz otrās lentes. Ja abu lenšu galviņas nonāk vārda galā vienlaicīgi tad automāts ar amplitūdu $\frac{p}{2}$ pāriet uz akceptējošo stāvokli $q_{a}$, ja nē, tad akceptējošajā stāvoklī nonāk ar amplitūdu $1$. Vienkāršības labad pieņemsim, ka pa abiem vārdiem var noiet ar veselu soļu skaitu. Ja to nevar izdarīt, tad automātam ir jāatceras atlikums, kāds veidojas apstaigājot katru vārda daļu. Otrā zarā darbības notiek līdzīgi, tikai pretējā secībā -- apstrādājot pirmo vārda daļu, uz pirmās lentes noejot $3$ simbolus, uz otrās lentes pārvietojas $2$, un apstrādājot otro vārda daļu -- $1$. Otrajā zarā ar analoģisku nosacījumu pāriet uz akceptējošo stāvokli $q_{a}$.
 
 Var redzēt, ka, lai abos zaros galviņas nonāktu galā vienlaicīgi, jātiek apmierinātai šādai vienādojumu sistēmai:
 \begin{gather*}
@@ -367,16 +367,16 @@ Var redzēt, ka, lai abos zaros galviņas nonāktu galā vienlaicīgi, jātiek a
 \end{gather*}
 Tātad automāts no abiem zariem nonāk akceptējošajā stāvoklī ar amplitūdu $\frac{p}{2}$, kopā veidojot amplitūdu $p$, tad un tikai tad, ja vārds pieder valodai. Ja vārds nepieder valodai, tad amplitūda būs vai nu $\frac{p}{2} + 1$ vai $2$. Tātad par akceptēšanas slieksni varam izvēlēties $\frac{1}{p}$, un varam teikt, ka vārdu pāris pieder valodai, ja $|q_{a}|_p \leq \frac{1}{p}$, un nepieder, ja pretēji.
 
-$(2)$ Pierādījis ~\citet{Freivalds1979}.
+$(2)$ Pierādījis ~\cite{Freivalds1979}.
 \end{pieradijums}
 
 %TODO aizstāt -- ar -
 
-Lai arī pierādījums viegli seko no līdzīga rezultāta varbūtiskajā gadījumā, kas parādīts ~\citep{Freivalds1979}, uzrādītajam ultrametriskajam automātam piemīt interesanta īpašība -- tas atbilst Freivalda ~\citep{Freivalds2012} ieviestajai regulēto integrālo automātu definīcijai, kas ir analogs automātiem ar izolētu šķēluma punktu varbūtiskajā gadījumā. ~\citet{KasparsBalodis2013} ir parādījis, ka vienvirziena vienas galviņas regulēti automāti akceptē regulārās valodas. Tomēr, kā redzams augstāk minētajā teorēmā, valodu $L_b$ nevar atpazīt ar nedeterminētu divu lenšu automātu, tātad tā nav regulāra. Šis rezultāts sasaucas ar tādiem pašiem novērojumiem varbūtiskajiem automātiem ~\citep{Freivalds1981,Freivalds1979}.
+Lai arī pierādījums viegli seko no līdzīga rezultāta varbūtiskajā gadījumā, kas parādīts ~\cite{Freivalds1979}, uzrādītajam ultrametriskajam automātam piemīt interesanta īpašība -- tas atbilst Freivalda ~\cite{Freivalds2012} ieviestajai regulēto integrālo automātu definīcijai, kas ir analogs automātiem ar izolētu šķēluma punktu varbūtiskajā gadījumā. ~\cite{KasparsBalodis2013} ir parādījis, ka vienvirziena vienas galviņas regulēti automāti akceptē regulārās valodas. Tomēr, kā redzams augstāk minētajā teorēmā, valodu $L_b$ nevar atpazīt ar nedeterminētu divu lenšu automātu, tātad tā nav regulāra. Šis rezultāts sasaucas ar tādiem pašiem novērojumiem varbūtiskajiem automātiem ~\cite{Freivalds1981,Freivalds1979}.
 
 \chapter{Divvirzienu automāti}
 \section{Definīcijas}
-Ultrametrisku vairākgalviņu definīcija tiek iegūta visdabiskākajā veidā paplašinot ~\citep{KasparsBalodis2013} ieviesto ultrametrisko automātu definīciju. Par pamatu tiek ņemta arī ~\citep{Holzer2009} ieviestā vairākgalviņu automātu definīcija.
+Ultrametrisku vairākgalviņu definīcija tiek iegūta visdabiskākajā veidā paplašinot ~\cite{KasparsBalodis2013} ieviesto ultrametrisko automātu definīciju. Par pamatu tiek ņemta arī ~\cite{Holzer2009} ieviestā vairākgalviņu automātu definīcija.
 
 \begin{definicija}
 Par galīgu $k$-galviņu divvirzienu $p$-ultrametrisku automātu ($2U_pFA(k)$) tiek saukts kortežs $\langle S, \Sigma, k, s_0, \delta, F, \Lambda \rangle$, kur
@@ -418,7 +418,7 @@ Līdzīgi kā iepriekš, automātam beidzot darbu, akceptēšanas nosacījums ti
 
 Ultrametriskas Tjūringa mašīnas darbā tiks izmantotas, lai pierādītu rezultātus vairākgalviņu automātu sadalījumam hierarhijas klasēs.
 
-Ultrametriskas Tjūringa mašīnas definīcija tiek iegūta dabiskā veida paplašinot J. Hopcroft un J. Ullman ~\citep{Hopcroft1979} 1979. gadā ieviesto definīciju. Ērtības labad definēsim mašīnu ar vairākām darba lentēm.
+Ultrametriskas Tjūringa mašīnas definīcija tiek iegūta dabiskā veida paplašinot J. Hopcroft un J. Ullman ~\cite{Hopcroft1979} 1979. gadā ieviesto definīciju. Ērtības labad definēsim mašīnu ar vairākām darba lentēm.
 \begin{definicija}
 Par $p$-ultrametrisku Tjūringa mašīnu ar $k$ darba lentēm $(U_pTM(k))$ sauc kortežu $M= \langle Q, \Gamma, b, \Sigma, \delta, q_0, F \rangle$, kur:
 \begin{itemize}
@@ -440,7 +440,7 @@ Galīgs $p$-ultrametrisks $k$ reģistru automāts (turpmāk arī mašīna) ($2U_
 \end{definicija}
 
 \section{Ultrametriska automāta simulācija}
-Nākamās nodaļas pierādījumos tiks izmantota iespēja ultrametrisku vairākgalviņu automātu simulēt ar ultrametrisku Tjūringa mašīnu. Šeit tiks parādīti vispārīgie principi, kas ir šādas simulācijas pamatā, izmantotās idejas ir līdzīgas kā ~\citep{Macarie1995} varbūtisko automātu gadījumā.
+Nākamās nodaļas pierādījumos tiks izmantota iespēja ultrametrisku vairākgalviņu automātu simulēt ar ultrametrisku Tjūringa mašīnu. Šeit tiks parādīti vispārīgie principi, kas ir šādas simulācijas pamatā, izmantotās idejas ir līdzīgas kā ~\cite{Macarie1995} varbūtisko automātu gadījumā.
 
 Vienkāršības labad var pieņemt, ka simulējamajam automātam no katra stāvokļa iziet ne vairāk kā $2$ pārejas. Tiks aprakstīts veids, kā veidot $p$-ultrametrisku $2$ lenšu Tjūringa mašīnu, kas, ieejā saņemot $p$-ultrametriska $k$ galviņu automāta aprakstu, akceptē tos un tikai tos vārdus, ko simulējamais automāts. Tā kā turpmākajā darbā šādas simulācijas nepieciešamība tiks apskatīta tikai darbojoties ar vārdiem viena burta alfabētā, tad tiks parādīts veids, kā automāta aprakstu uzdot izmantojot viena burta alfabētu; konkrētāk -- vārdus formā $1^{2^n}, n \in \mathbb{N}$. Vēl tiek prasīts, lai simulējamā automāta amplitūdas būtu $log$-space $p$-konstruējamas skaitļu kopas.
 
@@ -517,7 +517,7 @@ Var redzēt, ka algoritms nav atkarīgs no $p$.
 \end{pieradijums}
 
 \section{Vairākgalviņu automāti}
-~\citet{Monien1980} ir parādījis, ka galīgiem determinētiem un nedeterminētiem automātiem valodu klase, ko var atpazīt, izmantojot $k$ galviņas, stingri iekļaujas valodu klasē, ko var atpazīt ar $k+1$ galviņu. Vēlāk, izmantojot līdzīgas metodes, ~\citet{Macarie1995} pierādīja atbilstošos rezultātus arī galīgiem varbūtiskiem automātiem. Tālāk tiks pierādīts, ka tādi paši rezultāti ir spēkā arī ultrametriskiem automātiem.
+~\cite{Monien1980} ir parādījis, ka galīgiem determinētiem un nedeterminētiem automātiem valodu klase, ko var atpazīt, izmantojot $k$ galviņas, stingri iekļaujas valodu klasē, ko var atpazīt ar $k+1$ galviņu. Vēlāk, izmantojot līdzīgas metodes, ~\cite{Macarie1995} pierādīja atbilstošos rezultātus arī galīgiem varbūtiskiem automātiem. Tālāk tiks pierādīts, ka tādi paši rezultāti ir spēkā arī ultrametriskiem automātiem.
 
 \begin{teorema} \label{atdalisana}
 Katram naturālam skaitlim $k$ un pirmskaitlim $p$ izpildās
@@ -536,7 +536,7 @@ Tas tiek darīts determinēti, pārejas veicot ar amplitūdu $1$. Tālāk $T$ da
 Apskatīsim valodu $L(T)$, ko akceptē $T$. Ir skaidri redzams, ka katram $u_pfa(k)$, ko apzīmēsim ar $J$, eksistē tāds vārds, kas pieder $L(T)$, bet nepieder $L(J)$, vai nepieder $L(T)$, bet pieder $L(J)$ -- $J$ apraksts.
 \end{pieradijums}
 
-Tāpat kā ~\citep{Macarie1995} un ~\citep{Monien1980} tiks izmantota funkcija
+Tāpat kā ~\cite{Macarie1995} un ~\cite{Monien1980} tiks izmantota funkcija
 \[
 	f_k : \left\{ 1^{2^n} | n \in \mathbb{N} \right\} \rightarrow \left\{ 1^{2^n} | n \in \mathbb{N} \right\} \textrm{, kur } f_k( 1^{2^n}) = 1^{2^{k \cdot n}}
 \]
@@ -581,7 +581,7 @@ Visām valodām $L \in \widehat{U_pTM}$ un visiem $u, v \geq 1, u, v \in \mathbb
 Premisā minēto $U_pFA(v)$ sauksim par $A$, un sekās minēto $U_pFA(u \cdot v)$ -- par $A'$.
 Apskatīsim $A$ darbību, ja ieejā saņemts vārds $f_u(l), l = 1^{2^n} \in L, n \in \mathbb{N}$. Pozīciju uz ieejas vārda katrai no automāta $A$ $v$ galviņām var aprakstīt naturālu ar skaitli robežās $\left[0, 2^{u \cdot n} -1 \right]$. Šo skaitli var arī izteikt ar $u$ cipariem pie bāzes $2^n$. Tā kā katras $A'$ galviņas pozīciju uz ieejas vārda varam aprakstīt ar ciparu pie bāzes $2^n$, tad katru no $A$ galviņām var simulēt ar $u$ $A'$ galviņām. Tā kā katrai $A$ galviņas kustībai atbilst kāda $A'$ galviņas kustība, tad atbilstošās pārejas var veikt ar vienādām amplitūdām, un vārdu akceptēšanas amplitūdas saglabājas.
 
-Šī simulācija notiek līdzīgi kā varbūtiskajā ~\citep{Macarie1995} un determinētajā gadījumā ~\citep{Monien1980}.
+Šī simulācija notiek līdzīgi kā varbūtiskajā ~\cite{Macarie1995} un determinētajā gadījumā ~\cite{Monien1980}.
 \end{pieradijums}
 
 \begin{lemma} \label{plus1}
@@ -599,12 +599,12 @@ Apskatīsim $A$ darbību, ja ieejā saņemts vārds $f_{u+1}(l), l = 1^{2^n} \in
 	2^{u \cdot n + n} & =\\
 	2^{(u + 1) \cdot n}.\\
 \end{align*}
-Visi skaitā $v$ nepieciešamie $x_i$ tiek kodēti ar $A'$ $(v+1)$-mo galviņu to dara līdzīgi kā ~\citep{Monien1980}.
+Visi skaitā $v$ nepieciešamie $x_i$ tiek kodēti ar $A'$ $(v+1)$-mo galviņu to dara līdzīgi kā ~\cite{Monien1980}.
 To var panākt, ja uz $A'$ lentes ir pietiekami daudz vietas, t.i., ja $(2^n)^v < 2^{u \cdot n}$, no kā seko prasība $v < u$.
 
 Tā kā katrai $A$ galviņas kustībai atbilst kāda $A'$ galviņas kustība, tad atbilstošās pārejas var veikt ar vienādām amplitūdām, un vārdu akceptēšanas amplitūdas saglabājas.
 
-Šīs simulācija notiek līdzīgi kā varbūtiskajā ~\citep{Macarie1995} un nedeterminētajā ~\citep{Monien1980} gadījumā.
+Šīs simulācija notiek līdzīgi kā varbūtiskajā ~\cite{Macarie1995} un nedeterminētajā ~\cite{Monien1980} gadījumā.
 \end{pieradijums}
 
 Rezultāts par $k + 1$ galviņas pārākumu pār $k$ viegli seko no iepriekšējām lemmām un teorēmas \ref{atdalisana}.
@@ -640,6 +640,7 @@ Pierādītie rezultāti pozitīvi atsaucas uz ultrametrisko automātu definīcij
 
 Autors uzskata, ka ir panākti nozīmīgi rezultāti galviņu hierarhijas jautājumos vairākgalviņu ultrametriskiem automātiem, tos nostādot klasisko automātu kontekstā, un paverot iespējas tālākiem pētījumiem.
 
-\printbibliography
+\bibliographystyle{ludis}
+\bibliography{bibliography}
 
 \end{document}
