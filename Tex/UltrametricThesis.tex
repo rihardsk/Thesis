@@ -541,7 +541,7 @@ Veidosim īpašu $p$-ultrametrisku Tjūringa mašīnu ar $2$ lentēm, un ar $log
 
 Līdzīgi kā parādīts nodaļas sākumā, $T$ veidosim tā, ka tā simulē ieejā saņemtu $u_pfa(k)$, sauktu par $A$. Atšķirībā no apraksta, $A$ "aprakstā" tieša veidā netiek iekļauts ieejas vārds, ko $A$ apstrādā. Tā vietā $A$ tiks darbināts uz ieejas virknes, t.i. -- uz sava "apraksta".
 
-Precīzāk -- $T$ uz 1. lentes atrodas vārds $1^m, m \in \mathbb{N}$, $T$ pārbauda, vai tas ir formā $1^{2^n}, n \in \mathbb{N}$ (vārdu noraida, ja tas neatbilst) un uz 2. lentes (sauksim par darba lenti) uzraksta $n$ binārā pierakstā, aizņemot $O(log(n))$ vietas. Tiek pārbaudīts, vai $n$ pieraksts sintaktiski atbilst kādam $u_pfa(k)$; vārdu noraida, ja tas neatbilst. Tālāk $T$ uz darba lentes tiek izdalīta vieta $k$ skaitītājiem, kas norādīs $A$ galviņu pozīcijas uz ieejas vārda. Tā kā kā vērtības var būt robežās $\left[0, \ldots, 1^{2^n} \right]$, tad tam tiek patērēts $O(k \cdot log(2^n)) \sim O(k \cdot n)$ vietas. %TODO nevajag novērtēt visur ar O()?
+Precīzāk -- $T$ uz 1. lentes atrodas vārds $1^m, m \in \mathbb{N}$, $T$ pārbauda, vai tas ir formā $1^{2^n}, n \in \mathbb{N}$ (vārdu noraida, ja tas neatbilst) un uz 2. lentes (sauksim par darba lenti) uzraksta $n$ binārā pierakstā, aizņemot $O(log(n))$ vietas. Tiek pārbaudīts, vai $n$ pieraksts sintaktiski atbilst kādam $u_pfa(k)$; vārdu noraida, ja tas neatbilst. Tālāk $T$ uz darba lentes tiek izdalīta vieta $k$ skaitītājiem, kas norādīs $A$ galviņu pozīcijas uz ieejas vārda. Tā kā vērtības var būt robežās $\left[0, \ldots, 1^{2^n} \right]$, tad tam tiek patērēts $O(k \cdot log(2^n)) \sim O(k \cdot n)$ vietas. %TODO nevajag novērtēt visur ar O()?
 Tas tiek darīts determinēti, pārejas veicot ar amplitūdu $1$. Tālāk $T$ darbina uz ieejas virknes kā parādīts nodaļas sākumā (1. lentes galviņa vairs netiek kustināta, tiek pārbaudīts, vai galviņām atbilstošie skaitītāji ir vārda robežās, vai nē). Rezultātā $T$ ar attiecīgajām amplitūdām ir nonācis visās iespējamajās konfigurācijās, kur $A$ var nonākt apstrādājot vārdu. Tālāk $T$ skatās, vai darba lentes saturs liecina, ka $A$ ir nonācis akceptējošā stāvoklī, un vārdu noraida, ja $A$ ir akceptējošā stāvoklī, un akceptē, ja $A$ nav nonācis akceptējoša stāvoklī. Tādējādi $T$ ar tādu pašu amplitūdu kā $A$, dod pretēju rezultātu.
 
 Apskatīsim valodu $L(T)$, ko akceptē $T$. Ir skaidri redzams, ka katram $u_pfa(k)$, ko apzīmēsim ar $J$, eksistē tāds vārds, kas pieder $L(T)$, bet nepieder $L(J)$, vai nepieder $L(T)$, bet pieder $L(J)$ -- $J$ apraksts.
@@ -559,7 +559,7 @@ Katrai valodai $L \in \widehat{U_pTM}$ eksistē naturāls skaitlis $u$, tāds ka
 \]
 \end{lemma}
 \begin{pieradijums}
-Parādīsim, kā $u_ptm$, sauktu par $T$, kas atpazīst $L$, pārveidot par citu $u_ptm$, sauktu par $T'$, ko iespējams aizstāt ar $p$-ultrametrisku $3$ skaitītāju mašīnu, no kā viegli seko, ka eksistē $u_pfa(k)$, kas atpazīst ar $f_u$ "izstiepto" $L$ variantu.
+Parādīsim, kā $u_ptm$, sauktu par $T$, kas atpazīst $L$, pārveidot par citu $u_ptm$, sauktu par $T'$, ko iespējams aizstāt ar $p$-ultrametrisku $3$ reģistru mašīnu, no kā viegli seko, ka eksistē $u_pfa(k)$, kas atpazīst ar $f_u$ "izstiepto" $L$ variantu.
 
 Veidosim $T'$, kas simulēt $T$. $T'$ uz darba lentes glabās šādu informāciju:
 \begin{itemize}
@@ -570,7 +570,7 @@ Veidosim $T'$, kas simulēt $T$. $T'$ uz darba lentes glabās šādu informācij
 \end{itemize} %TODO telpas novērtējumi
 Uz $T'$ darba lentes $T$ simulēšanu veikt ir vienkāršāk nekā ultrametrisko automātu gadījumā, jo $T'$ var izmantot oriģinālo $T$ vadības bloku, un pārejas nav jāsimulē uz lentes. $T$ simulācijā $T'$ izmanto tikai darba lenti.
 
-Var redzēt, ka var uzbūvēt $T'$ atbilstošu $p$-ultrametrisku $3$ reģistru mašīnu. Ja ieejas vārds ir $1^{2n}$, tad mašīna sak darbu ar $n$ bināro reprezentāciju pirmajā reģistrā un ar $0$ pārējos. Var pārliecināties, ka izmantojot pirmos divus reģistrus, kuros darbības laikā atrodas skaitļi $v$ un $h^{rev}$, un trešo reģistru kā palīgmainīgo, iespējams simulēt $T'$ darba lenti. Lai to panāktu tiek izmantota iespēja reģistriem pieskaitīt un atņemt $1$, un tos saturu reizināt un dalīt ar $2$, ko palīdz realizēt trešais -- papildus reģistrs. Tas shematiski parādīts attēlā \ref{fig:skaititaji}.
+Var redzēt, ka var uzbūvēt $T'$ atbilstošu $p$-ultrametrisku $3$ reģistru mašīnu. Ja ieejas vārds ir $1^{2n}$, tad mašīna sāk darbu ar $n$ bināro reprezentāciju pirmajā reģistrā un ar $0$ pārējos. Var pārliecināties, ka izmantojot pirmos divus reģistrus, kuros darbības laikā atrodas skaitļi $v$ un $h^{rev}$, un trešo reģistru kā palīgmainīgo, iespējams simulēt $T'$ darba lenti. Lai to panāktu tiek izmantota iespēja reģistriem pieskaitīt un atņemt $1$, un tos saturu reizināt un dalīt ar $2$, ko palīdz realizēt trešais -- papildus reģistrs. Tas shematiski parādīts attēlā \ref{fig:skaititaji}.
 
 \begin{figure}[h!]
 \centering
@@ -628,7 +628,7 @@ Visiem $k \geq 2 \in \mathbb{N}$ izpildās
 \begin{pieradijums}
 Pierādām no pretējā, parādot, ka no pieņēmuma, ka eksistē tāds $h \geq 2$, kam $\widehat{U_pFA(h)} = \widehat{U_pFA(h + 1)}$ seko, $\widehat{U_pFA(h \cdot (h + 1))} = \widehat{U_pTM}$, kas ir pretrunā ar teorēmu \ref{atdalisana}.
 
-Ņemam kādu $L \in \widehat{U_pTM}$ kādam pirmskaitlim $p$. No lemmas \ref{skaititaji} seko, ka eksistē tāds $m \in \mathbb{N}$, ka $f_m(L) \in \widehat{U_pFA(3)}$. Tātad arī $f_m(L) \in \widehat{U_pFA(h)}$. No lemmas \ref{plus1} seko, ka, ja $m > h + 1$ tad $f_{m-1}(L) \in \widehat{U_pFA(h + 1)} = \widehat{U_pFA(h)}$. Ņemam $m = m - 1$, un atkārtojam, līdz nonākam pie $f_m(L) \in \widehat{U_pFA(h)}$, un $m = h + 1$. Tad no lemmas \ref{reizinajums} seko, ka, ja $f_m(L) \in \widehat{U_pFA(h)}$, tad $L \in \widehat{U_pFA(h \cdot m)} = \widehat{U_pFA(h \cdot (h + 1))}$. Kas ir pretrunā ar teorēmu \ref{atdalisana}.
+Ņemam kādu $L \in \widehat{U_pTM}$ kādam pirmskaitlim $p$. No lemmas \ref{skaititaji} seko, ka eksistē tāds $m \in \mathbb{N}$, ka $f_m(L) \in \widehat{U_pFA(3)}$. Tātad arī $f_m(L) \in \widehat{U_pFA(h)}$. No lemmas \ref{plus1} seko, ka, ja $m > h + 1$ tad $f_{m-1}(L) \in \widehat{U_pFA(h + 1)} = \widehat{U_pFA(h)}$. Ņemam $m = m - 1$, un atkārtojam, līdz nonākam pie $f_m(L) \in \widehat{U_pFA(h)}$ un $m = h + 1$. Tad no lemmas \ref{reizinajums} seko, ka, ja $f_m(L) \in \widehat{U_pFA(h)}$, tad $L \in \widehat{U_pFA(h \cdot m)} = \widehat{U_pFA(h \cdot (h + 1))}$. Kas ir pretrunā ar teorēmu \ref{atdalisana}.
 \end{pieradijums}
 \begin{sekas}
 Tā kā $U_pFA(k + 1)$ sevī iekļauj $U_pFA(k)$, un tikko tika parādīts, ka eksistē tāda valoda, ko var atpazīt ar $k+1$ galviņu, bet nevar ar $k$, tad galviņu hierarhijas rezultāts ir spēkā arī valodām vairāku burtu alfabētā:
@@ -638,7 +638,7 @@ Tā kā $U_pFA(k + 1)$ sevī iekļauj $U_pFA(k)$, un tikko tika parādīts, ka e
 \end{sekas}
 
 \chapter{Rezultāti}
-Darbā ultrametriskiem galīgiem vairakgalviņu automātiem ir sekmīgi pierādīti rezultāti, kas ir analoģiski tiem, kas literatūrā sastopami determinētiem, nedeterminētiem varbūtiskiem automātiem. Tiek stingri nošķirtas valodu klases, ko var atpazīt ar divvirzienu galīgiem $k$ galviņu ultrametriskiem automātiem, no tām, ko var atpazīt, izmantojot $k+1$ galviņu. Turklāt tiek arī ieviesta definīcija ultrametriskiem vairāku reģistru automātiem ultrametriskām, kas tāpat kā ultrametriskas Tjūringa mašīnas tiek izmantota, kā starpposms galviņu hierarhijas rezultātu pierādīšanai.
+Darbā ultrametriskiem galīgiem vairakgalviņu automātiem ir sekmīgi pierādīti rezultāti, kas ir analoģiski tiem, kas literatūrā sastopami determinētiem, nedeterminētiem varbūtiskiem automātiem. Tiek stingri nošķirtas valodu klases, ko var atpazīt ar divvirzienu galīgiem $k$ galviņu ultrametriskiem automātiem, no tām, ko var atpazīt, izmantojot $k+1$ galviņu. Turklāt tiek arī ieviesta definīcija ultrametriskiem vairāku reģistru automātiem, kas tāpat kā ultrametriskas Tjūringa mašīnas tiek izmantota, kā starpposms galviņu hierarhijas rezultātu pierādīšanai.
 
 Vienvirziena galīgiem ultrametriskiem automātiem ar vienu galviņu ir pierādīti rezultāti, kas parāda to pārākumu attiecībā pret determinētiem un nedeterminētiem automātiem ar $k$ galviņām. Līdzīgs sasniegums pastāv arī varbūtiskiem automātiem, lai arī literatūrā atrodami tikai rezultāti varbūtiskiem $2$ galviņu galīgiem automātiem.
 
