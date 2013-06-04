@@ -230,7 +230,7 @@ Par nedeterminētu divvirzienu $k$-galviņu galīgu automātu ($2NFA(k)$) tiek s
 	\item $F \subseteq S$ ir akceptējošo stāvokļu kopa.
 \end{itemize}
 \end{definicija}
-$2NFA(k)$ sākot darbu, visas tā galviņas ir novietotas uz vārda sakuma simbola. Automāts darbu beidz, kad pārejas funkcija dotajai automāta konfigurācijai nav definēta. Par $2NFA(k)$ konfigurāciju kādā laika momentā $t\geq 0$ sauc kortežu $c_t=\left(w,s,p\right)$, kur $w$ ir ieejas vārds, $s\in S$ ir pašreizējais stāvoklis, un
+$2NFA(k)$ sākot darbu, visas tā galviņas ir novietotas uz vārda sakuma simbola. Automāts darbu beidz, kad pārejas funkcija dotajai automāta konfigurācijai nav definēta. Par $2nfa(k)$ konfigurāciju kādā laika momentā $t\geq 0$ sauc kortežu $c_t=\left(w,s,p\right)$, kur $w$ ir ieejas vārds, $s\in S$ ir pašreizējais stāvoklis, un
 $p = \left( p_1, \ldots, p_k \right) \in \left\{ 0, \ldots, |w| +1 \right\}^k $
 norāda pašreizējās galviņu pozīcijas. Pāreju no vienas konfigurācijas uz nākamo apzīmē ar $\vdash$. Pāreja
 $\left( w, s, \left( p_1, \ldots, p_k \right) \right) \vdash \left( w, s', \left( p_1+d_1, \ldots, p_k+d_k \right) \right)$
@@ -244,6 +244,7 @@ $\triangleright w \triangleleft$. Jeb precīzāk -
 	L(M)=\left\{ w \in \Sigma^* | \left(w,s_0,\left(1,\ldots,1\right)\right) \vdash^* \left(w,s,\left(p_1,\ldots,p_k\right)\right), s \in F,\right.\\
 	\left.\textrm{un } M \textrm{ apstājas } \left(w,s,\left(p_1,\ldots,p_k\right)\right)\right\}.
 \end{multline*}
+Ja $\delta$ katram izejošajam stāvoklim piekārto ne vairāk kā vienu ieejošo stāvokli, tad saka, ka automāts ir determinēts ($2dfa(k)$). Ja automāta galviņas nevienā brīdī nepārvietojas pa kreisi, saka ka automāts ir vienvirziena. Nedeterminētus un determinētus vienvirziena galīgus $k$ galviņu automātus apzīmē attiecīgi ar $1nfa(k)$ un $1dfa(k)$.
 %TODO pabeigt par 2DFA(k).
 
 \section{Attiecība pret klasiskajiem automātiem}
